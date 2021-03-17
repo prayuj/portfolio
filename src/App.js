@@ -3,12 +3,15 @@ import ReactPageScroller from 'react-page-scroller';
 import Header from './components/header'
 import Home from './components/home'
 import AboutUs from './components/aboutus'
+import Experience from './components/experience'
+import Education from './components/education'
+import Hobbies from './components/hobbies'
 import './App.css';
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { currentPage: null };
+    this.state = { currentPage: 0 };
   }
   handlePageChange = number => {
     this.setState({ currentPage: number });
@@ -20,16 +23,17 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header></Header>
+        <Header onClickHandler={this.handlePageChange} />
         <ReactPageScroller
           pageOnChange={this.handlePageChange}
           onBeforePageScroll={this.handleBeforePageChange}
           customPageNumber={this.state.currentPage}
-          containerHeight="80vh"
-          containerWidth=""
         >
-          <Home></Home>
-          <AboutUs></AboutUs>
+          <Home />
+          <AboutUs />
+          <Experience />
+          <Education />
+          <Hobbies />
         </ReactPageScroller>
       </div>
     );

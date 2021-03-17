@@ -1,6 +1,6 @@
 const AboutUs = () => {
-    return (<main className="px-3 current-main-element">
-        Hey There!
+    return (<main id="about-me" className="px-3 current-main-element">
+        About us!
     </main>);
 }
 

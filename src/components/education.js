@@ -1,7 +1,7 @@
-const Home = () => {
+const Education = () => {
     return (<main className="px-3 current-main-element">
-        Home!
+        Education!
     </main>);
 }
 
-export default Home;
+export default Education;
