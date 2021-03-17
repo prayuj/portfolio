@@ -1,6 +1,6 @@
-function Header() {
+const Header = () => {
     return (
-        <header classNameNameNameName="mb-auto">
+        <header className="mb-auto">
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div className="container-fluid">
                     <a className="navbar-brand navbar-text" href="#">Navbar</a>
@@ -25,7 +25,6 @@ function Header() {
                                 <a className="nav-link active navbar-text" aria-current="page" href="#">Hobbies</a>
                             </li>
                         </ul>
-
                     </div>
                 </div>
             </nav>
