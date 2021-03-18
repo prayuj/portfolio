@@ -83,7 +83,7 @@
 
 #pagination{
   margin-top: -32px;
-  top: 50%;
+  top: 42vh;
   position: fixed;
   z-index: 100;
   right: 17px;
@@ -96,8 +96,18 @@ li.active{
 
 #pagination li{
   margin: 10px;
+  transition: transform 300ms ease-in-out 0s;
 }
 
 .current-main-element{
   height:100%
+}
+
+h1{
+  font-size:4.5vw
+}
+
+.main-container{
+  padding-top: 5vh;
+  padding-bottom: 5vh;
 }

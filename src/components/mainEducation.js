@@ -1,7 +1,7 @@
 const Education = () => {
-    return (<main className="px-3 current-main-element">
+    return (<div className="px-3 current-main-element">
         Education!
-    </main>);
+    </div>);
 }
 
 export default Education;
