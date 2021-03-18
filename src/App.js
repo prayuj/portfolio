@@ -13,30 +13,33 @@ class App extends Component {
     super(props);
     this.state = {
       currentPage: 0,
-      paginationPageNumber: 0
+      blockScrollUp: false,
+      blockScrollDown: false,
     };
   }
   handlePageChange = number => {
-    this.setState({ currentPage: number });
-  };
-
-  handleBeforePageChange = number => {
-    this.setState({ paginationPageNumber: number });
-    console.log(number);
-  };
-
-  onNavClickHandler = number => {
-    this.handleBeforePageChange(number)
-    this.handlePageChange(number)
+    this.setState({
+      blockScrollUp: true,
+      blockScrollDown: true
+    }, () => {
+      this.setState({
+        blockScrollUp: false,
+        blockScrollDown: false,
+        currentPage: number,
+      })
+    })
   }
+
   render() {
     return (
       <div className="App">
-        <Header onClickHandler={this.onNavClickHandler} />
+        <Header onClickHandler={this.handlePageChange} />
         <ReactPageScroller
           pageOnChange={this.handlePageChange}
-          onBeforePageScroll={this.handleBeforePageChange}
           customPageNumber={this.state.currentPage}
+          blockScrollUp={this.state.blockScrollUp}
+          blockScrollDown={this.state.blockScrollDown}
+          animationTimer={300}
         >
           <Home />
           <About />
@@ -44,14 +47,17 @@ class App extends Component {
           <Education />
           <Hobbies />
         </ReactPageScroller>
-        <ul id="pagination">
-          <li className={this.state.paginationPageNumber === 0 ? 'active' : ''}><a href="#page1"></a></li>
-          <li className={this.state.paginationPageNumber === 1 ? 'active' : ''}><a href="#page2"></a></li>
-          <li className={this.state.paginationPageNumber === 2 ? 'active' : ''}><a href="#page3"></a></li>
-          <li className={this.state.paginationPageNumber === 3 ? 'active' : ''}><a href="#page4"></a></li>
-          <li className={this.state.paginationPageNumber === 4 ? 'active' : ''}><a href="#page5"></a></li>
+        <ul id="pagination" onClick={e => {
+          console.log(parseInt(e.target.id))
+          if (e.target.id && parseInt(e.target.id)) { this.handlePageChange(parseInt(e.target.id)) }
+        }}>
+          <li id="0" className={this.state.currentPage === 0 ? 'active' : ''}><i id="0" class="fas fa-home"></i></li>
+          <li id="1" className={this.state.currentPage === 1 ? 'active' : ''}><i id="1" class="fas fa-address-card"></i></li>
+          <li id="2" className={this.state.currentPage === 2 ? 'active' : ''}><i id="2" class="fas fa-briefcase"></i></li>
+          <li id="3" className={this.state.currentPage === 3 ? 'active' : ''}><i id="3" class="fas fa-user-graduate"></i></li>
+          <li id="4" className={this.state.currentPage === 4 ? 'active' : ''}><i id="4" class="fas fa-table-tennis"></i></li>
         </ul>
-      </div>
+      </div >
     );
   }
 }

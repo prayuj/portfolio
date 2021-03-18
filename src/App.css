@@ -66,6 +66,15 @@
     text-align: center;
     padding: 1em 0;
   }
+
+  #pagination{
+    margin-top: 0px;
+    /* top: 50%;
+    position: fixed;
+    z-index: 100;
+    right: 17px;
+    list-style: none; */
+  }
 }
 
 .navbar-nav {
@@ -78,10 +87,15 @@
   position: fixed;
   z-index: 100;
   right: 17px;
+  list-style: none;
 }
 
 li.active{
-  transform:scale(1.5)
+  transform:scale(2);
+}
+
+#pagination li{
+  margin: 10px;
 }
 
 .current-main-element{
