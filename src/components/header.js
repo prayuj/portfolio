@@ -17,12 +17,15 @@ class Header extends Component {
     }
     state = {}
     render() {
-        const toggleIcon = this.state.expanded ? <i class="fas fa-times"></i> : <i class="fas fa-align-justify"></i>
+        const toggleIcon = this.state.expanded ? <i className="fas fa-times"></i> : <i className="fas fa-align-justify"></i>
         return (
             <header className="header-navbar">
                 <Navbar bg="dark" expand="md" expanded={this.state.expanded}>
                     <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={() => this.setState({ expanded: !this.state.expanded })} >
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={() => {
+                        console.log('Hello')
+                        this.setState({ expanded: !this.state.expanded })
+                    }} >
                         {toggleIcon}
                     </Navbar.Toggle>
                     <Navbar.Collapse id="basic-navbar-nav" className="justify-content-right">

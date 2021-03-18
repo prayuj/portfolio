@@ -71,3 +71,19 @@
 .navbar-nav {
   padding: 0 1em;
 }
+
+#pagination{
+  margin-top: -32px;
+  top: 50%;
+  position: fixed;
+  z-index: 100;
+  right: 17px;
+}
+
+li.active{
+  transform:scale(1.5)
+}
+
+.current-main-element{
+  height:100%
+}
