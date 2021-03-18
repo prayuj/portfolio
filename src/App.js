@@ -7,6 +7,7 @@ import Experience from './components/mainExperience'
 import Education from './components/mainEducation'
 import Hobbies from './components/mainHobbies'
 import Pagination from './components/pagination'
+import DayNightToggler from './components/dayNightToggler'
 import './App.css';
 
 class App extends Component {
@@ -66,6 +67,7 @@ class App extends Component {
           <Hobbies />
         </ReactPageScroller>
         <Pagination handleIconClick={this.handlePageChange} currentPage={this.state.currentPage} />
+        <DayNightToggler></DayNightToggler>
       </div >
     );
   }

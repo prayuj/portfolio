@@ -111,3 +111,9 @@ h1{
   padding-top: 5vh;
   padding-bottom: 5vh;
 }
+
+.day-night-toggle{
+  position: absolute;
+  right:5vw;
+  top:5vh
+}
