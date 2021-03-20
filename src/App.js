@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import ReactPageScroller from 'react-page-scroller';
 import Header from './components/header'
+import Footer from './components/footer'
 import Home from './components/mainHome'
 import About from './components/mainAbout'
 import Experience from './components/mainExperience'
 import Education from './components/mainEducation'
 import Hobbies from './components/mainHobbies'
+import Contact from './components/mainContact'
 import Pagination from './components/pagination'
 import DayNightToggler from './components/dayNightToggler'
 import './App.css';
@@ -65,9 +67,11 @@ class App extends Component {
           <Experience />
           <Education />
           <Hobbies />
+          <Contact />
         </ReactPageScroller>
         <Pagination handleIconClick={this.handlePageChange} currentPage={this.state.currentPage} />
         <DayNightToggler></DayNightToggler>
+        <Footer />
       </div >
     );
   }

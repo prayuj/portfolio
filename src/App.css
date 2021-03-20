@@ -103,8 +103,8 @@ li.active{
   height:100%
 }
 
-h1{
-  font-size:4.5vw
+.desktop .row .col h1{
+  font-size:6vh
 }
 
 .main-container{
@@ -116,4 +116,22 @@ h1{
   position: absolute;
   right:5vw;
   top:5vh
+}
+
+#profile-pic-desktop {
+  position: absolute;
+  top: 5vh;
+  right: 10vw;
+  height: 90vh;
+}
+
+.footer {
+  position: absolute;
+  top: 95vh;
+  left: 50vw;
+}
+
+.footer .row .col i{
+  padding: 0 1em;
+  transform:scale(1.5);
 }

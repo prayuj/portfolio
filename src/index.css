@@ -2,8 +2,6 @@ html,
 body {
   position: fixed;
   overflow: hidden;
-  background: #212529 ;
-  color:white;
 }
 
 body {
@@ -28,4 +26,14 @@ code {
   display: flex;
   justify-content:center;
   align-items:center;
+}
+
+#root.light{
+  background: white; ;
+  color:black;
+}
+
+#root.dark{
+  background: #212529 ;
+  color:white;
 }

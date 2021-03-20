@@ -13,6 +13,7 @@ class Pagination extends Component {
             <li id="2" className={this.props.currentPage === 2 ? 'active' : ''}><i id="2" class="fas fa-briefcase"></i></li>
             <li id="3" className={this.props.currentPage === 3 ? 'active' : ''}><i id="3" class="fas fa-user-graduate"></i></li>
             <li id="4" className={this.props.currentPage === 4 ? 'active' : ''}><i id="4" class="fas fa-table-tennis"></i></li>
+            <li id="5" className={this.props.currentPage === 5 ? 'active' : ''}><i id="5" class="fas fa-phone"></i></li>
         </ul>);
     }
 }
