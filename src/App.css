@@ -173,6 +173,10 @@ ul.pagination-mobile > li{
   max-width: 100%
 }
 
+.footer a{
+  color:inherit;
+}
+
 .footer .row .col i{
   padding: 0 1em;
   transform:scale(1.5);

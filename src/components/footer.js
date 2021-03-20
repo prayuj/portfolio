@@ -6,8 +6,8 @@ const Footer = () => {
     return (<Container className="footer">
         <Row>
             <Col>
-                <i class="fab fa-linkedin-in"></i>
-                <i class="fab fa-github"></i>
+                <a href="https://www.linkedin.com/in/prayuj/"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/prayuj"><i class="fab fa-github"></i></a>
             </Col>
         </Row>
     </Container>);
