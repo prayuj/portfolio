@@ -11,10 +11,10 @@ const HomeDesktop = () => {
                 <Col>
                     <img src={profilePic} id="profile-pic-desktop"></img>
                     <h1>Hello,</h1>
-                    <h1>My Name is Prayuj!</h1>
-                    <h1>I am a Software Engineer</h1>
-                    <h1>and </h1>
-                    <h1><TextLoop>
+                    <h1>My Name is Prayuj Pillai!</h1>
+                    <h1>I am a Software Engineer and</h1>
+                    {/* <h1>and </h1> */}
+                    <h1><TextLoop springConfig={{ stiffness: 340, damping: 30 }}>
                         <span>a Professional Sleeper</span>
                         <span>a Certified Foodie</span>
                         <span>an Accomplished TV watcher</span>
