@@ -1,3 +1,8 @@
+.App{
+  height: 100vh; /* Use vh as a fallback for browsers that do not support Custom Properties */
+  height: calc(var(--vh, 1vh) * 100);
+}
+
 .justify-content-flex-end{
   justify-content:flex-end;
 }
@@ -81,22 +86,49 @@
   padding: 0 1em;
 }
 
-#pagination{
-  margin-top: -32px;
-  top: 42vh;
+ul.pagination-desktop{
   position: fixed;
   z-index: 100;
   right: 17px;
   list-style: none;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  top:25vh;
 }
 
-li.active{
+ul.pagination-mobile{
+  position: fixed;
+  z-index: 100;
+  right: 1%;
+  list-style: none;
+  width: 98%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  top: 1%;
+  align-items: center;
+  padding-left: 0px;
+}
+
+ul.pagination-desktop > li.active{
   transform:scale(2);
 }
 
-#pagination li{
-  margin: 10px;
+ul.pagination-mobile > li.active{
+  transform:scale(2);
+}
+
+ul.pagination-desktop > li{
+  padding: 10px;
   transition: transform 300ms ease-in-out 0s;
+}
+
+ul.pagination-mobile > li{
+  padding: 10px;
+  transition: transform 300ms ease-in-out 0s;
+  margin: auto;
 }
 
 .current-main-element{
@@ -114,21 +146,31 @@ li.active{
 
 .day-night-toggle{
   position: absolute;
-  right:5vw;
-  top:5vh
+  right:5%;
+  top:5%;
+  width:5%
+}
+
+.day-night-toggle-mobile{
+  position: absolute;
+  right:5%;
+  top:8%;
+  width:5%
 }
 
 #profile-pic-desktop {
   position: absolute;
-  top: 5vh;
-  right: 10vw;
-  height: 90vh;
+  top: 20%;
+  right: 15%;
+  height: 60%;
 }
 
 .footer {
   position: absolute;
-  top: 95vh;
-  left: 50vw;
+  bottom: 1%;
+  display: flex;
+  justify-content: center;
+  max-width: 100%
 }
 
 .footer .row .col i{

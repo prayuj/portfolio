@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import DarkModeToggle from "react-dark-mode-toggle";
+import {
+    isMobileOnly,
+    isDesktop
+} from "react-device-detect";
 
 class DayNightToggler extends Component {
     constructor(props) {
@@ -22,7 +26,6 @@ class DayNightToggler extends Component {
     }
 
     setIsDarkMode() {
-        console.log('Hello')
         this.setState({
             isDarkMode: !this.state.isDarkMode
         }, () => {
@@ -32,13 +35,25 @@ class DayNightToggler extends Component {
     }
 
     render() {
-        return (
-            <DarkModeToggle
+        if (isDesktop)
+            return (
+                <DarkModeToggle
+                    onChange={this.setIsDarkMode}
+                    checked={this.state.isDarkMode}
+                    className="day-night-toggle"
+                />
+            );
+        else if (isMobileOnly) {
+            return (<DarkModeToggle
                 onChange={this.setIsDarkMode}
                 checked={this.state.isDarkMode}
-                className="day-night-toggle"
-            />
-        );
+                className="day-night-toggle-mobile"
+                size={60}
+            />)
+        }
+        else {
+            <></>
+        }
     }
 }
 

@@ -1,61 +1,15 @@
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import TextLoop from "react-text-loop";
-import profilePic from "../img/profile.png"
+import {
+    isMobileOnly,
+    isDesktop
+} from "react-device-detect";
+import HomeDesktop from './desktop/home'
+import HomeMobile from './mobile/home'
 
 const Home = () => {
-    if (window.innerWidth > 992)
-        return (
-            <Container className="main-container h-100 desktop">
-                <Row className="h-100 justify-content-center align-items-center">
-                    <Col>
-                        <img src={profilePic} id="profile-pic-desktop"></img>
-                        <h1>Hello,</h1>
-                        <h1>My Name is Prayuj!</h1>
-                        <h1>I am a Software Engineer</h1>
-                        <h1>and </h1>
-                        <h1><TextLoop>
-                            <span>a Professional Sleeper</span>
-                            <span>a Certified Foodie</span>
-                            <span>an Accomplished TV watcher</span>
-                        </TextLoop></h1>
-                    </Col>
-                </Row>
-                {/* <Row>
-                <Col>
-                    <h1>Hello!</h1>
-                </Col>
-            </Row>
-            <Row>
-                <Col>
-                    <h1>Ny Name is Prayuj!</h1>
-                </Col>
-            </Row>
-            <Row>
-                <Col>
-                    <h1>I am a Software Engineer</h1>
-                </Col>
-            </Row>
-            <Row>
-                <Col>
-                    <h1>and</h1>
-                </Col>
-            </Row>
-            <Row>
-                <Col>
-                    <TextLoop>
-                        <h1>Dancer</h1>
-                        <h1>Bowler</h1>
-                        <h1>Fighter</h1>
-                    </TextLoop>
-                </Col>
-            </Row> */}
-            </Container>);
-    else {
-        return (<div className="px-3 current-main-element">
-            Home!
-        </div>)
+    if (isDesktop)
+        return (<HomeDesktop />);
+    else if (isMobileOnly) {
+        return (<HomeMobile />)
     }
 }
 
