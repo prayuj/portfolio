@@ -6,8 +6,13 @@ const Footer = () => {
     return (<Container className="footer">
         <Row>
             <Col>
-                <a href="https://www.linkedin.com/in/prayuj/"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://github.com/prayuj"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/prayuj/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            </Col>
+            <Col>
+                <a href="https://github.com/prayuj" target="_blank"><i class="fab fa-github"></i></a>
+            </Col>
+            <Col>
+                <a href="mailto:prayuj@gmail.com" target="_blank"><i class="far fa-envelope"></i></a>
             </Col>
         </Row>
     </Container>);

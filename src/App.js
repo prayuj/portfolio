@@ -24,6 +24,17 @@ class App extends Component {
 
   }
   handlePageChange = number => {
+    if (number === 5) {
+      console.log('Contact Page Loaded')
+      this.handleContactPageLoad('render')
+
+    }
+
+    if (number !== 5 && this.state.currentPage === 5) {
+      console.log('Contact Page Left')
+      this.handleContactPageLoad('remove')
+    }
+
     this.setState({
       blockScrollUp: true,
       blockScrollDown: true
@@ -35,6 +46,14 @@ class App extends Component {
         blockScrollDown: false,
       }))
     })
+  }
+
+  handleContactPageLoad(action) {
+    if (action === 'render') {
+      document.getElementsByClassName('footer')[0].classList.add('footer-hide-top')
+    } else if (action === 'remove') {
+      document.getElementsByClassName('footer')[0].classList.remove('footer-hide-top')
+    }
   }
 
   render() {

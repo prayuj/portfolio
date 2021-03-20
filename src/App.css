@@ -160,9 +160,9 @@ ul.pagination-mobile > li{
 
 #profile-pic-desktop {
   position: absolute;
-  top: 20%;
+  bottom: 0%;
   right: 15%;
-  height: 60%;
+  width: 20%;
 }
 
 .footer {
@@ -170,14 +170,37 @@ ul.pagination-mobile > li{
   bottom: 1%;
   display: flex;
   justify-content: center;
-  max-width: 100%
+  max-width: 100%;
+  transition: bottom 150ms ease-in-out 0s;
 }
 
 .footer a{
   color:inherit;
 }
 
-.footer .row .col i{
+.footer >.row >.col i{
   padding: 0 1em;
   transform:scale(1.5);
+}
+
+.footer-hide-top{
+  bottom:40%;
+  transition: bottom 150ms ease-in-out 0s;
+}
+
+.footer-hide-top > .row > .col > a > i{
+  padding: 0 2em;
+  transition: bottom 150ms ease-in-out 0s;
+}
+
+.connect{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  position: relative;
+  top: -10%;
+}
+
+.display-none{
+  display: none;
 }
