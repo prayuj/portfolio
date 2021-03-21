@@ -82,10 +82,6 @@
   }
 }
 
-.navbar-nav {
-  padding: 0 1em;
-}
-
 ul.pagination-desktop{
   position: fixed;
   z-index: 100;
@@ -135,8 +131,30 @@ ul.pagination-mobile > li{
   height:100%
 }
 
-.desktop .row .col h1{
+.desktop > .row > .col > h1{
   font-size:6vh
+}
+
+.mobile > .row > .col > h1{
+  font-size:6vw
+}
+
+.mobile > .row > .col{
+  padding: 0 10%;
+}
+
+.mobile-img-container{
+  display: flex;
+  justify-content:center;
+  align-content: center;
+  margin-bottom: 10%;
+}
+
+.mobile{
+  display: flex;
+flex-direction: column;
+justify-content: center;
+align-content: center;
 }
 
 .main-container{
@@ -163,6 +181,10 @@ ul.pagination-mobile > li{
   bottom: 0%;
   right: 15%;
   width: 20%;
+}
+
+#profile-pic-mobile{
+  width: 60%;
 }
 
 .footer {
