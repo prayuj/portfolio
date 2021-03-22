@@ -4,41 +4,18 @@ import Col from 'react-bootstrap/Col';
 import Table from 'react-bootstrap/Table';
 
 const Experience = () => {
-    return (<Container className="main-container h-100 desktop">
-        <Row className="h-100 justify-content-center align-items-center">
-            <Col>
-                <Table striped bordered hover size="sm">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Username</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td colSpan="2">Larry the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
-                    </tbody>
-                </Table>
-            </Col>
-        </Row>
-    </Container>);
+    return (
+        <>
+            <div className="full-page-slide" style={{ width: '100%', height: '100vh' }}>
+                <div style={{ display: 'flex', justifyContent: 'center', alignContent: 'center' }}><h1>Slide 1.1</h1></div>
+            </div>
+            <div className="full-page-slide" style={{ width: '100%', height: '100vh' }}>
+                <div style={{ display: 'flex', justifyContent: 'center', alignContent: 'center' }}><h1>Slide 1.2</h1></div>
+            </div>
+            <div className="full-page-slide" style={{ width: '100%', height: '100vh' }}>
+                <div style={{ display: 'flex', justifyContent: 'center', alignContent: 'center' }}><h1>Slide 1.3</h1></div>
+            </div>
+        </>);
 }
 
 export default Experience;

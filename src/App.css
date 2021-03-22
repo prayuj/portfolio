@@ -226,3 +226,11 @@ align-content: center;
 .display-none{
   display: none;
 }
+
+.fp-controlArrow.fp-prev{
+  left:10%
+}
+
+.fp-controlArrow.fp-next{
+  right:10%
+}
