@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactPageScroller from 'react-page-scroller';
 import Header from './components/header'
 import Footer from './components/footer'
 import Home from './components/mainHome'
@@ -12,9 +11,7 @@ import Pagination from './components/pagination'
 import DayNightToggler from './components/dayNightToggler'
 import { isTablet } from "react-device-detect";
 import ReactFullpage from '@fullpage/react-fullpage';
-import { Row, Col } from 'react-bootstrap';
 import './App.css';
-
 class App extends Component {
   constructor(props) {
     super(props);
