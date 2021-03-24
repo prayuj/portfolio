@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactPageScroller from 'react-page-scroller';
 import Header from './components/header'
 import Footer from './components/footer'
 import Home from './components/mainHome'
@@ -11,8 +10,8 @@ import Contact from './components/mainContact'
 import Pagination from './components/pagination'
 import DayNightToggler from './components/dayNightToggler'
 import { isTablet } from "react-device-detect";
+import ReactFullpage from '@fullpage/react-fullpage';
 import './App.css';
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -36,16 +35,8 @@ class App extends Component {
     }
 
     this.setState({
-      blockScrollUp: true,
-      blockScrollDown: true
-    }, () => {
-      this.setState({
-        currentPage: number,
-      }, () => this.setState({
-        blockScrollUp: false,
-        blockScrollDown: false,
-      }))
-    })
+      currentPage: number,
+    }, () => window.fullpage_api.moveTo(number + 1))
   }
 
   handleContactPageLoad(action) {
@@ -56,6 +47,20 @@ class App extends Component {
     }
   }
 
+  onLeave(origin, destination, direction) {
+    if (destination.index === 5) {
+      console.log('Contact Page Loaded')
+      this.handleContactPageLoad('render')
+
+    }
+
+    if (destination.index !== 5 && this.state.currentPage === 5) {
+      console.log('Contact Page Left')
+      this.handleContactPageLoad('remove')
+    }
+    this.setState({ currentPage: destination.index })
+  }
+
   render() {
     if (isTablet) {
       return (<div><h1>Haven't made for Tablet!, Sorrz!</h1></div>)
@@ -63,22 +68,28 @@ class App extends Component {
     else
       return (
         <div className="App">
-          {/* <Header onClickHandler={this.handlePageChange} /> */}
-          <ReactPageScroller
-            pageOnChange={this.handlePageChange}
-            customPageNumber={this.state.currentPage}
-            // onBeforePageScroll={this.handleBeforePageChange}
-            blockScrollUp={this.state.blockScrollUp}
-            blockScrollDown={this.state.blockScrollDown}
-            animationTimer={300}
-          >
-            <Home />
-            <About />
-            <Experience />
-            <Education />
-            <Hobbies />
-            <Contact />
-          </ReactPageScroller>
+          <ReactFullpage
+            //fullpage options
+            licenseKey={'YOUR_KEY_HERE'}
+            scrollingSpeed={1000} /* Options here */
+            onLeave={this.onLeave.bind(this)}
+            anchors={['home', 'about', 'experience', 'education', 'hobbies', 'contact']}
+            slideSelector={'.full-page-slide'}
+            slidesNavigation={true}
+            render={({ state, fullpageApi }) => {
+              return (
+                <ReactFullpage.Wrapper>
+                  <div className="section"><Home /></div>
+                  <div className="section"><About /></div>
+                  <div className="section"><Experience /></div>
+                  <div className="section"><Education /></div>
+                  <div className="section"><Hobbies /></div>
+                  <div className="section"><Contact /></div>
+                </ReactFullpage.Wrapper>
+              );
+            }}
+
+          />
           <Pagination handleIconClick={this.handlePageChange} currentPage={this.state.currentPage} />
           <DayNightToggler></DayNightToggler>
           <Footer />

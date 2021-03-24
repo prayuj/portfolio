@@ -1,7 +1,31 @@
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import TextLoop from "react-text-loop";
+import profilePic from "../../img/profile-mobile.png"
+
 const HomeMobile = () => {
-    return (<div className="px-3 current-main-element">
-        Home!
-    </div>);
+    return (
+        <Container className="main-container h-100 mobile">
+            <Row className="justify-content-center align-items-center flex-direction-column">
+                <Col className="display-flex home-page-mobile flex-direction-column justify-content-center align-items-center">
+                    <img src={profilePic} id="profile-pic-mobile"></img>
+                </Col>
+                <Col className="display-flex home-page-mobile flex-direction-column justify-content-center">
+                    <h1>Hello,</h1>
+                    <h1>My Name is Prayuj Pillai!</h1>
+                    <h1>I am a Software Engineer and</h1>
+                    {/* <h1>and </h1> */}
+                    <h1><TextLoop springConfig={{ stiffness: 340, damping: 30 }}>
+                        <span>a Professional Sleeper</span>
+                        <span>a Certified Foodie</span>
+                        <span>an Accomplished TV watcher</span>
+                    </TextLoop></h1>
+                </Col>
+
+            </Row>
+        </Container >
+    );
 }
 
 export default HomeMobile;
