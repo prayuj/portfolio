@@ -78,6 +78,7 @@ class App extends Component {
             onLeave={this.onLeave.bind(this)}
             anchors={['home', 'about', 'experience', 'education', 'hobbies', 'contact']}
             slideSelector={'.full-page-slide'}
+            slidesNavigation={true}
             render={({ state, fullpageApi }) => {
               return (
                 <ReactFullpage.Wrapper>

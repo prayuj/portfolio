@@ -143,6 +143,10 @@ ul.pagination-mobile > li{
   padding: 0 10%;
 }
 
+.mobile > .row > .col.home-page-mobile{
+  padding: 5% 10%;
+}
+
 .mobile-img-container{
   display: flex;
   justify-content:center;
@@ -158,8 +162,8 @@ align-content: center;
 }
 
 .main-container{
-  padding-top: 5vh;
-  padding-bottom: 5vh;
+  padding-top: 20%;
+  padding-bottom: 20%;
 }
 
 .day-night-toggle{
@@ -177,14 +181,14 @@ align-content: center;
 }
 
 #profile-pic-desktop {
+  height: 70%;
   position: absolute;
-  bottom: 0%;
-  right: 15%;
-  width: 20%;
+  top: 15%;
+  border-radius: 15vh;
 }
 
 #profile-pic-mobile{
-  width: 60%;
+  width: 80%;
 }
 
 .footer {
@@ -193,7 +197,7 @@ align-content: center;
   display: flex;
   justify-content: center;
   max-width: 100%;
-  transition: bottom 150ms ease-in-out 0s;
+  transition: bottom 750ms ease-in-out 0s;
 }
 
 .footer a{
@@ -207,7 +211,7 @@ align-content: center;
 
 .footer-hide-top{
   bottom:40%;
-  transition: bottom 150ms ease-in-out 0s;
+  transition: bottom 750ms ease-in-out 0s;
 }
 
 .footer-hide-top > .row > .col > a > i{
@@ -233,4 +237,19 @@ align-content: center;
 
 .fp-controlArrow.fp-next{
   right:10%
+}
+
+.display-flex{
+  display: flex;
+}
+
+.home-page-desktop{
+  height: 100%;
+  width: 50%;
+  justify-content: center;
+  align-content: center;
+}
+
+.flex-direction-column{
+  flex-direction: column;
 }
