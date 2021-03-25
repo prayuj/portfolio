@@ -9,7 +9,7 @@ import Hobbies from './components/mainHobbies'
 import Contact from './components/mainContact'
 import Pagination from './components/pagination'
 import DayNightToggler from './components/dayNightToggler'
-import { isTablet } from "react-device-detect";
+import { isTablet, isMobileOnly } from "react-device-detect";
 import ReactFullpage from '@fullpage/react-fullpage';
 import './App.css';
 class App extends Component {
@@ -75,7 +75,8 @@ class App extends Component {
             onLeave={this.onLeave.bind(this)}
             anchors={['home', 'about', 'experience', 'education', 'hobbies', 'contact']}
             slideSelector={'.full-page-slide'}
-            slidesNavigation={true}
+            slidesNavigation={isMobileOnly}
+            controlArrows={!isMobileOnly}
             render={({ state, fullpageApi }) => {
               return (
                 <ReactFullpage.Wrapper>

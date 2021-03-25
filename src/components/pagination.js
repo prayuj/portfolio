@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {
     isMobileOnly,
-    isTablet,
     isDesktop
 } from "react-device-detect";
 

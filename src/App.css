@@ -253,3 +253,22 @@ align-content: center;
 .flex-direction-column{
   flex-direction: column;
 }
+
+.tech-list-items{
+  padding: 0 10%;
+}
+
+.fp-slidesNav.fp-bottom{
+  display: flex;
+  justify-content:center;
+  align-content:center;
+  bottom: 10%;
+}
+
+.dark .fp-slidesNav.fp-bottom>ul>li>a > span{
+  background:white
+}
+
+.light .fp-slidesNav.fp-bottom>ul>li>a > span{
+  background:black
+}
