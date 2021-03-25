@@ -243,6 +243,14 @@ align-content: center;
   display: flex;
 }
 
+.light div.fp-controlArrow.fp-next{
+  border-color: transparent transparent transparent black;
+}
+
+.light div.fp-controlArrow.fp-prev{
+  border-color: transparent black transparent transparent;
+}
+
 .home-page-desktop{
   height: 100%;
   width: 50%;
@@ -271,4 +279,10 @@ align-content: center;
 
 .light .fp-slidesNav.fp-bottom>ul>li>a > span{
   background:black
+}
+
+.experience-heading{
+  position: absolute;
+  width:100%;
+  top: 15%;
 }
