@@ -197,7 +197,7 @@ align-content: center;
   display: flex;
   justify-content: center;
   max-width: 100%;
-  transition: bottom 750ms ease-in-out 0s;
+  transition: bottom 500ms ease-in-out .2s;
 }
 
 .footer a{
@@ -211,12 +211,12 @@ align-content: center;
 
 .footer-hide-top{
   bottom:40%;
-  transition: bottom 750ms ease-in-out 0s;
+  transition: bottom 500ms ease-in-out .7s;
 }
 
 .footer-hide-top > .row > .col > a > i{
   padding: 0 2em;
-  transition: bottom 150ms ease-in-out 0s;
+  transition: bottom 100ms ease-in-out 0s;
 }
 
 .connect{
