@@ -1,7 +1,7 @@
-const Hobbies = () => {
+const Projects = () => {
     return (<div className="px-3 current-main-element">
-        Hobbies!
+        Projects!
     </div>);
 }
 
-export default Hobbies;
+export default Projects;

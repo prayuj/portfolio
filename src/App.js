@@ -5,7 +5,7 @@ import Home from './components/mainHome'
 import About from './components/mainAbout'
 import Experience from './components/mainExperience'
 import Education from './components/mainEducation'
-import Hobbies from './components/mainHobbies'
+import Projects from './components/mainProjects'
 import Contact from './components/mainContact'
 import Pagination from './components/pagination'
 import DayNightToggler from './components/dayNightToggler'
@@ -73,7 +73,7 @@ class App extends Component {
             licenseKey={'YOUR_KEY_HERE'}
             scrollingSpeed={1000} /* Options here */
             onLeave={this.onLeave.bind(this)}
-            anchors={['home', 'about', 'experience', 'education', 'hobbies', 'contact']}
+            anchors={['home', 'about', 'experience', 'hobbies', 'education', 'contact']}
             slideSelector={'.full-page-slide'}
             slidesNavigation={isMobileOnly}
             controlArrows={!isMobileOnly}
@@ -83,8 +83,8 @@ class App extends Component {
                   <div className="section"><Home /></div>
                   <div className="section"><About /></div>
                   <div className="section"><Experience /></div>
+                  <div className="section"><Projects /></div>
                   <div className="section"><Education /></div>
-                  <div className="section"><Hobbies /></div>
                   <div className="section"><Contact /></div>
                 </ReactFullpage.Wrapper>
               );
