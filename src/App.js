@@ -73,10 +73,11 @@ class App extends Component {
             licenseKey={'YOUR_KEY_HERE'}
             scrollingSpeed={1000} /* Options here */
             onLeave={this.onLeave.bind(this)}
-            anchors={['home', 'about', 'experience', 'hobbies', 'education', 'contact']}
+            anchors={['home', 'about', 'experience', 'projects', 'education', 'contact']}
             slideSelector={'.full-page-slide'}
             slidesNavigation={isMobileOnly}
             controlArrows={!isMobileOnly}
+            normalScrollElements={isMobileOnly ? '.card-deck' : ''}
             render={({ state, fullpageApi }) => {
               return (
                 <ReactFullpage.Wrapper>

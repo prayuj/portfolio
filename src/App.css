@@ -285,3 +285,16 @@ align-content: center;
   width:100%;
   top: 15%;
 }
+
+.card-deck{
+  display: flex;
+  justify-content: space-around;
+  max-width: 750px;
+  flex-flow: row wrap;
+  overflow-y: auto;
+  max-height: 60vh;
+}
+
+.card{
+  margin:.5em
+}
