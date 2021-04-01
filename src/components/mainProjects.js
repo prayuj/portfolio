@@ -8,24 +8,25 @@ const Projects = () => {
     const projects = [
         {
             name: 'Task Manager API',
-            link: 'https://github.com/prayuj/task-manager',
+            githublink: 'https://github.com/prayuj/task-manager',
             languages: 'NodeJS, Jest'
         },
         {
             name: 'Chat App using Socket.io',
-            link: 'https://github.com/prayuj/task-manager',
+            githublink: 'https://github.com/prayuj/task-manager',
             languages: 'NodeJS, Socket.io'
         },
         {
             name: 'Game Renting Service',
-            link: 'https://github.com/prayuj/task-manager',
+            githublink: 'https://github.com/prayuj/task-manager',
             languages: 'React, Express'
         },
         {
-            name: 'Bill Splitter App',
-            link: 'https://github.com/prayuj/task-manager',
+            name: 'Timetable Generation using GA',
+            githublink: 'https://github.com/prayuj/task-manager',
             languages: 'React, Flask'
         }
+
     ]
 
     return (
@@ -33,9 +34,9 @@ const Projects = () => {
             <h1>Projects</h1>
             <CardDeck>
                 {projects.map((project) => (
-                    <Card border="primary">
+                    <Card border="warning">
                         <Card.Body>
-                            <div><h3>{project.name}</h3><a href={project.link} style={{ width: 'max-content' }} target="_blank"><i class="fas fa-external-link-alt"></i></a></div>
+                            <div><h3>{project.name}</h3><a href={project.githublink} style={{ width: 'max-content' }} target="_blank"><i class="fab fa-github-square"></i></a></div>
                         </Card.Body>
                         <Card.Footer>
                             <small className="text-muted">{project.languages}</small>
@@ -43,6 +44,7 @@ const Projects = () => {
                     </Card>
                 ))}
             </CardDeck>
+            <h1>Check out my other projects</h1>
         </div>
     )
 }

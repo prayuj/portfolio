@@ -306,3 +306,15 @@ align-content: center;
   flex-direction: column;
   justify-content: space-between;
 }
+
+.dark .card{
+  background-color: #212529 !important
+}
+
+.dark .card a{
+  color: white !important
+}
+
+.light .card a{
+  color: black !important
+}
