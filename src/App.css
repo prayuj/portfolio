@@ -291,8 +291,6 @@ align-content: center;
   justify-content: space-around;
   max-width: 750px;
   flex-flow: row wrap;
-  overflow-y: auto;
-  max-height: 60vh;
 }
 
 .card{
@@ -317,4 +315,11 @@ align-content: center;
 
 .light .card a{
   color: black !important
+}
+
+.card a{
+  margin-right: 10%
+}
+.card a >i{
+  transform: scale(1.25)
 }
