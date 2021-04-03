@@ -291,11 +291,14 @@ align-content: center;
   justify-content: space-around;
   max-width: 750px;
   flex-flow: row wrap;
+  max-height: 60vh;
+  overflow-y: scroll;
 }
 
 .card{
   margin:.5em;
-  width:45%
+  width:45%;
+  height:25vh
 }
 
 .card-body>div{

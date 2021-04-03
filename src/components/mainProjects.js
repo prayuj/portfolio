@@ -38,12 +38,36 @@ const Projects = () => {
             youtubeLink: 'https://www.youtube.com/watch?v=E6EGCD9OUdA',
             desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
             languages: 'React, Flask'
+        },
+        {
+            name: 'Timetable Generation using GA',
+            githublink: 'https://github.com/prayuj/task-manager',
+            youtubeLink: 'https://www.youtube.com/watch?v=E6EGCD9OUdA',
+            desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+            languages: 'React, Flask'
+        },
+        {
+            name: 'Timetable Generation using GA',
+            githublink: 'https://github.com/prayuj/task-manager',
+            youtubeLink: 'https://www.youtube.com/watch?v=E6EGCD9OUdA',
+            desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+            languages: 'React, Flask'
+        },
+        {
+            name: 'Timetable Generation using GA',
+            githublink: 'https://github.com/prayuj/task-manager',
+            youtubeLink: 'https://www.youtube.com/watch?v=E6EGCD9OUdA',
+            desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+            languages: 'React, Flask'
         }
 
     ]
-    const handleShow = (key) => {
-        setActive(projects[key])
-        setShow(true);
+    const handleShow = (e, key) => {
+        console.log(e.target)
+        if (!e.target.classList.contains('fab')) {
+            setActive(projects[key])
+            setShow(true);
+        }
     }
     return (
         <div className="display-flex justify-content-center align-items-center flex-direction-column">
@@ -62,7 +86,7 @@ const Projects = () => {
             <CardDeck>
                 {projects.map((project, index) => (
                     <Card border="warning" key={index}>
-                        <Card.Body onClick={() => handleShow(index)}>
+                        <Card.Body onClick={(e) => handleShow(e, index)}>
                             <div>
                                 <h3>{project.name}</h3>
                                 <div>

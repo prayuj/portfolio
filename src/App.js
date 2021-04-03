@@ -77,6 +77,7 @@ class App extends Component {
             slideSelector={'.full-page-slide'}
             slidesNavigation={isMobileOnly}
             controlArrows={!isMobileOnly}
+            normalScrollElements={'.card-deck'}
             render={({ state, fullpageApi }) => {
               return (
                 <ReactFullpage.Wrapper>
