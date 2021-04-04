@@ -269,7 +269,7 @@ align-content: center;
   display: flex;
   justify-content:center;
   align-content:center;
-  bottom: 10%;
+  bottom: 10% !important;
 }
 
 .dark .fp-slidesNav.fp-bottom>ul>li>a > span{
@@ -325,4 +325,12 @@ align-content: center;
 
 .dropdown-active{
   text-decoration-line: underline
+}
+
+.dropdown-menu.show {
+  left: 50% !important;
+  right: auto !important;
+  text-align: center !important;
+  transform: translate(-50%, 38px) !important;
+  margin-top: 10%;
 }
