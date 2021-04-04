@@ -117,7 +117,7 @@ ul.pagination-mobile > li.active{
 }
 
 ul.pagination-desktop > li{
-  padding: 10px;
+  margin: 10px;
   transition: transform 300ms ease-in-out 0s;
 }
 
