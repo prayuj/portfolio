@@ -1,7 +1,5 @@
-import CardDeck from 'react-bootstrap/CardDeck'
+import Dropdown from 'react-bootstrap/Dropdown'
 import Card from 'react-bootstrap/Card'
-import Modal from 'react-bootstrap/Modal'
-import Button from 'react-bootstrap/Button'
 import React, { useState } from 'react';
 
 const Projects = () => {
@@ -62,39 +60,26 @@ const Projects = () => {
         }
     }
     return (
-        <div className="display-flex justify-content-center align-items-center flex-direction-column">
-            <Modal show={show} onHide={handleClose} centered>
-                <Modal.Header>
-                    <Modal.Title>{active.name}</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>{active.desc}</Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Close
-                    </Button>
-                </Modal.Footer>
-            </Modal>
+        <div className="display-flex justify-content-center align-items-center flex-direction-column container">
             <h1>Noteworthy Projects</h1>
-            <CardDeck>
-                {projects.map((project, index) => (
-                    <Card border="warning" key={index}>
-                        <Card.Body onClick={(e) => handleShow(e, index)}>
-                            <div>
-                                <h3>{project.name}</h3>
-                                <div>
-                                    {project.githublink ? <a href={project.githublink} style={{ width: 'max-content' }} target="_blank" rel="noreferrer"><i class="fab fa-github-square"></i></a> : ''}
-                                    {project.linkedin ? <a href={project.linkedin} style={{ width: 'max-content' }} target="_blank" rel="noreferrer"><i class="fab fa-linkedin"></i></a> : ''}
-                                    {project.youtubeLink ? <a href={project.youtubeLink} style={{ width: 'max-content' }} target="_blank" rel="noreferrer"><i class="fab fa-youtube"></i></a> : ''}
-                                </div>
-                            </div>
-                        </Card.Body>
-                        <Card.Footer>
-                            <small className="text-muted">{project.languages}</small>
-                        </Card.Footer>
-                    </Card>
-                ))}
-            </CardDeck>
-        </div>
+            <Dropdown>
+                <Dropdown.Toggle variant="success" id="dropdown-basic">
+                    Dropdown Button
+                </Dropdown.Toggle>
+
+                <Dropdown.Menu>
+                    <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                    <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                    <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                </Dropdown.Menu>
+            </Dropdown>
+            <Card>
+                <Card.Body>
+                    <h3>Card Title</h3>
+                    <p>This is some text within a card body.</p>
+                </Card.Body>
+            </Card>
+        </div >
     )
 }
 
