@@ -37,28 +37,20 @@ const Projects = () => {
             githublink: 'https://github.com/prayuj/task-manager',
             youtubeLink: 'https://www.youtube.com/watch?v=E6EGCD9OUdA',
             desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-            languages: 'React, Flask'
+            languages: 'Python, React'
         },
         {
-            name: 'Timetable Generation using GA',
-            githublink: 'https://github.com/prayuj/task-manager',
-            youtubeLink: 'https://www.youtube.com/watch?v=E6EGCD9OUdA',
+            name: 'Bill Splitter',
+            githublink: 'https://github.com/prayuj/Bill-Spliter',
             desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
             languages: 'React, Flask'
         },
         {
-            name: 'Timetable Generation using GA',
-            githublink: 'https://github.com/prayuj/task-manager',
-            youtubeLink: 'https://www.youtube.com/watch?v=E6EGCD9OUdA',
+            name: 'Calculator using Arduino with Python',
+            githublink: 'https://github.com/prayuj/Arduino_Project_Calculator',
+            youtubeLink: 'https://youtu.be/ViYliiQ6gec',
             desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-            languages: 'React, Flask'
-        },
-        {
-            name: 'Timetable Generation using GA',
-            githublink: 'https://github.com/prayuj/task-manager',
-            youtubeLink: 'https://www.youtube.com/watch?v=E6EGCD9OUdA',
-            desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-            languages: 'React, Flask'
+            languages: 'Arduino, Python'
         }
 
     ]

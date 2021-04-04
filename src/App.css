@@ -231,11 +231,11 @@ align-content: center;
 }
 
 .fp-controlArrow.fp-prev{
-  left:10%
+  left:10% !important
 }
 
 .fp-controlArrow.fp-next{
-  right:10%
+  right:10% !important
 }
 
 .display-flex{
