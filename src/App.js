@@ -78,6 +78,7 @@ class App extends Component {
             slidesNavigation={isMobileOnly}
             controlArrows={!isMobileOnly}
             normalScrollElements={'.card'}
+            loopHorizontal={false}
             render={({ state, fullpageApi }) => {
               return (
                 <ReactFullpage.Wrapper>

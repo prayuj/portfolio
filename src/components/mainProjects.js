@@ -88,7 +88,7 @@ const Projects = () => {
                             </Dropdown.Toggle>
 
                 <Dropdown.Menu>
-                    {projects.map((project) => (<Dropdown.Item href={`#projects/?project_key=${project.index}`} eventKey={project.index} onSelect={handleShow} className={project.index == active.index ? 'dropdown-active' : ''}>  {project.name}</Dropdown.Item>))}
+                    {projects.map((project) => (<Dropdown.Item href={`#projects`} eventKey={project.index} onSelect={handleShow} className={project.index == active.index ? 'dropdown-active' : ''}>  {project.name}</Dropdown.Item>))}
                 </Dropdown.Menu>
             </Dropdown>
             <Card>
