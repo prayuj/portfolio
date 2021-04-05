@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Header from './components/header'
+import Heading from './components/portfolioHeading'
 import Footer from './components/footer'
 import Home from './components/mainHome'
 import About from './components/mainAbout'
@@ -92,8 +92,9 @@ class App extends Component {
             }}
 
           />
+          <Heading />
           <Pagination handleIconClick={this.handlePageChange} currentPage={this.state.currentPage} />
-          <DayNightToggler></DayNightToggler>
+          <DayNightToggler />
           <Footer />
         </div >
       );

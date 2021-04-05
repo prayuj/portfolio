@@ -28,12 +28,3 @@ code {
   align-items:center;
 }
 
-#root.light{
-  background: white; ;
-  color:black;
-}
-
-#root.dark{
-  background: #212529 ;
-  color:white;
-}

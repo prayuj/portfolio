@@ -13,7 +13,7 @@ const HomeMobile = () => {
                 </Col>
                 <Col className="display-flex home-page-mobile flex-direction-column justify-content-center">
                     <h3>Hi,</h3>
-                    <h3>I am Prayuj Pillai!</h3>
+                    <h3>I am <span className="accent-style">Prayuj Pillai!</span></h3>
                     <h3>I am a Software Engineer and</h3>
                     <h3><TextLoop springConfig={{ stiffness: 340, damping: 30 }}>
                         <span>a Professional Sleeper</span>

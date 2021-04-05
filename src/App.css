@@ -1,85 +1,20 @@
 .App{
   height: 100vh; /* Use vh as a fallback for browsers that do not support Custom Properties */
   height: calc(var(--vh, 1vh) * 100);
+  --accentColor: #ff206e;
+}
+
+.light .App{
+  background: white; 
+  color:black;
+}
+.dark .App{
+  background: #0c0f0a ;
+  color:white;
 }
 
 .justify-content-flex-end{
   justify-content:flex-end;
-}
-
-.position-sticky{
-  position: sticky;
-}
-
-.onepage-pagination{
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  z-index: 5;
-  margin: 0;
-  padding: 0;
-}
-
-.button-acting-like-a{
-  background: inherit;
-  border: none;
-}
-
-.justify-content-right{
-  justify-content: flex-end;
-}
-
-.header-navbar{
-  display: flex;
-  justify-content: center;
-}
-
-.header-navbar>nav{
-  width: 100%;
-  max-width: 50em;
-}
-
-.nav-link, .nav-link:hover{
-  background-color: inherit;
-  border:none;
-  color:white !important;
-}
-
-.navbar-brand{
-  padding:0 1em;
-  color:white !important;
-}
-
-.navbar-toggle{
-  color: inherit;
-  border-color: inherit;
-  outline:none
-}
-
-.navbar-toggler:focus {
-  text-decoration: none;
-  outline: 0;
-  box-shadow: none;
-}
-
-.fa-align-justify, .fa-times{
-  color:white;
-}
-
-@media screen and (max-width: 992px) {
-  .navbar-nav {
-    text-align: center;
-    padding: 1em 0;
-  }
-
-  #pagination{
-    margin-top: 0px;
-    /* top: 50%;
-    position: fixed;
-    z-index: 100;
-    right: 17px;
-    list-style: none; */
-  }
 }
 
 ul.pagination-desktop{
@@ -108,15 +43,18 @@ ul.pagination-mobile{
   padding-left: 0px;
 }
 
-ul.pagination-desktop > li.active{
+ul > li.active{
   transform:scale(2);
+  color: inherit !important;
 }
 
-ul.pagination-mobile > li.active{
-  transform:scale(2);
+li.active > i{
+  border-bottom: 2px solid var(--accentColor);
+  padding-bottom: 2px;
 }
 
 ul.pagination-desktop > li{
+  cursor: pointer;
   margin: 10px;
   transition: transform 300ms ease-in-out 0s;
 }
@@ -125,6 +63,11 @@ ul.pagination-mobile > li{
   padding: 10px;
   transition: transform 300ms ease-in-out 0s;
   margin: auto;
+}
+
+ul.pagination-desktop > li:hover:not(.active){
+  color:var(--accentColor);
+  transform: translateY(-3px);
 }
 
 .current-main-element{
@@ -325,4 +268,15 @@ align-content: center;
   text-align: center !important;
   transform: translate(-50%, 38px) !important;
   margin-top: 10%;
+}
+
+.portfolio-heading{
+  position: fixed;
+  left: 5%;
+  top: 5%;
+  font-family: 'Saira', sans-serif;
+}
+
+.accent-style, a, a:hover{
+  color: var(--accentColor)
 }

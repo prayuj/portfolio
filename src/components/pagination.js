@@ -11,8 +11,8 @@ class Pagination extends Component {
                 "fas fa-home",
                 "fas fa-address-card",
                 "fas fa-briefcase",
-                "fas fa-wrench",
-                "fas fa-phone"
+                "fas fa-folder-open",
+                "fas fa-phone-square-alt"
             ],
         }
     }
