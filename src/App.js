@@ -4,7 +4,6 @@ import Footer from './components/footer'
 import Home from './components/mainHome'
 import About from './components/mainAbout'
 import Experience from './components/mainExperience'
-import Education from './components/mainEducation'
 import Projects from './components/mainProjects'
 import Contact from './components/mainContact'
 import Pagination from './components/pagination'
@@ -48,13 +47,13 @@ class App extends Component {
   }
 
   onLeave(origin, destination, direction) {
-    if (destination.index === 5) {
+    if (destination.index === 4) {
       console.log('Contact Page Loaded')
       this.handleContactPageLoad('render')
 
     }
 
-    if (destination.index !== 5 && this.state.currentPage === 5) {
+    if (destination.index !== 4 && this.state.currentPage === 4) {
       console.log('Contact Page Left')
       this.handleContactPageLoad('remove')
     }
@@ -73,7 +72,7 @@ class App extends Component {
             licenseKey={'YOUR_KEY_HERE'}
             scrollingSpeed={1000} /* Options here */
             onLeave={this.onLeave.bind(this)}
-            anchors={['home', 'about', 'experience', 'projects', 'education', 'contact']}
+            anchors={['home', 'about', 'experience', 'projects', 'contact']}
             slideSelector={'.full-page-slide'}
             slidesNavigation={isMobileOnly}
             controlArrows={!isMobileOnly}
@@ -86,7 +85,6 @@ class App extends Component {
                   <div className="section"><About /></div>
                   <div className="section"><Experience /></div>
                   <div className="section"><Projects /></div>
-                  <div className="section"><Education /></div>
                   <div className="section"><Contact /></div>
                 </ReactFullpage.Wrapper>
               );

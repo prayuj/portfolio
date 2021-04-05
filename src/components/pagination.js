@@ -12,7 +12,6 @@ class Pagination extends Component {
                 "fas fa-address-card",
                 "fas fa-briefcase",
                 "fas fa-wrench",
-                "fas fa-user-graduate",
                 "fas fa-phone"
             ],
         }
