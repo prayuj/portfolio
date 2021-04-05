@@ -131,14 +131,6 @@ ul.pagination-mobile > li{
   height:100%
 }
 
-.desktop > .row > .col > h1{
-  font-size: 150%
-}
-
-.mobile > .row > .col > h1{
-  font-size:150%
-}
-
 .mobile > .row > .col{
   padding: 0 10%;
 }

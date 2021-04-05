@@ -12,15 +12,14 @@ const HomeMobile = () => {
                     <img src={profilePic} id="profile-pic-mobile"></img>
                 </Col>
                 <Col className="display-flex home-page-mobile flex-direction-column justify-content-center">
-                    <h1>Hi,</h1>
-                    <h1>I am Prayuj Pillai!</h1>
-                    <h1>I am a Software Engineer and</h1>
-                    {/* <h1>and </h1> */}
-                    <h1><TextLoop springConfig={{ stiffness: 340, damping: 30 }}>
+                    <h3>Hi,</h3>
+                    <h3>I am Prayuj Pillai!</h3>
+                    <h3>I am a Software Engineer and</h3>
+                    <h3><TextLoop springConfig={{ stiffness: 340, damping: 30 }}>
                         <span>a Professional Sleeper</span>
                         <span>a Certified Foodie</span>
                         <span>an Accomplished TV watcher</span>
-                    </TextLoop></h1>
+                    </TextLoop></h3>
                 </Col>
 
             </Row>

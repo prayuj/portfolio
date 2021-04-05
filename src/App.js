@@ -22,13 +22,13 @@ class App extends Component {
 
   }
   handlePageChange = number => {
-    if (number === 5) {
+    if (number === 4) {
       console.log('Contact Page Loaded')
       this.handleContactPageLoad('render')
 
     }
 
-    if (number !== 5 && this.state.currentPage === 5) {
+    if (number !== 4 && this.state.currentPage === 4) {
       console.log('Contact Page Left')
       this.handleContactPageLoad('remove')
     }
@@ -47,6 +47,7 @@ class App extends Component {
   }
 
   onLeave(origin, destination, direction) {
+    console.log(destination.index, this.state.currentPage)
     if (destination.index === 4) {
       console.log('Contact Page Loaded')
       this.handleContactPageLoad('render')
