@@ -10,7 +10,7 @@ const HomeDesktop = () => {
             <Row className="h-100 justify-content-center align-items-center">
                 <Col className="display-flex  home-page-desktop flex-direction-column">
                     <h3>Hi,</h3>
-                    <h3>I am <span className="accent-style">Prayuj Pillai!</span></h3>
+                    <h3>I am <span className="underline-style">Prayuj Pillai!</span></h3>
                     <h3>I am a Software Engineer and</h3>
                     {/* <h3>and </h3> */}
                     <h3><TextLoop springConfig={{ stiffness: 340, damping: 30 }}>

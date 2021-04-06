@@ -13,13 +13,16 @@ const HomeMobile = () => {
                 </Col>
                 <Col className="display-flex home-page-mobile flex-direction-column justify-content-center">
                     <h3>Hi,</h3>
-                    <h3>I am <span className="accent-style">Prayuj Pillai!</span></h3>
+                    <h3>I am <span className="underline-style">Prayuj Pillai!</span></h3>
                     <h3>I am a Software Engineer and</h3>
                     <h3><TextLoop springConfig={{ stiffness: 340, damping: 30 }}>
                         <span>a Professional Sleeper</span>
                         <span>a Certified Foodie</span>
                         <span>an Accomplished TV watcher</span>
                     </TextLoop></h3>
+                </Col>
+                <Col className="display-flex home-page-mobile flex-direction-column justify-content-center align-items-center">
+                    <i class="blink fas fa-chevron-down"></i>
                 </Col>
 
             </Row>
