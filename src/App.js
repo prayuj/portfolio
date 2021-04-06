@@ -58,6 +58,16 @@ class App extends Component {
       console.log('Contact Page Left')
       this.handleContactPageLoad('remove')
     }
+
+
+    if (destination.index === 2) {
+      document.getElementById('add-blink-class').classList.add('blink_me')
+    }
+
+    if (destination.index !== 2 && this.state.currentPage === 2) {
+      document.getElementById('add-blink-class').classList.remove('blink_me')
+    }
+
     this.setState({ currentPage: destination.index })
   }
 
@@ -75,8 +85,8 @@ class App extends Component {
             onLeave={this.onLeave.bind(this)}
             anchors={['home', 'about', 'experience', 'projects', 'contact']}
             slideSelector={'.full-page-slide'}
-            slidesNavigation={isMobileOnly}
-            controlArrows={!isMobileOnly}
+            slidesNavigation={true}
+            controlArrows={false}
             normalScrollElements={'.card'}
             loopHorizontal={false}
             render={({ state, fullpageApi }) => {

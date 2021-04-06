@@ -22,7 +22,12 @@ const HomeMobile = () => {
                     </TextLoop></h3>
                 </Col>
                 <Col className="display-flex home-page-mobile flex-direction-column justify-content-center align-items-center">
-                    <i class="blink fas fa-chevron-down"></i>
+                    <span href="#" className="cursor-pointer accent-style align-self-center blink_me" onClick={() => {
+                        if (window.fullpage_api.moveSectionDown) {
+                            window.fullpage_api.moveSectionDown()
+                        }
+                    }
+                    }><h3><i class="fas fa-chevron-down"></i></h3></span>
                 </Col>
 
             </Row>

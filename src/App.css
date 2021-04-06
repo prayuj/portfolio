@@ -2,6 +2,7 @@
   height: 100vh; /* Use vh as a fallback for browsers that do not support Custom Properties */
   height: calc(var(--vh, 1vh) * 100);
   --accentColor: #ff206e;
+  font-family: 'Lato', sans-serif;
 }
 
 .light .App{
@@ -68,6 +69,7 @@ ul.pagination-mobile > li{
 ul.pagination-desktop > li:hover:not(.active){
   color:var(--accentColor);
   transform: translateY(-3px);
+  transition: transform 100ms ease-in-out 0s;
 }
 
 .current-main-element{
@@ -151,14 +153,6 @@ align-content: center;
 .footer-hide-top > .row > .col > a > i{
   padding: 0 2em;
   transition: bottom 100ms ease-in-out 0s;
-}
-
-.connect{
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  position: relative;
-  top: -10%;
 }
 
 .display-none{
@@ -274,28 +268,43 @@ align-content: center;
   position: fixed;
   left: 5%;
   top: 5%;
-  font-family: 'Saira', sans-serif;
 }
-
-.accent-style, a, .desktop-footer a:hover{
-  color: var(--accentColor)
+.portfolio-heading h2{
+  font-family: 'Saira', sans-serif;
+  font-weight: 900;
+}
+.accent-style, a{
+  color: var(--accentColor);
+}
+.desktop-footer .col:hover{
+  transform: translateY(-3px);
+  transition: transform 100ms ease-in-out 0s;
+  color: var(--accentColor);
+  height: 135%;
 }
 
 .underline-style{
   text-decoration: var(--accentColor) underline 
 }
 
-.blink {
-  animation: blink-animation 1s steps(5, start) infinite;
-  -webkit-animation: blink-animation 1s steps(5, start) infinite;
+.cursor-pointer{
+  cursor: pointer;
 }
-@keyframes blink-animation {
-  to {
-    visibility: hidden;
-  }
+
+p{
+  text-align:justify;
 }
-@-webkit-keyframes blink-animation {
-  to {
-    visibility: hidden;
+
+.align-self-center{
+  align-items: center;
+}
+
+.blink_me {
+  animation: blinker 1s linear 5;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
   }
 }

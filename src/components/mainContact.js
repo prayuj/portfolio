@@ -6,8 +6,8 @@ class Contact extends Component {
     render() {
         return (<Container className="main-container h-100 desktop">
             <Row className="h-100 justify-content-center align-items-center">
-                <Col className="connect">
-                    <h1>Connect with me:</h1>
+                <Col className="display-flex justify-content-center align-items-center flex-direction-column">
+                    <h1><span className="underline-style">Connect with me:</span></h1>
                 </Col>
             </Row>
         </Container>);
