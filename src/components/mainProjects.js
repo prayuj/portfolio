@@ -80,22 +80,20 @@ const Projects = () => {
         }
     }
     return (
-        <div className="display-flex justify-content-center align-items-center flex-direction-column container">
-            <h1>Projects</h1>
-            <Dropdown>
-                <Dropdown.Toggle id="dropdown-basic">
-                    Select
-                            </Dropdown.Toggle>
-
-                <Dropdown.Menu>
-                    {projects.map((project) => (<Dropdown.Item href={`#projects`} eventKey={project.index} onSelect={handleShow} className={project.index == active.index ? 'dropdown-active' : ''}>  {project.name}</Dropdown.Item>))}
-                </Dropdown.Menu>
-            </Dropdown>
+        <div className="display-flex justify-content-center flex-direction-column container">
+            <h1><span className="underline-style">Projects</span></h1>
             <Card>
                 <Card.Body>
                     <div>
-                        <span><h3>{active.name}</h3></span>
-
+                        <div className="display-flex">
+                            <h3>{active.name}</h3>
+                            <Dropdown>
+                                <Dropdown.Toggle id="dropdown-basic">
+                                </Dropdown.Toggle>
+                                <Dropdown.Menu align="right">
+                                    {projects.map((project) => (<Dropdown.Item href={`#projects`} eventKey={project.index} onSelect={handleShow} className={project.index == active.index ? 'dropdown-active' : ''}>  {project.name}</Dropdown.Item>))}
+                                </Dropdown.Menu>
+                            </Dropdown></div>
                         <p>{active.desc}</p>
                         <div>
                             {iconObjects.map(icon =>

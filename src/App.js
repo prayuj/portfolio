@@ -33,6 +33,14 @@ class App extends Component {
       this.handleContactPageLoad('remove')
     }
 
+    if (number === 2) {
+      document.getElementById('add-blink-class').classList.add('blink_me')
+    }
+
+    if (number !== 2 && this.state.currentPage === 2) {
+      document.getElementById('add-blink-class').classList.remove('blink_me')
+    }
+
     this.setState({
       currentPage: number,
     }, () => window.fullpage_api.moveTo(number + 1))
