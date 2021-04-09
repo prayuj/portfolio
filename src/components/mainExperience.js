@@ -5,24 +5,25 @@ const Experience = () => {
             organization: 'Cimpress',
             designation: 'Software Engineer',
             duration: 'August 2020 - Present',
-            description: `Currently work in Cimpress’ subsidiary National Pen which is a multi-lingual, Mass Customization E-commerce platform
-            operating in 20+ nations. Noteable tasks include: Developing and  Reengineering of the Website's Navigation, . Developed Lambdas and API’s in Node.js 
-            and used Magnolia as a Content Management System (CMS). Had hands-on
-            experience with variety of technologies such as AWS, Sentry, Serverless, FTL, React.JS, GraphQL.`
+            description: [`I currently work at Cimpress’ subsidiary National Pen which is a multi-lingual, Mass Customization E-commerce platform
+            operating in 20+ nations.`,
+                `Noteable features I have engineered include: Developing and Reengineering of the Website Navigation, Adding User Segmentation to the Website,  
+            Incoporating Product Discounts on the Website.`,
+                `Various Technologies I have worked with include Magnolia, AWS, Serverlerss, NodeJs, GraphQL, Sentry.`]
         },
         {
             organization: 'Aegis School of Data Science',
             designation: 'Data Science Intern',
             duration: 'June 2019 - August 2019',
-            description: `Worked on a Job Recommendation Model for Students, based on Job Requirement Skill Set and Grades of Students in the Institute for.
-            Used Python as a modelling tool.`
+            description: [`Worked on a Job Recommendation Model for Students.`, `Recommended Jobs based on Job Requirement Skills and Grades of Students in those Skills.`
+                , `Building the model included scrapping of Jobs, their requirements, matching skills between the Job and Student.`]
         },
         {
             organization: 'CaratLane',
             designation: 'Software Engineer Intern',
             duration: 'August 2018',
-            description: `Worked on a Job Recommendation Model for Students, based on Job Requirement Skill Set and Grades of Students in the Institute for.
-            Used Python as a modelling tool.`
+            description: [`Worked on a Job Recommendation Model for Students, based on Job Requirement Skill Set and Grades of Students in the Institute for.
+            Used Python as a modelling tool.`]
         }
     ];
 
@@ -45,7 +46,13 @@ const Experience = () => {
                                         <h2>{experience.organization}</h2>
                                         <h3>{experience.designation}</h3>
                                         <h4>{experience.duration}</h4>
-                                        <p>{experience.description}</p>
+                                        <p>
+                                            <ul>
+                                                {experience.description.map((point, index) => (
+                                                    <li>{point}</li>
+                                                ))}
+                                            </ul>
+                                        </p>
                                         <span id="add-blink-class" className="cursor-pointer accent-style align-self-center" onClick={() => {
                                             if (window.fullpage_api.moveSlideRight) {
                                                 window.fullpage_api.moveSlideRight()
@@ -66,7 +73,13 @@ const Experience = () => {
                                         <h2>{experience.organization}</h2>
                                         <h3>{experience.designation}</h3>
                                         <h4>{experience.duration}</h4>
-                                        <p>{experience.description}</p>
+                                        <p>
+                                            <ul>
+                                                {experience.description.map((point, index) => (
+                                                    <li>{point}</li>
+                                                ))}
+                                            </ul>
+                                        </p>
                                         <span id="add-blink-class" className="cursor-pointer accent-style align-self-center" onClick={() => {
                                             if (window.fullpage_api.moveSlideLeft) {
                                                 window.fullpage_api.moveSlideLeft()
@@ -87,7 +100,11 @@ const Experience = () => {
                                         <h2>{experience.organization}</h2>
                                         <h3>{experience.designation}</h3>
                                         <h4>{experience.duration}</h4>
-                                        <p>{experience.description}</p>
+                                        <ul>
+                                            {experience.description.map((point, index) => (
+                                                <li><p>{point}</p></li>
+                                            ))}
+                                        </ul>
                                         <div className="display-flex align-items-center" style={style}>
                                             <span className="cursor-pointer accent-style" onClick={() => {
                                                 if (window.fullpage_api.moveSlideLeft) {
