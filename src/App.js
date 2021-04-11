@@ -17,7 +17,8 @@ class App extends Component {
     this.state = {
       currentPage: 0,
       blockScrollUp: false,
-      blockScrollDown: false
+      blockScrollDown: false,
+      isAppLoaded: true
     };
 
   }
@@ -83,7 +84,7 @@ class App extends Component {
     if (isTablet) {
       return (<div><h1>Haven't made for Tablet!, Sorrz!</h1></div>)
     }
-    else
+    else if (this.state.isAppLoaded)
       return (
         <div className="App">
           <ReactFullpage

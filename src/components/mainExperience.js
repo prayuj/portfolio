@@ -9,13 +9,13 @@ const Experience = () => {
             operating in 20+ nations.`,
                 `Noteable features I have engineered include: Developing and Reengineering of the Website Navigation, Adding User Segmentation to the Website,  
             Incoporating Product Discounts on the Website.`,
-                `Various Technologies I have worked with include Magnolia, AWS, Serverlerss, NodeJs, GraphQL, Sentry.`]
+                `Various Technologies I have worked with include Magnolia, AWS, Serverlerss, NodeJs, GraphQL, Sentry, to name a few.`]
         },
         {
             organization: 'Aegis School of Data Science',
             designation: 'Data Science Intern',
             duration: 'June 2019 - August 2019',
-            description: [`Worked on a Job Recommendation Model for Students.`, `Recommended Jobs based on Job Requirement Skills and Grades of Students in those Skills.`
+            description: [`Worked on a Job Recommendation Model for Students.`, `Recommended Jobs based on the Job Requirement Skills and Grades of Students in those Skills.`
                 , `Building the model included scrapping of Jobs, their requirements, matching skills between the Job and Student.`]
         },
         {

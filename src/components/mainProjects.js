@@ -1,21 +1,22 @@
+
+import React, { useState, useEffect } from 'react';
 import Dropdown from 'react-bootstrap/Dropdown'
 import Card from 'react-bootstrap/Card'
-import React, { useState } from 'react';
-
+import { CSSTransition } from 'react-transition-group';
 const Projects = () => {
     const projects = [
         {
             index: 0,
             name: 'Task Manager API',
             githublink: 'https://github.com/prayuj/task-manager',
-            desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-            languages: 'NodeJS, Jest'
+            desc: 'As part of Andrew Meads\'s Node JS course, I built a Task Manager API. Features include Logging in, Registering, Adding Notes, Deleting Notes, Sorting Notes all while using JWT for authentication. I used Jest for automation and testing.',
+            languages: 'NodeJS, Express, Mongo, Jest'
         },
         {
             index: 1,
             name: 'Chat App using Socket.io',
             githublink: 'https://github.com/prayuj/task-manager',
-            desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+            desc: 'This was a really exciting Project because for the first time I used Socket.io to make real time, bidirectional communication. Features include entering Room ID and making a new or joining an Existing Room, Sending real time data for communication, Sending Current Location.',
             languages: 'NodeJS, Socket.io'
         },
         {
@@ -23,7 +24,7 @@ const Projects = () => {
             name: 'Game Renting Service',
             githublink: 'https://github.com/prayuj/task-manager',
             linkedin: 'https://www.linkedin.com/posts/prayuj_mongodb-reactjs-nodejs-activity-6693029671027675136-EWoW',
-            desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+            desc: '',
             languages: 'Mongo, Express, React, Node'
         },
         {
@@ -73,12 +74,30 @@ const Projects = () => {
     ]
 
     const [active, setActive] = useState(projects[0])
+    const [inProp, setInProp] = useState(false);
     const handleShow = (key) => {
+        setInProp(false)
         console.log(active.index, key)
         if (!isNaN(key) && active.index != key) {
             setActive(projects[key])
+            setInProp(true)
         }
     }
+
+    const duration = 300;
+
+    const defaultStyle = {
+        transition: `opacity ${duration}ms ease-in-out`,
+        opacity: 0,
+    }
+
+    const transitionStyles = {
+        entering: { opacity: 0 },
+        entered: { opacity: 0 },
+        exiting: { opacity: 1 },
+        exited: { opacity: 1 },
+    };
+
     return (
         <div className="display-flex justify-content-center flex-direction-column container">
             <Card>
@@ -86,15 +105,27 @@ const Projects = () => {
                     <div>
                         <h1><span className="underline-style">Projects</span></h1>
                         <div className="display-flex">
-                            <Dropdown>
+                            <Dropdown className="display-flex">
                                 <Dropdown.Toggle id="dropdown-basic" className="display-flex align-items-center">
                                     <h3>{active.name}</h3>
                                 </Dropdown.Toggle>
                                 <Dropdown.Menu align="right">
                                     {projects.map((project) => (<Dropdown.Item href={`#projects`} eventKey={project.index} onSelect={handleShow} className={project.index == active.index ? 'dropdown-active' : ''}>  {project.name}</Dropdown.Item>))}
                                 </Dropdown.Menu>
-                            </Dropdown></div>
-                        <p>{active.desc}</p>
+                            </Dropdown>
+                        </div>
+                        {projects.map((project, i) =>
+                            <CSSTransition
+                                in={active.index === i}
+                                timeout={300}
+                                classNames="description"
+                                onEnter={() => console.log('Entered')}
+                                onExit={() => console.log('Exited')}
+                            >
+                                <p hidden={active.index !== i}>{project.desc}</p>
+                            </CSSTransition>
+                        )}
+
                         <div>
                             {iconObjects.map(icon =>
                             (active[icon.name] ? <a href={active[icon.name]} style={{ width: 'max-content' }} target="_blank" rel="noreferrer" className="project-link">
