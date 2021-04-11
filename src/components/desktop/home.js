@@ -12,12 +12,17 @@ const HomeDesktop = () => {
                     <h3>Hi,</h3>
                     <h3>I am <span className="underline-style">Prayuj Pillai!</span></h3>
                     <h3>I am a Software Engineer and</h3>
-                    {/* <h3>and </h3> */}
                     <h3><TextLoop springConfig={{ stiffness: 340, damping: 30 }}>
                         <span>a Professional Sleeper</span>
                         <span>a Certified Foodie</span>
                         <span>an Accomplished TV watcher</span>
                     </TextLoop></h3>
+                    <span href="#" className="cursor-pointer accent-style align-self-center blink_me" onClick={() => {
+                        if (window.fullpage_api.moveSectionDown) {
+                            window.fullpage_api.moveSectionDown()
+                        }
+                    }
+                    }><h3><i class="fas fa-chevron-down"></i></h3></span>
                 </Col>
                 <Col className="display-flex home-page-desktop">
                     <img src={profilePic} id="profile-pic-desktop"></img>

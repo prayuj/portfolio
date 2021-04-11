@@ -249,7 +249,7 @@ align-content: center;
 
 .card p{
   overflow-y: auto;
-  max-height: 25vh;
+  max-height: 30vh;
 }
 
 .dark .card-footer{

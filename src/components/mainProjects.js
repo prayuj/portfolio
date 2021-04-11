@@ -15,22 +15,22 @@ const Projects = () => {
         {
             index: 1,
             name: 'Chat App using Socket.io',
-            githublink: 'https://github.com/prayuj/task-manager',
+            githublink: 'https://github.com/prayuj/chat-app',
             desc: 'This was a really exciting Project because for the first time I used Socket.io to make real time, bidirectional communication. Features include entering Room ID and making a new or joining an Existing Room, Sending real time data for communication, Sending Current Location.',
             languages: 'NodeJS, Socket.io'
         },
         {
             index: 2,
             name: 'Game Renting Service',
-            githublink: 'https://github.com/prayuj/task-manager',
+            githublink: 'https://github.com/prayuj/Game-Renting-Service',
             linkedin: 'https://www.linkedin.com/posts/prayuj_mongodb-reactjs-nodejs-activity-6693029671027675136-EWoW',
-            desc: '',
+            desc: 'This Project stemmed from a Job opportunity that was very lucrative which involved building a inventory system. It is a full stack project using React JS, Node JS with Express JS and Mongo DB. Various features include Issue and Return of Games along with OTP generation and validation, viewing list of past transactions, adding inventory and members, updating membership, etc.',
             languages: 'Mongo, Express, React, Node'
         },
         {
             index: 3,
             name: 'Timetable Generation using GA',
-            githublink: 'https://github.com/prayuj/task-manager',
+            githublink: 'https://github.com/prayuj/timetable_frontend',
             youtubeLink: 'https://www.youtube.com/watch?v=E6EGCD9OUdA',
             paperlink: 'https://ssrn.com/abstract=3688387',
             desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
