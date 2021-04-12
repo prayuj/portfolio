@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {
     isDesktop
 } from "react-device-detect";
+import { CSSTransition } from 'react-transition-group';
 
 class Pagination extends Component {
     constructor(props) {
@@ -14,13 +15,26 @@ class Pagination extends Component {
                 { path: '#projects', icon: "fas fa-folder-open" },
                 { path: '#contact', icon: "fas fa-phone-square-alt" }
             ],
+            isMounted: false
         }
     }
+
+    componentDidMount() {
+        setTimeout(() => this.setState({ isMounted: true }))
+    }
+
     render() {
         const pagination = <ul className={isDesktop ? "pagination-desktop" : "pagination-mobile"}>{
-            this.state.icons.map((icon, index) => <li id={index} key={index} className={this.props.currentPage === index ? 'active' : ''}>
-                <a href={icon.path}><i id={index} className={icon.icon}></i></a>
-            </li>)
+            this.state.icons.map((icon, index) =>
+                <li id={index} key={index} className={this.props.currentPage === index ? 'active' : ''}>
+                    <CSSTransition in={this.state.isMounted} classNames='span-item' timeout={150}>
+                        <span className='span-item-default' style={{ transitionDelay: `${index * 150}ms` }}>
+                            <a href={icon.path}>
+                                <i id={index} className={icon.icon}></i>
+                            </a>
+                        </span>
+                    </CSSTransition>
+                </li>)
         }</ul>;
 
         return pagination;

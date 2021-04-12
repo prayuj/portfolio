@@ -49,24 +49,26 @@ ul > li.active{
   color: inherit !important;
 }
 
-li.active > a{
+li.active  a{
   border-bottom: 2px solid var(--accentColor);
   padding-bottom: 2px;
 }
 
 ul.pagination-desktop > li{
+  display: flex;
   margin: 10px 0;
   transition: transform 300ms ease-in-out 0s;
   width:100%;
 }
 
 ul.pagination-mobile > li{
+  display: flex;
   padding: 10px;
   transition: transform 300ms ease-in-out 0s;
   margin: auto;
 }
 
-ul.pagination-mobile > li>a{
+ul.pagination-mobile > li a{
   color: inherit;
 }
 
@@ -76,7 +78,7 @@ ul.pagination-desktop > li:hover:not(.active){
   transition: transform 100ms ease-in-out 0s;
 }
 
-ul.pagination-desktop > li>a{
+ul.pagination-desktop > li a{
   color: inherit;
 }
 
@@ -340,4 +342,20 @@ color: inherit;
   opacity: 0;
   transform: scale(0.9);
   transition: opacity 300ms, transform 300ms;
+}
+
+ul.pagination-desktop .span-item-default {
+  transform: translateX(250px);
+}
+ul.pagination-desktop .span-item-enter-done {
+  transform: translateX(0);
+  transition: transform 300ms cubic-bezier(.65,.05,.36,1);  
+}
+
+ul.pagination-mobile .span-item-default {
+  transform: translateY(-250px);
+}
+ul.pagination-mobile .span-item-enter-done {
+  transform: translateY(0);
+  transition: transform 300ms cubic-bezier(.65,.05,.36,1);  
 }
