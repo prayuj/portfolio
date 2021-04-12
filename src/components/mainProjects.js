@@ -86,18 +86,6 @@ const Projects = () => {
 
     const duration = 300;
 
-    const defaultStyle = {
-        transition: `opacity ${duration}ms ease-in-out`,
-        opacity: 0,
-    }
-
-    const transitionStyles = {
-        entering: { opacity: 0 },
-        entered: { opacity: 0 },
-        exiting: { opacity: 1 },
-        exited: { opacity: 1 },
-    };
-
     return (
         <div className="display-flex justify-content-center flex-direction-column container">
             <Card>
@@ -119,8 +107,6 @@ const Projects = () => {
                                 in={active.index === i}
                                 timeout={300}
                                 classNames="description"
-                                onEnter={() => console.log('Entered')}
-                                onExit={() => console.log('Exited')}
                             >
                                 <p hidden={active.index !== i}>{project.desc}</p>
                             </CSSTransition>

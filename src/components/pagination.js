@@ -20,15 +20,15 @@ class Pagination extends Component {
     }
 
     componentDidMount() {
-        setTimeout(() => this.setState({ isMounted: true }))
+        setTimeout(() => this.setState({ isMounted: true }), 500)
     }
 
     render() {
         const pagination = <ul className={isDesktop ? "pagination-desktop" : "pagination-mobile"}>{
             this.state.icons.map((icon, index) =>
                 <li id={index} key={index} className={this.props.currentPage === index ? 'active' : ''}>
-                    <CSSTransition in={this.state.isMounted} classNames='span-item' timeout={150}>
-                        <span className='span-item-default' style={{ transitionDelay: `${index * 150}ms` }}>
+                    <CSSTransition in={this.state.isMounted} classNames='span-item'>
+                        <span className='span-item-default' style={{ transitionDelay: `${index * 100}ms` }}>
                             <a href={icon.path}>
                                 <i id={index} className={icon.icon}></i>
                             </a>
