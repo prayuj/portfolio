@@ -65,6 +65,10 @@ ul.pagination-mobile > li{
   margin: auto;
 }
 
+ul.pagination-mobile > li>a{
+  color: inherit;
+}
+
 ul.pagination-desktop > li:hover:not(.active){
   color:var(--accentColor);
   transform: translateY(-3px);
