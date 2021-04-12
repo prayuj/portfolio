@@ -8,22 +8,20 @@ class Pagination extends Component {
         super(props);
         this.state = {
             icons: [
-                "fas fa-home",
-                "fas fa-address-card",
-                "fas fa-briefcase",
-                "fas fa-folder-open",
-                "fas fa-phone-square-alt"
+                { path: '#home', icon: "fas fa-home" },
+                { path: '#about', icon: "fas fa-address-card" },
+                { path: '#experience', icon: "fas fa-briefcase" },
+                { path: '#projects', icon: "fas fa-folder-open" },
+                { path: '#contact', icon: "fas fa-phone-square-alt" }
             ],
         }
     }
     render() {
-        const pagination = <ul className={isDesktop ? "pagination-desktop" : "pagination-mobile"} onClick={e => {
-            if (!isNaN(parseInt(e.target.id))) { this.props.handleIconClick(parseInt(e.target.id)) }
-        }}>{
-                this.state.icons.map((icon, index) => <li id={index} key={index} className={this.props.currentPage === index ? 'active' : ''}>
-                    <i id={index} className={icon}></i>
-                </li>)
-            }</ul>;
+        const pagination = <ul className={isDesktop ? "pagination-desktop" : "pagination-mobile"}>{
+            this.state.icons.map((icon, index) => <li id={index} key={index} className={this.props.currentPage === index ? 'active' : ''}>
+                <a href={icon.path}><i id={index} className={icon.icon}></i></a>
+            </li>)
+        }</ul>;
 
         return pagination;
     }
