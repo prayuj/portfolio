@@ -30,7 +30,10 @@ const HomeMobile = () => {
             <Row className="justify-content-center align-items-center flex-direction-column">
                 <Col className="display-flex home-page-mobile flex-direction-column justify-content-center align-items-center">
                     <TransitionGroup component={null}>
-                        {isMounted ? <CSSTransition classNames="fadeup" timeout={timeout}><img src={profilePic} id="profile-pic-mobile"></img></CSSTransition> : ''
+                        {isMounted ?
+                            <CSSTransition classNames="fadeup" timeout={timeout}>
+                                <img src={profilePic} id="profile-pic-mobile"></img>
+                            </CSSTransition> : ''
                         }
 
                     </TransitionGroup>

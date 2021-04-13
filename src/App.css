@@ -359,11 +359,10 @@ ul.pagination-mobile .span-item-enter-done {
   transform: translateY(0);
   transition: transform 300ms cubic-bezier(.65,.05,.36,1);  
 }
-  /* Fade up */
+
 .fadeup-enter {
-  opacity: 0.01;
+  opacity: 0.00;
   transform: translateY(20px);
-  transition: opacity 300ms cubic-bezier(.65,.05,.36,1), cubic-bezier(.65,.05,.36,1);
 }
 .fadeup-enter-active {
   opacity: 1;
@@ -371,3 +370,6 @@ ul.pagination-mobile .span-item-enter-done {
   transition: opacity 300ms cubic-bezier(.65,.05,.36,1), transform 300ms cubic-bezier(.65,.05,.36,1);
 }
 
+.fadeup-enter-done {
+  transition: none;
+}
