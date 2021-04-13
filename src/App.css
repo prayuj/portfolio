@@ -373,3 +373,17 @@ ul.pagination-mobile .span-item-enter-done {
 .fadeup-enter-done {
   transition: none;
 }
+.technology-list{
+  display:grid;
+  grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+  list-style: none;
+}
+
+.technology-list > li::before{
+  content: "\25B6";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+  color: var(--accentColor); /* Change the color */
+  display: inline-block; /* Needed to add space between the bullet and the text */
+  width: 1em; /* Also needed for space (tweak if needed) */
+  margin-left: -1em; /* Also needed for space (tweak if needed) */
+  margin-right: .25em;
+}
