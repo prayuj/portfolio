@@ -13,23 +13,14 @@ const About = () => {
 
     const timeout = 2000;
 
+    const liItems = ['JavaScript', 'NodeJS', 'ReactJS', 'MongoDB', 'Flask', 'jQuery', 'Java', 'HTML/CSS']
+
     const one = <h1><span className="underline-style">About me</span></h1>
     const two = <p>Hello! My name is Prayuj and I am a Software Engineer based in Mumbai and I enjoy Full Stack Development
     with more empahsis on backend systems (which is pretty evident from the design of this website 😅).</p>
     const three = <p>I currently work at <a href="https://cimpress.com/">Cimpress</a> as part of their Business subsidiary, <a href="https://www.pens.com/ie/">National Pen.</a></p>
     const four = <p>Here are a few technologies I am proficient in:</p>
-    const five = <ul className="technology-list">
-        <li>JavaScript</li>
-        <li>NodeJS</li>
-        <li>ReactJS</li>
-        <li>MongoDB</li>
-        <li>Flask</li>
-        <li>jQuery</li>
-        <li>Java</li>
-        <li>HTML/CSS</li>
-    </ul>
-
-    const items = [one, two, three, four, five]
+    const items = [one, two, three, four]
 
     return (
         <Container className="h-100">
@@ -43,6 +34,16 @@ const About = () => {
                                 </CSSTransition>
                             ))}
                     </TransitionGroup>
+                    <ul className="technology-list">
+                        <TransitionGroup component={null}>
+                            {isMounted &&
+                                liItems.map((item, i) => (
+                                    <CSSTransition key={i} classNames="fadeup" timeout={timeout}>
+                                        <li style={{ transitionDelay: `${(i + 1) * 50 + 500}ms` }}>{item}</li>
+                                    </CSSTransition>
+                                ))}
+                        </TransitionGroup>
+                    </ul>
                 </Col>
             </Row>
         </Container>
