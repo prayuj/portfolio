@@ -1,12 +1,12 @@
 
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { useState, useEffect } from 'react';
-const Experience = () => {
-    const [isMounted, setIsMounted] = useState(false);
+const Experience = ({ show, delay = 500 }) => {
+    const [isMounted, setIsMounted] = useState(show);
     useEffect(() => {
-        const timeout = setTimeout(() => setIsMounted(true), 2000);
+        const timeout = setTimeout(() => setIsMounted(show), delay);
         return () => clearTimeout(timeout);
-    }, []);
+    }, [show]);
     const experiences = [
         {
             organization: 'Cimpress',

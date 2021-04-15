@@ -3,7 +3,12 @@ import React, { useState, useEffect } from 'react';
 import Dropdown from 'react-bootstrap/Dropdown'
 import Card from 'react-bootstrap/Card'
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-const Projects = () => {
+const Projects = ({ show, delay = 500 }) => {
+    const [isMounted, setIsMounted] = useState(show);
+    useEffect(() => {
+        const timeout = setTimeout(() => setIsMounted(show), delay);
+        return () => clearTimeout(timeout);
+    }, [show]);
     const projects = [
         {
             index: 0,
@@ -75,12 +80,7 @@ const Projects = () => {
 
     const [active, setActive] = useState(projects[0])
     const [inProp, setInProp] = useState(false);
-    const [isMounted, setIsMounted] = useState(false);
-    const timeout = 2000;
-    useEffect(() => {
-        const timeout = setTimeout(() => setIsMounted(true), 2000);
-        return () => clearTimeout(timeout);
-    }, []);
+    const timeout = 2000
     const handleShow = (key) => {
         setInProp(false)
         console.log(active.index, key)

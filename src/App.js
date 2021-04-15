@@ -18,10 +18,27 @@ class App extends Component {
       currentPage: 0,
       blockScrollUp: false,
       blockScrollDown: false,
-      isAppLoaded: true
+      isAppLoaded: true,
+      firstPageLoadedIndex: null,
+      visitedPageIndexes: [false, false, false, false, false]
     };
 
+    this.setFirstSection = this.setFirstSection.bind(this);
   }
+
+  setFirstSection() {
+    setTimeout(() => {
+      const index = window.fullpage_api.getActiveSection().index;
+      const visitedPageIndexes = [...this.state.visitedPageIndexes]
+      visitedPageIndexes[index] = true;
+      this.setState(
+        {
+          firstPageLoadedIndex: window.fullpage_api.getActiveSection().index,
+          visitedPageIndexes
+        })
+    }, 1800)
+  }
+
   handlePageChange = number => {
     if (number === 4) {
       console.log('Contact Page Loaded')
@@ -34,8 +51,12 @@ class App extends Component {
       this.handleContactPageLoad('remove')
     }
 
+    const visitedPageIndexes = [...this.state.visitedPageIndexes]
+    if (this.state.firstPageLoadedIndex)
+      visitedPageIndexes[number] = true;
     this.setState({
       currentPage: number,
+      visitedPageIndexes
     }, () => window.fullpage_api.moveTo(number + 1))
   }
 
@@ -59,8 +80,10 @@ class App extends Component {
       console.log('Contact Page Left')
       this.handleContactPageLoad('remove')
     }
-
-    this.setState({ currentPage: destination.index })
+    const visitedPageIndexes = [...this.state.visitedPageIndexes]
+    if (this.state.firstPageLoadedIndex)
+      visitedPageIndexes[destination.index] = true;
+    this.setState({ currentPage: destination.index, visitedPageIndexes })
   }
 
   render() {
@@ -81,14 +104,16 @@ class App extends Component {
             controlArrows={false}
             normalScrollElements={'.card'}
             loopHorizontal={false}
+            animateAnchor={false}
+            afterRender={this.setFirstSection}
             render={({ state, fullpageApi }) => {
               return (
                 <ReactFullpage.Wrapper>
-                  <div className="section"><Home /></div>
-                  <div className="section"><About /></div>
-                  <div className="section"><Experience /></div>
-                  <div className="section"><Projects /></div>
-                  <div className="section"><Contact /></div>
+                  <div className="section"><Home show={this.state.visitedPageIndexes[0]} /></div>
+                  <div className="section"><About show={this.state.visitedPageIndexes[1]} /></div>
+                  <div className="section"><Experience show={this.state.visitedPageIndexes[2]} /></div>
+                  <div className="section"><Projects show={this.state.visitedPageIndexes[3]} /></div>
+                  <div className="section"><Contact show={this.state.visitedPageIndexes[4]} /></div>
                 </ReactFullpage.Wrapper>
               );
             }}

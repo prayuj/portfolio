@@ -6,12 +6,12 @@ import profilePic from "../../img/profile.png"
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { useState, useEffect } from 'react';
 
-const HomeDesktop = () => {
-    const [isMounted, setIsMounted] = useState(false);
+const HomeDesktop = ({ show, delay = 500 }) => {
+    const [isMounted, setIsMounted] = useState(show);
     useEffect(() => {
-        const timeout = setTimeout(() => setIsMounted(true), 2000);
+        const timeout = setTimeout(() => setIsMounted(show), delay);
         return () => clearTimeout(timeout);
-    }, []);
+    }, [show]);
 
     const timeout = 2000;
 
