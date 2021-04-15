@@ -82,10 +82,6 @@ ul.pagination-desktop > li a{
   color: inherit;
 }
 
-.current-main-element{
-  height:100%
-}
-
 .mobile > .row > .col{
   padding: 0 10%;
 }
