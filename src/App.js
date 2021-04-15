@@ -19,7 +19,7 @@ class App extends Component {
       blockScrollUp: false,
       blockScrollDown: false,
       isAppLoaded: true,
-      firstPageLoadedIndex: null,
+      firstPageLoadedIndex: undefined,
       visitedPageIndexes: [false, false, false, false, false]
     };
 
