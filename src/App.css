@@ -367,6 +367,16 @@ ul.pagination-mobile .span-item-enter-done {
   transition: opacity 300ms cubic-bezier(.65,.05,.36,1), transform 300ms cubic-bezier(.65,.05,.36,1);
 }
 
+.faderight-enter {
+  opacity: 0.00;
+  transform: translateX(-20px);
+}
+.faderight-enter-active {
+  opacity: 1;
+  transform: translateX(0px);
+  transition: opacity 300ms cubic-bezier(.65,.05,.36,1), transform 300ms cubic-bezier(.65,.05,.36,1);
+}
+
 .fadeup-enter-done {
   transition: none;
 }

@@ -25,7 +25,7 @@ const HomeDesktop = ({ show, delay = 500 }) => {
     </TextLoop></h3>
     const five = <span href="#" className="accent-style display-flex justify-content-center blink_me">
         <a href="#about">
-            <h3><i class="fas fa-chevron-down"></i></h3>
+            <h3><i class="fas fa-chevron-up"></i></h3>
         </a>
     </span>
 

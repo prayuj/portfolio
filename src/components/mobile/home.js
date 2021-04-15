@@ -58,7 +58,7 @@ const HomeMobile = ({ show, delay = 500 }) => {
                                     window.fullpage_api.moveSectionDown()
                                 }
                             }
-                            }><h3><i class="fas fa-chevron-down"></i></h3></span>
+                            }><h3><i class="fas fa-chevron-up"></i></h3></span>
                         </Col></CSSTransition> : ''
                     }
 
