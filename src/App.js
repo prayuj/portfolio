@@ -52,7 +52,7 @@ class App extends Component {
     }
 
     const visitedPageIndexes = [...this.state.visitedPageIndexes]
-    if (this.state.firstPageLoadedIndex)
+    if (!isNaN(this.state.firstPageLoadedIndex))
       visitedPageIndexes[number] = true;
     this.setState({
       currentPage: number,
@@ -81,7 +81,7 @@ class App extends Component {
       this.handleContactPageLoad('remove')
     }
     const visitedPageIndexes = [...this.state.visitedPageIndexes]
-    if (this.state.firstPageLoadedIndex)
+    if (!isNaN(this.state.firstPageLoadedIndex))
       visitedPageIndexes[destination.index] = true;
     this.setState({ currentPage: destination.index, visitedPageIndexes })
   }
