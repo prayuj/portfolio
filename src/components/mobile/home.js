@@ -5,7 +5,6 @@ import TextLoop from "react-text-loop";
 import profilePic from "../../img/profile-mobile.png"
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { useState, useEffect } from 'react';
-import LazyLoad from 'react-lazyload';
 
 const HomeMobile = ({ show, delay = 500 }) => {
     const [isMounted, setIsMounted] = useState(show);
