@@ -5,6 +5,7 @@ import TextLoop from "react-text-loop";
 import profilePic from "../../img/profile-mobile.png"
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { useState, useEffect } from 'react';
+import LazyLoad from 'react-lazyload';
 
 const HomeMobile = ({ show, delay = 500 }) => {
     const [isMounted, setIsMounted] = useState(show);
@@ -33,7 +34,7 @@ const HomeMobile = ({ show, delay = 500 }) => {
                     <TransitionGroup component={null}>
                         {isMounted ?
                             <CSSTransition classNames="fadeup" timeout={timeout}>
-                                <img src={profilePic} id="profile-pic-mobile"></img>
+                                <img src={profilePic} id="profile-pic-mobile" />
                             </CSSTransition> : ''
                         }
 

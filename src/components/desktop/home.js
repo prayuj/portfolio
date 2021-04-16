@@ -5,6 +5,7 @@ import TextLoop from "react-text-loop";
 import profilePic from "../../img/profile.png"
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { useState, useEffect } from 'react';
+import LazyLoad from 'react-lazyload';
 
 const HomeDesktop = ({ show, delay = 500 }) => {
     const [isMounted, setIsMounted] = useState(show);
@@ -49,7 +50,7 @@ const HomeDesktop = ({ show, delay = 500 }) => {
                         {isMounted ?
                             <CSSTransition classNames="fadeup" timeout={timeout}>
                                 <div style={{ transitionDelay: '600ms' }}>
-                                    <img src={profilePic} id="profile-pic-desktop"></img>
+                                    <img src={profilePic} id="profile-pic-desktop" />
                                 </div>
                             </CSSTransition> : ''
                         }
