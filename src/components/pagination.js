@@ -28,7 +28,7 @@ class Pagination extends Component {
             this.state.icons.map((icon, index) =>
                 <li id={index} key={index} className={this.props.currentPage === index ? 'active' : ''}>
                     <CSSTransition in={this.state.isMounted} classNames='span-item'>
-                        <span className='span-item-default' style={{ transitionDelay: `${index * 100}ms` }}>
+                        <span className='span-item-default display-flex' style={{ transitionDelay: `${index * 100}ms` }}>
                             <a href={icon.path} title={icon.title}>
                                 <i id={index} className={icon.icon}></i>
                             </a>

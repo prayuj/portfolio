@@ -18,7 +18,7 @@ const Footer = () => {
                     <TransitionGroup component={null}>
                         {isMounted &&
                             <CSSTransition classNames='fadeup' timeout={1000}>
-                                <div style={{ transitionDelay: '0ms' }}>
+                                <div className='display-flex' style={{ transitionDelay: '0ms' }}>
                                     <a href="https://www.linkedin.com/in/prayuj/" target="_blank">
                                         <i class="fab fa-linkedin-in"></i>
                                     </a>
@@ -31,7 +31,7 @@ const Footer = () => {
                     <TransitionGroup component={null}>
                         {isMounted &&
                             <CSSTransition classNames='fadeup' timeout={1000}>
-                                <div style={{ transitionDelay: '150ms' }}>
+                                <div className='display-flex' style={{ transitionDelay: '150ms' }}>
                                     <a href="https://github.com/prayuj" target="_blank" className='footer-a-default'>
                                         <i class="fab fa-github"></i>
                                     </a>
@@ -44,7 +44,7 @@ const Footer = () => {
                     <TransitionGroup component={null}>
                         {isMounted &&
                             <CSSTransition classNames='fadeup' timeout={1000}>
-                                <div style={{ transitionDelay: '300ms' }}>
+                                <div className='display-flex' style={{ transitionDelay: '300ms' }}>
                                     <a href="mailto:prayuj@gmail.com" target="_blank" className='footer-a-default'><i class="far fa-envelope"></i></a>
                                 </div>
                             </CSSTransition>

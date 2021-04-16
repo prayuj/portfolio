@@ -2,7 +2,7 @@
   height: 100vh; /* Use vh as a fallback for browsers that do not support Custom Properties */
   height: calc(var(--vh, 1vh) * 100);
   --accentColor: #ff206e;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .light .App{
@@ -72,7 +72,7 @@ ul.pagination-mobile > li a{
   color: inherit;
 }
 
-ul.pagination-desktop > li:hover:not(.active){
+ul.pagination-desktop > li:not(.active) a:hover{
   color:var(--accentColor);
   transform: translateY(-3px);
   transition: transform 100ms ease-in-out 0s;
@@ -283,7 +283,7 @@ align-content: center;
 .accent-style, a{
   color: var(--accentColor);
 }
-.desktop-footer .col:hover{
+.desktop-footer .col a:hover{
   transform: translateY(-3px);
   transition: transform 100ms ease-in-out 0s;
   color: var(--accentColor);
