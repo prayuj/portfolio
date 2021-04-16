@@ -11,46 +11,40 @@ const Footer = () => {
         const timeout = setTimeout(() => setIsMounted(true), 1400);
         return () => clearTimeout(timeout);
     }, []);
+
+    const footerIcons = [
+        {
+            icon: 'fab fa-linkedin-in',
+            link: 'https://www.linkedin.com/in/prayuj/'
+        },
+        {
+            icon: 'fab fa-github',
+            link: 'https://github.com/prayuj'
+        },
+        {
+            icon: 'far fa-envelope',
+            link: 'mailto:prayuj@gmail.com'
+        }
+    ]
+
     return (
         <Container className={`footer ${isDesktop ? 'desktop-footer' : 'mobile-footer'}`}>
             <Row>
-                <Col className='display-flex'>
-                    <TransitionGroup component={null}>
-                        {isMounted &&
-                            <CSSTransition classNames='fadeup' timeout={1000}>
-                                <div className='display-flex' style={{ transitionDelay: '0ms' }}>
-                                    <a href="https://www.linkedin.com/in/prayuj/" target="_blank">
-                                        <i class="fab fa-linkedin-in"></i>
-                                    </a>
-                                </div>
-                            </CSSTransition>
-                        }
-                    </TransitionGroup>
-                </Col>
-                <Col className='display-flex'>
-                    <TransitionGroup component={null}>
-                        {isMounted &&
-                            <CSSTransition classNames='fadeup' timeout={1000}>
-                                <div className='display-flex' style={{ transitionDelay: '150ms' }}>
-                                    <a href="https://github.com/prayuj" target="_blank" className='footer-a-default'>
-                                        <i class="fab fa-github"></i>
-                                    </a>
-                                </div>
-                            </CSSTransition>
-                        }
-                    </TransitionGroup>
-                </Col>
-                <Col className='display-flex'>
-                    <TransitionGroup component={null}>
-                        {isMounted &&
-                            <CSSTransition classNames='fadeup' timeout={1000}>
-                                <div className='display-flex' style={{ transitionDelay: '300ms' }}>
-                                    <a href="mailto:prayuj@gmail.com" target="_blank" className='footer-a-default'><i class="far fa-envelope"></i></a>
-                                </div>
-                            </CSSTransition>
-                        }
-                    </TransitionGroup>
-                </Col>
+                {footerIcons.map((icon, i) => (
+                    <Col className='display-flex'>
+                        <TransitionGroup component={null}>
+                            {isMounted &&
+                                <CSSTransition classNames='fadeup' timeout={1000}>
+                                    <div className='display-flex' style={{ transitionDelay: `${i * 150}ms` }}>
+                                        <a href={icon.link} target="_blank">
+                                            <i class={icon.icon}></i>
+                                        </a>
+                                    </div>
+                                </CSSTransition>
+                            }
+                        </TransitionGroup>
+                    </Col>
+                ))}
             </Row>
         </Container>
     );
