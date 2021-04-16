@@ -20,20 +20,24 @@ class App extends Component {
       blockScrollDown: false,
       isAppLoaded: true,
       firstPageLoadedIndex: undefined,
-      visitedPageIndexes: [false, false, false, false, false]
+      visitedPageIndexes: [false, false, false, false, false],
+      disableScrolling: true
     };
 
     this.setFirstSection = this.setFirstSection.bind(this);
   }
 
   setFirstSection() {
+    window.fullpage_api.setAllowScrolling(false);
     setTimeout(() => {
       const index = window.fullpage_api.getActiveSection().index;
+      window.fullpage_api.setAllowScrolling(true);
       const visitedPageIndexes = [...this.state.visitedPageIndexes]
       visitedPageIndexes[index] = true;
       this.setState(
         {
           firstPageLoadedIndex: window.fullpage_api.getActiveSection().index,
+          disableScrolling: false,
           visitedPageIndexes
         })
     }, 1800)
@@ -102,7 +106,6 @@ class App extends Component {
             slideSelector={'.full-page-slide'}
             slidesNavigation={true}
             controlArrows={false}
-            normalScrollElements={'.card'}
             loopHorizontal={false}
             animateAnchor={false}
             afterRender={this.setFirstSection}
