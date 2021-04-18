@@ -1,6 +1,8 @@
 
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { useState, useEffect } from 'react';
+import Dropdown from 'react-bootstrap/Dropdown'
+import Card from 'react-bootstrap/Card'
 const Experience = ({ show, delay = 500 }) => {
     const [isMounted, setIsMounted] = useState(show);
     useEffect(() => {
@@ -9,6 +11,7 @@ const Experience = ({ show, delay = 500 }) => {
     }, [show]);
     const experiences = [
         {
+            index: 0,
             organization: 'Cimpress',
             designation: 'Software Engineer',
             duration: 'August 2020 - Present',
@@ -19,6 +22,7 @@ const Experience = ({ show, delay = 500 }) => {
                 `Various Technologies I have worked with include Magnolia, AWS, Serverlerss, NodeJs, GraphQL, Sentry, to name a few.`]
         },
         {
+            index: 1,
             organization: 'Aegis School of Data Science',
             designation: 'Data Science Intern',
             duration: 'June 2019 - August 2019',
@@ -26,6 +30,7 @@ const Experience = ({ show, delay = 500 }) => {
                 , `Building the model included scrapping of Jobs, their requirements, matching skills between the Job and Student.`]
         },
         {
+            index: 2,
             organization: 'CaratLane',
             designation: 'Software Engineer Intern',
             duration: 'August 2018',
@@ -33,7 +38,15 @@ const Experience = ({ show, delay = 500 }) => {
             Used Python as a modelling tool.`]
         }
     ];
+    const [active, setActive] = useState(experiences[0])
     const timeout = 2000;
+
+    const handleShow = (key) => {
+        console.log(active.index, key)
+        if (!isNaN(key) && active.index != key) {
+            setActive(experiences[key])
+        }
+    }
 
     const style = {
         "width": "25%",
@@ -41,6 +54,50 @@ const Experience = ({ show, delay = 500 }) => {
         "justify-content": "space-evenly",
         "transitionDelay": "600ms"
     }
+
+    return (
+        <div className="display-flex justify-content-center flex-direction-column container">
+            <Card>
+                <Card.Body>
+                    <TransitionGroup component={null}>
+                        {isMounted && <CSSTransition key={0} classNames="fadeup" timeout={timeout}>
+                            <div style={{ transitionDelay: '100ms' }}>
+                                <h1><span className="underline-style">My Experience</span></h1>
+                                <div className="display-flex">
+                                    <Dropdown className="display-flex">
+                                        <Dropdown.Toggle id="dropdown-basic" className="display-flex align-items-center">
+                                            <h2>{active.organization}</h2>
+                                        </Dropdown.Toggle>
+                                        <Dropdown.Menu align="right">
+                                            {experiences.map((experience) => (<Dropdown.Item href={`#experience`} eventKey={experience.index} onSelect={handleShow} className={experience.index == active.index ? 'dropdown-active' : ''}>  {experience.organization}</Dropdown.Item>))}
+                                        </Dropdown.Menu>
+                                    </Dropdown>
+                                </div>
+                                {experiences.map((experience, i) =>
+                                    <CSSTransition
+                                        in={active.index === i}
+                                        timeout={300}
+                                        classNames="description"
+                                    >
+                                        <div hidden={active.index !== i}>
+                                            <h3>{experience.designation}</h3>
+                                            <h4>{experience.duration}</h4>
+                                            <ul>
+                                                {experience.description.map((point, index) => (
+                                                    <li>{point}</li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    </CSSTransition>
+                                )}
+                            </div>
+                        </CSSTransition>}
+
+                    </TransitionGroup>
+                </Card.Body>
+            </Card>
+        </div>
+    )
 
     return (
         <>

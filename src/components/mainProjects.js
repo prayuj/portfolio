@@ -79,14 +79,11 @@ const Projects = ({ show, delay = 500 }) => {
     ]
 
     const [active, setActive] = useState(projects[0])
-    const [inProp, setInProp] = useState(false);
     const timeout = 2000
     const handleShow = (key) => {
-        setInProp(false)
         console.log(active.index, key)
         if (!isNaN(key) && active.index != key) {
             setActive(projects[key])
-            setInProp(true)
         }
     }
 
