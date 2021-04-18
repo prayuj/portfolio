@@ -2,11 +2,12 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import TextLoop from "react-text-loop";
-import profilePic from "../../img/profile.png"
+import profilePicDark from "../../img/profile-darkBG.jpg";
+import profilePicLight from "../../img/profile-lightBG.jpg";
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { useState, useEffect } from 'react';
 
-const HomeDesktop = ({ show, delay = 500 }) => {
+const HomeDesktop = ({ show, delay = 500, isDarkMode }) => {
     const [isMounted, setIsMounted] = useState(show);
     useEffect(() => {
         const timeout = setTimeout(() => setIsMounted(show), delay);
@@ -49,7 +50,7 @@ const HomeDesktop = ({ show, delay = 500 }) => {
                         {isMounted ?
                             <CSSTransition classNames="fadeup" timeout={timeout}>
                                 <div style={{ transitionDelay: '600ms' }}>
-                                    <img src={profilePic} id="profile-pic-desktop" />
+                                    {isDarkMode ? <img src={profilePicDark} id="profile-pic-desktop" /> : <img src={profilePicLight} id="profile-pic-desktop" />}
                                 </div>
                             </CSSTransition> : ''
                         }

@@ -23,8 +23,27 @@ class App extends Component {
       visitedPageIndexes: [false, false, false, false, false],
       disableScrolling: true
     };
-
+    const cookieMode = document.cookie.match('(^|;)\\s*mode\\s*=\\s*([^;]+)')?.pop() || ''
+    if (cookieMode) {
+      this.state.isDarkMode = cookieMode === 'dark';
+      document.getElementById('root').className = cookieMode;
+    }
+    else {
+      document.cookie = "mode=dark"
+      this.state.isDarkMode = true;
+      document.getElementById('root').className = 'dark'
+    }
     this.setFirstSection = this.setFirstSection.bind(this);
+    this.setIsDarkMode = this.setIsDarkMode.bind(this);
+  }
+
+  setIsDarkMode() {
+    this.setState({
+      isDarkMode: !this.state.isDarkMode
+    }, () => {
+      document.getElementById('root').className = this.state.isDarkMode ? 'dark' : 'light'
+      document.cookie = "mode=" + (this.state.isDarkMode ? 'dark' : 'light')
+    })
   }
 
   setFirstSection() {
@@ -112,7 +131,7 @@ class App extends Component {
             render={({ state, fullpageApi }) => {
               return (
                 <ReactFullpage.Wrapper>
-                  <div className="section"><Home show={this.state.visitedPageIndexes[0]} /></div>
+                  <div className="section"><Home show={this.state.visitedPageIndexes[0]} isDarkMode={this.state.isDarkMode} /></div>
                   <div className="section"><About show={this.state.visitedPageIndexes[1]} /></div>
                   <div className="section"><Experience show={this.state.visitedPageIndexes[2]} /></div>
                   <div className="section"><Projects show={this.state.visitedPageIndexes[3]} /></div>
@@ -124,7 +143,7 @@ class App extends Component {
           />
           <Heading />
           <Pagination handleIconClick={this.handlePageChange} currentPage={this.state.currentPage} />
-          <DayNightToggler />
+          <DayNightToggler isDarkMode={this.state.isDarkMode} setIsDarkMode={this.setIsDarkMode} />
           <Footer />
         </div >
       );

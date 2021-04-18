@@ -2,11 +2,12 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import TextLoop from "react-text-loop";
-import profilePic from "../../img/profile-mobile.png"
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { useState, useEffect } from 'react';
+import profilePicDark from "../../img/profile-mobile-darkBG.jpg";
+import profilePicLight from "../../img/profile-mobile-lightBG.jpg";
 
-const HomeMobile = ({ show, delay = 500 }) => {
+const HomeMobile = ({ show, delay = 500, isDarkMode }) => {
     const [isMounted, setIsMounted] = useState(show);
     useEffect(() => {
         const timeout = setTimeout(() => setIsMounted(show), delay);
@@ -33,7 +34,7 @@ const HomeMobile = ({ show, delay = 500 }) => {
                     <TransitionGroup component={null}>
                         {isMounted ?
                             <CSSTransition classNames="fadeup" timeout={timeout}>
-                                <img src={profilePic} id="profile-pic-mobile" />
+                                {isDarkMode ? <img src={profilePicDark} id="profile-pic-mobile" /> : <img src={profilePicLight} id="profile-pic-mobile" />}
                             </CSSTransition> : ''
                         }
 
