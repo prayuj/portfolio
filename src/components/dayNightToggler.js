@@ -36,7 +36,7 @@ class DayNightToggler extends Component {
             return (<TransitionGroup component={null}>
                 {this.state.isMounted && <CSSTransition classNames='fadeup' timeout={1000}>
                     <DarkModeToggle
-                        oonChange={this.props.setIsDarkMode}
+                        onChange={this.props.setIsDarkMode}
                         checked={this.props.isDarkMode}
                         className="day-night-toggle-mobile"
                         size={60}

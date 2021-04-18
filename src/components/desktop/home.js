@@ -6,6 +6,7 @@ import profilePicDark from "../../img/profile-darkBG.jpg";
 import profilePicLight from "../../img/profile-lightBG.jpg";
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { useState, useEffect } from 'react';
+import Fade from 'react-reveal/Fade';
 
 const HomeDesktop = ({ show, delay = 500, isDarkMode }) => {
     const [isMounted, setIsMounted] = useState(show);
@@ -46,15 +47,11 @@ const HomeDesktop = ({ show, delay = 500, isDarkMode }) => {
                     </TransitionGroup>
                 </Col>
                 <Col className="display-flex home-page-desktop">
-                    <TransitionGroup component={null}>
-                        {isMounted ?
-                            <CSSTransition classNames="fadeup" timeout={timeout}>
-                                <div style={{ transitionDelay: '600ms' }}>
-                                    {isDarkMode ? <img src={profilePicDark} id="profile-pic-desktop" /> : <img src={profilePicLight} id="profile-pic-desktop" />}
-                                </div>
-                            </CSSTransition> : ''
-                        }
-                    </TransitionGroup>
+                    <div>
+                        <Fade bottom when={isDarkMode && isMounted}><img src={profilePicDark} id="profile-pic-desktop" /></Fade>
+                        <Fade bottom when={!isDarkMode && isMounted}><img src={profilePicLight} id="profile-pic-desktop" /></Fade>
+                    </div>
+
                 </Col>
             </Row>
         </Container >);
