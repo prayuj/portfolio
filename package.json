@@ -15,6 +15,7 @@
     "react-dom": "^17.0.1",
     "react-page-scroller": "^2.1.0",
     "react-responsive": "^8.2.0",
+    "react-reveal": "^1.2.2",
     "react-scripts": "4.0.3",
     "react-text-loop": "^2.3.0",
     "react-transition-group": "^4.4.1",

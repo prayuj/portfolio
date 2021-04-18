@@ -2,7 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import Dropdown from 'react-bootstrap/Dropdown'
 import Card from 'react-bootstrap/Card'
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import Fade from 'react-reveal/Fade';
+import Zoom from 'react-reveal/Zoom';
 const Projects = ({ show, delay = 500 }) => {
     const [isMounted, setIsMounted] = useState(show);
     useEffect(() => {
@@ -79,63 +80,49 @@ const Projects = ({ show, delay = 500 }) => {
     ]
 
     const [active, setActive] = useState(projects[0])
-    const timeout = 2000
     const handleShow = (key) => {
         console.log(active.index, key)
-        if (!isNaN(key) && active.index != key) {
-            setActive(projects[key])
+        if (!isNaN(key) && active.index !== parseInt(key)) {
+            setActive(projects[parseInt(key)])
         }
     }
 
-    const duration = 300;
-
     return (
         <div className="display-flex justify-content-center flex-direction-column container">
-            <Card>
-                <Card.Body>
-                    <TransitionGroup component={null}>
-                        {isMounted && <CSSTransition key={0} classNames="fadeup" timeout={timeout}>
-                            <div style={{ transitionDelay: '100ms' }}>
-                                <h1><span className="underline-style">Projects</span></h1>
-                                <div className="display-flex">
-                                    <Dropdown className="display-flex">
-                                        <Dropdown.Toggle id="dropdown-basic" className="display-flex align-items-center">
-                                            <h3>{active.name}</h3>
-                                        </Dropdown.Toggle>
-                                        <Dropdown.Menu align="right">
-                                            {projects.map((project) => (<Dropdown.Item href={`#projects`} eventKey={project.index} onSelect={handleShow} className={project.index == active.index ? 'dropdown-active' : ''}>  {project.name}</Dropdown.Item>))}
-                                        </Dropdown.Menu>
-                                    </Dropdown>
-                                </div>
-                                {projects.map((project, i) =>
-                                    <CSSTransition
-                                        in={active.index === i}
-                                        timeout={300}
-                                        classNames="description"
-                                    >
-                                        <p hidden={active.index !== i}>{project.desc}</p>
-                                    </CSSTransition>
-                                )}
-                                <div>
-                                    {iconObjects.map(icon =>
-                                    (active[icon.name] ? <a href={active[icon.name]} style={{ width: 'max-content' }} target="_blank" rel="noreferrer" className="project-link">
-                                        <i class={icon.icon}></i>
-                                    </a> : '')
-                                    )}
-                                </div>
+            <Fade bottom cascade when={isMounted}>
+                <Card>
+                    <Card.Body>
+                        <div>
+                            <h1><span className="underline-style">Projects</span></h1>
+                            <div className="display-flex">
+                                <Dropdown className="display-flex">
+                                    <Dropdown.Toggle id="dropdown-basic" className="display-flex align-items-center">
+                                        <h3>{active.name}</h3>
+                                    </Dropdown.Toggle>
+                                    <Dropdown.Menu align="right">
+                                        {projects.map((project) => (<Dropdown.Item href={`#projects`} eventKey={project.index} onSelect={handleShow} className={project.index == active.index ? 'dropdown-active' : ''}>  {project.name}</Dropdown.Item>))}
+                                    </Dropdown.Menu>
+                                </Dropdown>
                             </div>
-                        </CSSTransition>}
-                    </TransitionGroup>
-
-                </Card.Body>
-
-                <TransitionGroup component={null}>
-                    {isMounted && <CSSTransition key={0} classNames="fadeup" timeout={timeout}>
-                        <Card.Footer style={{ transitionDelay: '300ms' }}><small className="text-muted">{active.languages}</small></Card.Footer>
-                    </CSSTransition>}
-                </TransitionGroup>
-            </Card>
-        </div >
+                            {projects.map((project, i) => (
+                                active.index === i && <Zoom>
+                                    <p>{project.desc}</p>
+                                </Zoom>
+                            )
+                            )}
+                            <div>
+                                {iconObjects.map(icon =>
+                                (active[icon.name] ? <a href={active[icon.name]} style={{ width: 'max-content' }} target="_blank" rel="noreferrer" className="project-link">
+                                    <i class={icon.icon}></i>
+                                </a> : '')
+                                )}
+                            </div>
+                        </div>
+                    </Card.Body>
+                    <Card.Footer><small className="text-muted">{active.languages}</small></Card.Footer>
+                </Card>
+            </Fade>
+        </div>
     )
 }
 
