@@ -6,13 +6,16 @@ import profilePicDark from "../../img/profile-darkBG.jpg";
 import profilePicLight from "../../img/profile-lightBG.jpg";
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { useState, useEffect } from 'react';
-import Fade from 'react-reveal/Fade';
+import Zoom from 'react-reveal/Zoom';
 
 const HomeDesktop = ({ show, delay = 500, isDarkMode }) => {
     const [isMounted, setIsMounted] = useState(show);
+    const [duration, setDuration] = useState(500);
     useEffect(() => {
-        const timeout = setTimeout(() => setIsMounted(show), delay);
-        return () => clearTimeout(timeout);
+        const timeoutOne = setTimeout(() => {
+            setIsMounted(show)
+        }, delay);
+        return () => clearTimeout(timeoutOne);
     }, [show]);
 
     const timeout = 2000;
@@ -48,8 +51,8 @@ const HomeDesktop = ({ show, delay = 500, isDarkMode }) => {
                 </Col>
                 <Col className="display-flex home-page-desktop">
                     <div>
-                        <Fade bottom when={isDarkMode && isMounted}><img src={profilePicDark} id="profile-pic-desktop" /></Fade>
-                        <Fade bottom when={!isDarkMode && isMounted}><img src={profilePicLight} id="profile-pic-desktop" /></Fade>
+                        <Zoom duration={duration} when={isDarkMode && isMounted}><img src={profilePicDark} id="profile-pic-desktop" /></Zoom>
+                        <Zoom duration={duration} when={!isDarkMode && isMounted}><img src={profilePicLight} id="profile-pic-desktop" /></Zoom>
                     </div>
 
                 </Col>
