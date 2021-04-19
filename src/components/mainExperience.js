@@ -2,7 +2,14 @@
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { useState, useEffect } from 'react';
 import Dropdown from 'react-bootstrap/Dropdown'
-import Card from 'react-bootstrap/Card'
+import Nav from 'react-bootstrap/Nav'
+import Container from 'react-bootstrap/Container'
+import Tabs from 'react-bootstrap/Tabs'
+import Tab from 'react-bootstrap/Tab'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Button from 'react-bootstrap/Button'
+import styled from 'styled-components';
 const Experience = ({ show, delay = 500 }) => {
     const [isMounted, setIsMounted] = useState(show);
     useEffect(() => {
@@ -48,115 +55,51 @@ const Experience = ({ show, delay = 500 }) => {
         }
     }
 
-    const style = {
-        "width": "25%",
-        "align-self": "center",
-        "justify-content": "space-evenly",
-        "transitionDelay": "600ms"
-    }
+    const StyledRow = styled(Row)`
+        min-height:350px;
+        height:100%
+    `;
 
     return (
         <div className="display-flex justify-content-center flex-direction-column container">
-            <Card>
-                <Card.Body>
-                    <TransitionGroup component={null}>
-                        {isMounted && <CSSTransition key={0} classNames="fadeup" timeout={timeout}>
-                            <div style={{ transitionDelay: '100ms' }}>
-                                <h1><span className="underline-style">My Experience</span></h1>
-                                <div className="display-flex">
-                                    <Dropdown className="display-flex">
-                                        <Dropdown.Toggle id="dropdown-basic" className="display-flex align-items-center">
-                                            <h2>{active.organization}</h2>
-                                        </Dropdown.Toggle>
-                                        <Dropdown.Menu align="right">
-                                            {experiences.map((experience) => (<Dropdown.Item href={`#experience`} eventKey={experience.index} onSelect={handleShow} className={experience.index == active.index ? 'dropdown-active' : ''}>  {experience.organization}</Dropdown.Item>))}
-                                        </Dropdown.Menu>
-                                    </Dropdown>
-                                </div>
-                                {experiences.map((experience, i) =>
-                                    <CSSTransition
-                                        in={active.index === i}
-                                        timeout={300}
-                                        classNames="description"
-                                    >
-                                        <div hidden={active.index !== i}>
-                                            <h3>{experience.designation}</h3>
-                                            <h4>{experience.duration}</h4>
-                                            <ul>
-                                                {experience.description.map((point, index) => (
-                                                    <li>{point}</li>
-                                                ))}
-                                            </ul>
-                                        </div>
-                                    </CSSTransition>
-                                )}
-                            </div>
-                        </CSSTransition>}
-
-                    </TransitionGroup>
-                </Card.Body>
-            </Card>
+            <Tab.Container id="left-tabs-example" defaultActiveKey={0}>
+                <StyledRow>
+                    <Col sm={3}>
+                        <Nav variant="tabs">
+                            {experiences.map(experience =>
+                                <Nav.Item>
+                                    <Nav.Link href='#experience' eventKey={experience.index}>{experience.organization}</Nav.Link>
+                                </Nav.Item>)}
+                        </Nav>
+                    </Col>
+                    <Col sm={9}>
+                        <Tab.Content>
+                            {experiences.map(experience =>
+                                <Tab.Pane eventKey={experience.index}>
+                                    <h2>{experience.organization}</h2>
+                                    <h3>{experience.designation}</h3>
+                                    <h4>{experience.duration}</h4>
+                                    {experience.description.map((point, index) => (
+                                        <li>{point}</li>
+                                    ))}
+                                </Tab.Pane>
+                            )}
+                        </Tab.Content>
+                    </Col>
+                </StyledRow>
+            </Tab.Container>
         </div>
     )
-
-    return (
-        <>
-            {experiences.map((experience, index) => (
-                <div className="full-page-slide" style={{ width: '100%', height: '100vh' }}>
-                    <div className="display-flex justify-content-center align-items-center container">
-                        <div className="display-flex justify-content-center flex-direction-column slide" >
-                            <TransitionGroup component={null}>
-                                {isMounted && <CSSTransition key={0} classNames="fadeup" timeout={timeout}>
-                                    <h1 style={{ transitionDelay: `100ms` }}><span className="underline-style">My Experience</span></h1>
-                                </CSSTransition>}
-                            </TransitionGroup>
-                            <TransitionGroup component={null}>
-                                {isMounted && <CSSTransition key={0} classNames="fadeup" timeout={timeout}>
-                                    <h2 style={{ transitionDelay: `200ms` }}>{experience.organization}</h2>
-                                </CSSTransition>}
-                            </TransitionGroup>
-                            <TransitionGroup component={null}>
-                                {isMounted && <CSSTransition key={0} classNames="fadeup" timeout={timeout}>
-                                    <h3 style={{ transitionDelay: `300ms` }}>{experience.designation}</h3>
-                                </CSSTransition>}
-                            </TransitionGroup>
-                            <TransitionGroup component={null}>
-                                {isMounted && <CSSTransition key={0} classNames="fadeup" timeout={timeout}>
-                                    <h4 style={{ transitionDelay: `400ms` }}>{experience.duration}</h4>
-                                </CSSTransition>}
-                            </TransitionGroup>
-                            <p>
-                                <ul>
-                                    <TransitionGroup component={null}>
-                                        {isMounted && experience.description.map((point, index) => (
-                                            <CSSTransition key={index} classNames="fadeup" timeout={timeout}><li style={{ transitionDelay: `${index * 100 + 500}ms` }}>{point}</li></CSSTransition>
-                                        ))}
-                                    </TransitionGroup>
-                                </ul>
-                            </p>
-                            <TransitionGroup component={null}>
-                                {isMounted && <CSSTransition key={index} classNames="fadeup" timeout={timeout}>
-                                    <div className="display-flex align-items-center" style={style}>
-                                        {index !== 0 ? <span id="add-blink-class" className="cursor-pointer accent-style align-self-center" onClick={() => {
-                                            if (window.fullpage_api.moveSlideLeft) {
-                                                window.fullpage_api.moveSlideLeft()
-                                            }
-                                        }
-                                        }><h3><i class="fas fa-chevron-left"></i></h3></span> : ''}
-                                        {index !== experiences.length - 1 ? <span id="add-blink-class" className="cursor-pointer accent-style align-self-center" onClick={() => {
-                                            if (window.fullpage_api.moveSlideRight) {
-                                                window.fullpage_api.moveSlideRight()
-                                            }
-                                        }
-                                        }><h3><i class="fas fa-chevron-right"></i></h3></span> : ''}
-                                    </div>
-                                </CSSTransition>}
-                            </TransitionGroup>
-                        </div>
-                    </div>
-                </div>
+    /*
+    <h2>{experience.organization}</h2>
+                                    <h3>{experience.designation}</h3>
+                                    <h4>{experience.duration}</h4>
+                                    {experience.description.map((point, index) => (
+                                        <li>{point}</li>
+                                    ))} 
             ))}
-        </>);
+                                    ))} 
+                                    */
 }
 
 export default Experience;
