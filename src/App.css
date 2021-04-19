@@ -239,18 +239,18 @@ align-content: center;
   background-color: #0c0f0a !important;
 }
 
-.dark .card-body a.project-link{
+.dark .project-link-container a.project-link{
   color: white !important
 }
 
-.light .card a.project-link{
+.light .project-link-container a.project-link{
   color: black !important
 }
 
-.card a{
-  margin-right: 10%
+.project-link-container a{
+  margin-right: 25px
 }
-.card a >i{
+.project-link-container a >i{
   transform: scale(1.25)
 }
 
