@@ -112,7 +112,7 @@ const Projects = ({ show, delay = 500 }) => {
                             <p>
                                 {project.desc}
                             </p>
-                            <div>
+                            <div className="project-link-container">
                                 {iconObjects.map(icon =>
                                 (project[icon.name] ? <a href={project[icon.name]} style={{ width: 'max-content' }} target="_blank" rel="noreferrer" className="project-link">
                                     <i class={icon.icon}></i>
