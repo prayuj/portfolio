@@ -1,8 +1,9 @@
 
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { useState, useEffect } from 'react';
-import Dropdown from 'react-bootstrap/Dropdown'
-import Card from 'react-bootstrap/Card'
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 const Experience = ({ show, delay = 500 }) => {
     const [isMounted, setIsMounted] = useState(show);
     useEffect(() => {
@@ -56,60 +57,12 @@ const Experience = ({ show, delay = 500 }) => {
     }
 
     return (
-        <div className="display-flex justify-content-center flex-direction-column container">
-            <Card>
-                <Card.Body>
-                    <TransitionGroup component={null}>
-                        {isMounted && <CSSTransition key={0} classNames="fadeup" timeout={timeout}>
-                            <div style={{ transitionDelay: '100ms' }}>
-                                <h1><span className="underline-style">My Experience</span></h1>
-                                <div className="display-flex">
-                                    <Dropdown className="display-flex">
-                                        <Dropdown.Toggle id="dropdown-basic" className="display-flex align-items-center">
-                                            <h2>{active.organization}</h2>
-                                        </Dropdown.Toggle>
-                                        <Dropdown.Menu align="right">
-                                            {experiences.map((experience) => (<Dropdown.Item href={`#experience`} eventKey={experience.index} onSelect={handleShow} className={experience.index == active.index ? 'dropdown-active' : ''}>  {experience.organization}</Dropdown.Item>))}
-                                        </Dropdown.Menu>
-                                    </Dropdown>
-                                </div>
-                                {experiences.map((experience, i) =>
-                                    <CSSTransition
-                                        in={active.index === i}
-                                        timeout={300}
-                                        classNames="description"
-                                    >
-                                        <div hidden={active.index !== i}>
-                                            <h3>{experience.designation}</h3>
-                                            <h4>{experience.duration}</h4>
-                                            <ul>
-                                                {experience.description.map((point, index) => (
-                                                    <li>{point}</li>
-                                                ))}
-                                            </ul>
-                                        </div>
-                                    </CSSTransition>
-                                )}
-                            </div>
-                        </CSSTransition>}
-
-                    </TransitionGroup>
-                </Card.Body>
-            </Card>
-        </div>
-    )
-
-    return (
-        <>
+        <div className="h-100 display-flex flex-direction-column justify-content-center container">
+            <h1><span className="underline-style">My Experience</span></h1>
             {experiences.map((experience, index) => (
-                <div className="full-page-slide" style={{ width: '100%', height: '100vh' }}>
+                <div className="full-page-slide fp-auto-height" style={{ width: '100%', height: '50vh' }}>
                     <div className="display-flex justify-content-center align-items-center container">
                         <div className="display-flex justify-content-center flex-direction-column slide" >
-                            <TransitionGroup component={null}>
-                                {isMounted && <CSSTransition key={0} classNames="fadeup" timeout={timeout}>
-                                    <h1 style={{ transitionDelay: `100ms` }}><span className="underline-style">My Experience</span></h1>
-                                </CSSTransition>}
-                            </TransitionGroup>
                             <TransitionGroup component={null}>
                                 {isMounted && <CSSTransition key={0} classNames="fadeup" timeout={timeout}>
                                     <h2 style={{ transitionDelay: `200ms` }}>{experience.organization}</h2>
@@ -156,7 +109,7 @@ const Experience = ({ show, delay = 500 }) => {
                     </div>
                 </div>
             ))}
-        </>);
+        </div>);
 }
 
 export default Experience;
