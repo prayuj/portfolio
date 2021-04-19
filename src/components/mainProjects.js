@@ -90,55 +90,58 @@ const Projects = ({ show, delay = 500 }) => {
         }
     }
 
-    const duration = 300;
+    const style = {
+        "width": "25%",
+        "align-self": "center",
+        "justify-content": "space-evenly",
+        "transitionDelay": "600ms"
+    }
 
     return (
-        <div className="display-flex justify-content-center flex-direction-column container">
-            <Card>
-                <Card.Body>
-                    <TransitionGroup component={null}>
-                        {isMounted && <CSSTransition key={0} classNames="fadeup" timeout={timeout}>
-                            <div style={{ transitionDelay: '100ms' }}>
-                                <h1><span className="underline-style">Projects</span></h1>
-                                <div className="display-flex">
-                                    <Dropdown className="display-flex">
-                                        <Dropdown.Toggle id="dropdown-basic" className="display-flex align-items-center">
-                                            <h3>{active.name}</h3>
-                                        </Dropdown.Toggle>
-                                        <Dropdown.Menu align="right">
-                                            {projects.map((project) => (<Dropdown.Item href={`#projects`} eventKey={project.index} onSelect={handleShow} className={project.index == active.index ? 'dropdown-active' : ''}>  {project.name}</Dropdown.Item>))}
-                                        </Dropdown.Menu>
-                                    </Dropdown>
-                                </div>
-                                {projects.map((project, i) =>
-                                    <CSSTransition
-                                        in={active.index === i}
-                                        timeout={300}
-                                        classNames="description"
-                                    >
-                                        <p hidden={active.index !== i}>{project.desc}</p>
-                                    </CSSTransition>
+        <div className="h-100 display-flex flex-direction-column justify-content-center container">
+            <h1><span className="underline-style">My Projects</span></h1>
+            {projects.map((project, index) => (
+                <div className="full-page-slide fp-auto-height" style={{ width: '100%', height: '50vh' }}>
+                    <div className="display-flex justify-content-center align-items-center container">
+                        <div className="display-flex justify-content-center flex-direction-column slide" >
+                            <TransitionGroup component={null}>
+                                {isMounted && <CSSTransition key={0} classNames="fadeup" timeout={timeout}>
+                                    <h2 style={{ transitionDelay: `200ms` }}>{project.name}</h2>
+                                </CSSTransition>}
+                            </TransitionGroup>
+                            <p>
+                                {project.desc}
+                            </p>
+                            <div>
+                                {iconObjects.map(icon =>
+                                (project[icon.name] ? <a href={project[icon.name]} style={{ width: 'max-content' }} target="_blank" rel="noreferrer" className="project-link">
+                                    <i class={icon.icon}></i>
+                                </a> : '')
                                 )}
-                                <div>
-                                    {iconObjects.map(icon =>
-                                    (active[icon.name] ? <a href={active[icon.name]} style={{ width: 'max-content' }} target="_blank" rel="noreferrer" className="project-link">
-                                        <i class={icon.icon}></i>
-                                    </a> : '')
-                                    )}
-                                </div>
                             </div>
-                        </CSSTransition>}
-                    </TransitionGroup>
-
-                </Card.Body>
-
-                <TransitionGroup component={null}>
-                    {isMounted && <CSSTransition key={0} classNames="fadeup" timeout={timeout}>
-                        <Card.Footer style={{ transitionDelay: '300ms' }}><small className="text-muted">{active.languages}</small></Card.Footer>
-                    </CSSTransition>}
-                </TransitionGroup>
-            </Card>
-        </div >
+                            <TransitionGroup component={null}>
+                                {isMounted && <CSSTransition key={index} classNames="fadeup" timeout={timeout}>
+                                    <div className="display-flex align-items-center" style={style}>
+                                        {index !== 0 ? <span id="add-blink-class" className="cursor-pointer accent-style align-self-center" onClick={() => {
+                                            if (window.fullpage_api.moveSlideLeft) {
+                                                window.fullpage_api.moveSlideLeft()
+                                            }
+                                        }
+                                        }><h3><i class="fas fa-chevron-left"></i></h3></span> : ''}
+                                        {index !== projects.length - 1 ? <span id="add-blink-class" className="cursor-pointer accent-style align-self-center" onClick={() => {
+                                            if (window.fullpage_api.moveSlideRight) {
+                                                window.fullpage_api.moveSlideRight()
+                                            }
+                                        }
+                                        }><h3><i class="fas fa-chevron-right"></i></h3></span> : ''}
+                                    </div>
+                                </CSSTransition>}
+                            </TransitionGroup>
+                        </div>
+                    </div>
+                </div>
+            ))}
+        </div>
     )
 }
 
