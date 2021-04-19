@@ -2,8 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Dropdown from 'react-bootstrap/Dropdown'
 import Card from 'react-bootstrap/Card'
-import Fade from 'react-reveal/Fade';
-import Zoom from 'react-reveal/Zoom';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 const Projects = ({ show, delay = 500 }) => {
     const [isMounted, setIsMounted] = useState(show);
     useEffect(() => {
@@ -80,10 +79,14 @@ const Projects = ({ show, delay = 500 }) => {
     ]
 
     const [active, setActive] = useState(projects[0])
+    const [inProp, setInProp] = useState(false);
+    const timeout = 2000
     const handleShow = (key) => {
+        setInProp(false)
         console.log(active.index, key)
-        if (!isNaN(key) && active.index !== parseInt(key)) {
-            setActive(projects[parseInt(key)])
+        if (!isNaN(key) && active.index != key) {
+            setActive(projects[key])
+            setInProp(true)
         }
     }
 
