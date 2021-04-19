@@ -394,3 +394,11 @@ ul.pagination-mobile .span-item-enter-done {
   margin-left: -1em; /* Also needed for space (tweak if needed) */
   margin-right: .25em;
 }
+
+.fp-slidesContainer{
+  display: flex;
+  align-items: center;
+}
+.fp-slides{
+  height:auto;
+}

@@ -1,6 +1,9 @@
 
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { useState, useEffect } from 'react';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 const Experience = ({ show, delay = 500 }) => {
     const [isMounted, setIsMounted] = useState(show);
     useEffect(() => {
@@ -43,16 +46,12 @@ const Experience = ({ show, delay = 500 }) => {
     }
 
     return (
-        <>
+        <div className="h-100 display-flex flex-direction-column justify-content-center container">
+            <h1><span className="underline-style">My Experience</span></h1>
             {experiences.map((experience, index) => (
-                <div className="full-page-slide" style={{ width: '100%', height: '100vh' }}>
+                <div className="full-page-slide fp-auto-height" style={{ width: '100%', height: '50vh' }}>
                     <div className="display-flex justify-content-center align-items-center container">
                         <div className="display-flex justify-content-center flex-direction-column slide" >
-                            <TransitionGroup component={null}>
-                                {isMounted && <CSSTransition key={0} classNames="fadeup" timeout={timeout}>
-                                    <h1 style={{ transitionDelay: `100ms` }}><span className="underline-style">My Experience</span></h1>
-                                </CSSTransition>}
-                            </TransitionGroup>
                             <TransitionGroup component={null}>
                                 {isMounted && <CSSTransition key={0} classNames="fadeup" timeout={timeout}>
                                     <h2 style={{ transitionDelay: `200ms` }}>{experience.organization}</h2>
@@ -99,7 +98,7 @@ const Experience = ({ show, delay = 500 }) => {
                     </div>
                 </div>
             ))}
-        </>);
+        </div>);
 }
 
 export default Experience;
