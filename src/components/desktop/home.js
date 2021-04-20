@@ -4,8 +4,8 @@ import Col from 'react-bootstrap/Col';
 import TextLoop from "react-text-loop";
 import profilePicDark from "../../img/profile-darkBG.jpg";
 import profilePicLight from "../../img/profile-lightBG.jpg";
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { useState, useEffect } from 'react';
+import Fade from 'react-reveal/Fade';
 import Zoom from 'react-reveal/Zoom';
 
 const HomeDesktop = ({ show, delay = 500, isDarkMode }) => {
@@ -40,19 +40,17 @@ const HomeDesktop = ({ show, delay = 500, isDarkMode }) => {
         <Container className="main-container h-100 desktop">
             <Row className="h-100 justify-content-center align-items-center home-row-default">
                 <Col className="display-flex home-page-desktop flex-direction-column">
-                    <TransitionGroup component={null}>
-                        {isMounted &&
-                            items.map((item, i) => (
-                                <CSSTransition key={i} classNames="fadeup" timeout={timeout}>
-                                    <div style={{ transitionDelay: `${i + 1}00ms` }}>{item}</div>
-                                </CSSTransition>
-                            ))}
-                    </TransitionGroup>
+                    {isMounted &&
+                        items.map((item, i) => (
+                            <Fade bottom delay={i * 100}>
+                                <div>{item}</div>
+                            </Fade>
+                        ))}
                 </Col>
                 <Col className="display-flex home-page-desktop">
                     <div>
-                        <Zoom duration={duration} when={isDarkMode && isMounted}><img src={profilePicDark} id="profile-pic-desktop" /></Zoom>
-                        <Zoom duration={duration} when={!isDarkMode && isMounted}><img src={profilePicLight} id="profile-pic-desktop" /></Zoom>
+                        <Zoom duration={duration} when={isDarkMode && isMounted} collapse><img src={profilePicDark} id="profile-pic-desktop" /></Zoom>
+                        <Zoom duration={duration} when={!isDarkMode && isMounted} collapse><img src={profilePicLight} id="profile-pic-desktop" /></Zoom>
                     </div>
 
                 </Col>

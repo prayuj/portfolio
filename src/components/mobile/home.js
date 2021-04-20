@@ -2,13 +2,15 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import TextLoop from "react-text-loop";
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { useState, useEffect } from 'react';
 import profilePicDark from "../../img/profile-mobile-darkBG.jpg";
 import profilePicLight from "../../img/profile-mobile-lightBG.jpg";
+import Fade from 'react-reveal/Fade';
+import Zoom from 'react-reveal/Zoom';
 
 const HomeMobile = ({ show, delay = 500, isDarkMode }) => {
     const [isMounted, setIsMounted] = useState(show);
+    const [duration, setDuration] = useState(500);
     useEffect(() => {
         const timeout = setTimeout(() => setIsMounted(show), delay);
         return () => clearTimeout(timeout);
@@ -30,42 +32,29 @@ const HomeMobile = ({ show, delay = 500, isDarkMode }) => {
     return (
         <Container className="main-container h-100 mobile">
             <Row className="justify-content-center align-items-center flex-direction-column">
-                <Col className="display-flex home-page-mobile flex-direction-column justify-content-center align-items-center">
-                    <TransitionGroup component={null}>
-                        {isMounted ?
-                            <CSSTransition classNames="fadeup" timeout={timeout}>
-                                {isDarkMode ? <img src={profilePicDark} id="profile-pic-mobile" /> : <img src={profilePicLight} id="profile-pic-mobile" />}
-                            </CSSTransition> : ''
-                        }
-
-                    </TransitionGroup>
-                </Col>
+                {isMounted ? <Col className="display-flex home-page-mobile flex-direction-column justify-content-center align-items-center">
+                    {isDarkMode ?
+                        <Fade><img src={profilePicDark} id="profile-pic-mobile" /> </Fade> :
+                        <Fade><img src={profilePicLight} id="profile-pic-mobile" /></Fade>}
+                </Col> : ''}
                 <Col className="display-flex home-page-mobile flex-direction-column justify-content-center">
-                    <TransitionGroup component={null}>
-                        {isMounted &&
-                            items.map((item, i) => (
-                                <CSSTransition key={i} classNames="fadeup" timeout={timeout}>
-                                    <div style={{ transitionDelay: `${i + 1}00ms` }}>{item}</div>
-                                </CSSTransition>
-                            ))}
-                    </TransitionGroup>
+                    {isMounted &&
+                        items.map((item, i) => (
+                            <Fade bottom delay={i * 100}>
+                                <div>{item}</div>
+                            </Fade>
+                        ))}
                 </Col>
-
-                <TransitionGroup component={null}>
-                    {isMounted ? <CSSTransition classNames="fadeup" timeout={timeout}>
-                        <Col className="display-flex home-page-mobile flex-direction-column justify-content-center align-items-center" style={{ transitionDelay: `600ms` }} >
-                            <span href="#" className="cursor-pointer accent-style align-self-center blink_me" onClick={() => {
-                                if (window.fullpage_api.moveSectionDown) {
-                                    window.fullpage_api.moveSectionDown()
-                                }
+                {isMounted ?
+                    <Fade bottom delay={500}><Col className="display-flex home-page-mobile flex-direction-column justify-content-center align-items-center" style={{ transitionDelay: `600ms` }} >
+                        <span href="#" className="cursor-pointer accent-style align-self-center blink_me" onClick={() => {
+                            if (window.fullpage_api.moveSectionDown) {
+                                window.fullpage_api.moveSectionDown()
                             }
-                            }><h3><i class="fas fa-chevron-up"></i></h3></span>
-                        </Col></CSSTransition> : ''
-                    }
-
-                </TransitionGroup>
-
-
+                        }
+                        }><h3><i class="fas fa-chevron-up"></i></h3></span>
+                    </Col></Fade> : ''
+                }
             </Row>
         </Container >
     );
