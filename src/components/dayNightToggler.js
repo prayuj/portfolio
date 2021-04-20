@@ -4,7 +4,6 @@ import {
     isMobileOnly,
     isDesktop
 } from "react-device-detect";
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import Fade from 'react-reveal/Fade';
 
 class DayNightToggler extends Component {
