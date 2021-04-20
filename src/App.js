@@ -11,6 +11,8 @@ import DayNightToggler from './components/dayNightToggler'
 import { isTablet, isMobileOnly } from "react-device-detect";
 import ReactFullpage from '@fullpage/react-fullpage';
 import './App.css';
+
+//start split
 class App extends Component {
   constructor(props) {
     super(props);
