@@ -4,6 +4,7 @@ import Col from 'react-bootstrap/Col';
 import { isDesktop } from 'react-device-detect';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { useState, useEffect } from 'react'
+import Fade from 'react-reveal/Fade';
 
 const Footer = () => {
     const [isMounted, setIsMounted] = useState(false);
@@ -32,17 +33,13 @@ const Footer = () => {
             <Row>
                 {footerIcons.map((icon, i) => (
                     <Col className='display-flex'>
-                        <TransitionGroup component={null}>
-                            {isMounted &&
-                                <CSSTransition classNames='fadeup' timeout={1000}>
-                                    <div className='display-flex' style={{ transitionDelay: `${i * 150}ms` }}>
-                                        <a href={icon.link} target="_blank">
-                                            <i class={icon.icon}></i>
-                                        </a>
-                                    </div>
-                                </CSSTransition>
-                            }
-                        </TransitionGroup>
+                        <Fade bottom when={isMounted} delay={i * 150}>
+                            <div className='display-flex'>
+                                <a href={icon.link} target="_blank">
+                                    <i class={icon.icon}></i>
+                                </a>
+                            </div>
+                        </Fade>
                     </Col>
                 ))}
             </Row>

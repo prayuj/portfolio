@@ -5,6 +5,7 @@ import {
     isDesktop
 } from "react-device-detect";
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import Fade from 'react-reveal/Fade';
 
 class DayNightToggler extends Component {
     constructor(props) {
@@ -22,27 +23,24 @@ class DayNightToggler extends Component {
     render() {
         if (isDesktop)
             return (
-                <TransitionGroup component={null}>
-                    {this.state.isMounted && <CSSTransition classNames='fadeup' timeout={1000}>
+                <Fade when={this.state.isMounted} right>
+                    <div className='day-night-toggle'>
                         <DarkModeToggle
                             onChange={this.props.setIsDarkMode}
                             checked={this.props.isDarkMode}
-                            className="day-night-toggle"
-                        />
-                    </CSSTransition>}
-                </TransitionGroup>
+                        /></div>
+                </Fade>
             );
         else if (isMobileOnly) {
-            return (<TransitionGroup component={null}>
-                {this.state.isMounted && <CSSTransition classNames='fadeup' timeout={1000}>
-                    <DarkModeToggle
-                        onChange={this.props.setIsDarkMode}
-                        checked={this.props.isDarkMode}
-                        className="day-night-toggle-mobile"
-                        size={60}
-                    />
-                </CSSTransition>}
-            </TransitionGroup>
+            return (
+                <Fade when={this.state.isMounted} right>
+                    <div className='day-night-toggle-mobile'>
+                        <DarkModeToggle
+                            onChange={this.props.setIsDarkMode}
+                            checked={this.props.isDarkMode}
+                            size={60}
+                        /></div>
+                </Fade>
             )
         }
         else {
