@@ -1,5 +1,3 @@
-
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { useState, useEffect } from 'react';
 import Fade from 'react-reveal/Fade';
 const Experience = ({ show, delay = 500 }) => {
