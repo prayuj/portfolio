@@ -239,18 +239,18 @@ align-content: center;
   background-color: #0c0f0a !important;
 }
 
-.dark .card-body a.project-link{
+.dark .project-link-container a.project-link{
   color: white !important
 }
 
-.light .card a.project-link{
+.light .project-link-container a.project-link{
   color: black !important
 }
 
-.card a{
-  margin-right: 10%
+.project-link-container a{
+  margin-right: 25px
 }
-.card a >i{
+.project-link-container a >i{
   transform: scale(1.25)
 }
 
@@ -393,4 +393,12 @@ ul.pagination-mobile .span-item-enter-done {
   width: 1em; /* Also needed for space (tweak if needed) */
   margin-left: -1em; /* Also needed for space (tweak if needed) */
   margin-right: .25em;
+}
+
+.fp-slidesContainer{
+  display: flex;
+  align-items: center;
+}
+.fp-slides{
+  height:auto;
 }

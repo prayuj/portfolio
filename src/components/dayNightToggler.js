@@ -12,31 +12,11 @@ class DayNightToggler extends Component {
         this.state = {
             isMounted: false
         }
-        const cookieMode = document.cookie.match('(^|;)\\s*mode\\s*=\\s*([^;]+)')?.pop() || ''
-        if (cookieMode) {
-            this.state.isDarkMode = cookieMode === 'dark';
-            document.getElementById('root').className = cookieMode;
-        }
-        else {
-            document.cookie = "mode=dark"
-            this.state.isDarkMode = true;
-            document.getElementById('root').className = 'dark'
-        }
-        this.setIsDarkMode = this.setIsDarkMode.bind(this)
     }
 
     componentDidMount() {
         const timeout = setTimeout(() => this.setState({ isMounted: true }), 1400);
         return () => clearTimeout(timeout);
-    }
-
-    setIsDarkMode() {
-        this.setState({
-            isDarkMode: !this.state.isDarkMode
-        }, () => {
-            document.getElementById('root').className = this.state.isDarkMode ? 'dark' : 'light'
-            document.cookie = "mode=" + (this.state.isDarkMode ? 'dark' : 'light')
-        })
     }
 
     render() {
@@ -45,8 +25,8 @@ class DayNightToggler extends Component {
                 <TransitionGroup component={null}>
                     {this.state.isMounted && <CSSTransition classNames='fadeup' timeout={1000}>
                         <DarkModeToggle
-                            onChange={this.setIsDarkMode}
-                            checked={this.state.isDarkMode}
+                            onChange={this.props.setIsDarkMode}
+                            checked={this.props.isDarkMode}
                             className="day-night-toggle"
                         />
                     </CSSTransition>}
@@ -56,8 +36,8 @@ class DayNightToggler extends Component {
             return (<TransitionGroup component={null}>
                 {this.state.isMounted && <CSSTransition classNames='fadeup' timeout={1000}>
                     <DarkModeToggle
-                        onChange={this.setIsDarkMode}
-                        checked={this.state.isDarkMode}
+                        onChange={this.props.setIsDarkMode}
+                        checked={this.props.isDarkMode}
                         className="day-night-toggle-mobile"
                         size={60}
                     />

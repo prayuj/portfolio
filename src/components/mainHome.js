@@ -5,11 +5,11 @@ import {
 import HomeDesktop from './desktop/home'
 import HomeMobile from './mobile/home'
 
-const Home = ({ show }) => {
+const Home = ({ show, isDarkMode }) => {
     if (isDesktop)
-        return (<HomeDesktop show={show} />);
+        return (<HomeDesktop show={show} isDarkMode={isDarkMode} />);
     else if (isMobileOnly) {
-        return (<HomeMobile show={show} />);
+        return (<HomeMobile show={show} isDarkMode={isDarkMode} />);
     }
 }
 
