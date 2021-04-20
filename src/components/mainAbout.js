@@ -24,17 +24,15 @@ const About = ({ show, delay = 500 }) => {
         <Container className="h-100">
             <Row className="h-100 justify-content-center align-items-center">
                 <Col className="display-flex flex-direction-column">
-                    {isMounted &&
-                        items.map((item, i) => (
-                            <Fade bottom delay={i * 100}><div>{item}</div></Fade>
+                    {items.map((item, i) => (
+                        <Fade bottom in={isMounted} delay={i * 100}><div>{item}</div></Fade>
 
-                        ))}
+                    ))}
                     <ul className="technology-list">
-                        {isMounted &&
-                            liItems.map((item, i) => (
-                                <Fade bottom delay={(i + 1) * 50 + 500}>
-                                    <li>{item}</li></Fade>
-                            ))}
+                        {liItems.map((item, i) => (
+                            <Fade bottom in={isMounted} delay={(i + 1) * 50 + 500}>
+                                <li>{item}</li></Fade>
+                        ))}
                     </ul>
                 </Col>
             </Row>
