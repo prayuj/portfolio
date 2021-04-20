@@ -7,7 +7,7 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 const Heading = () => {
     const [isMounted, setIsMounted] = useState(false);
     useEffect(() => {
-        const timeout = setTimeout(() => setIsMounted(true), 100);
+        const timeout = setTimeout(() => setIsMounted(true), 1000);
         return () => clearTimeout(timeout);
     }, []);
     const style = {
