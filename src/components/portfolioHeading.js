@@ -1,8 +1,7 @@
 import {
     isDesktop
 } from "react-device-detect";
-import { useState, useEffect } from 'react'
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { useState, useEffect } from 'react';
 import Fade from 'react-reveal/Fade';
 
 const Heading = () => {
