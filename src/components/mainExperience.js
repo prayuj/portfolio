@@ -5,7 +5,7 @@ const Experience = ({ show, delay = 500 }) => {
     useEffect(() => {
         const timeout = setTimeout(() => { setIsMounted(show); }, delay);
         return () => clearTimeout(timeout);
-    }, [show]);
+    }, [show, delay]);
     const experiences = [
         {
             index: 0,
@@ -35,27 +35,17 @@ const Experience = ({ show, delay = 500 }) => {
             Used Python as a modelling tool.`]
         }
     ];
-    const [active, setActive] = useState(experiences[0])
-    const timeout = 2000;
-
-    const handleShow = (key) => {
-        console.log(active.index, key)
-        if (!isNaN(key) && active.index != key) {
-            setActive(experiences[key])
-        }
-    }
-
     const style = {
         "width": "25%",
-        "align-self": "center",
-        "justify-content": "space-evenly"
+        "alignSelf": "center",
+        "justifyContent": "space-evenly"
     }
 
     return (
         <div className="h-100 display-flex flex-direction-column justify-content-center container">
             <Fade bottom in={isMounted}><h1><span className="underline-style">My Experience</span></h1></Fade>
             {experiences.map((experience, index) => (
-                <div className="full-page-slide fp-auto-height" style={{ width: '100%' }}>
+                <div className="full-page-slide fp-auto-height" style={{ width: '100%' }} key={index}>
                     <div className="display-flex justify-content-center align-items-center container">
                         <div className="display-flex justify-content-center flex-direction-column slide" >
                             <Fade bottom in={isMounted} delay={200}>
@@ -67,13 +57,15 @@ const Experience = ({ show, delay = 500 }) => {
                             <Fade bottom in={isMounted} delay={400}>
                                 <h4>{experience.duration}</h4>
                             </Fade>
-                            <p>
-                                <ul>
-                                    {experience.description.map((point, index) => (
-                                        <Fade bottom in={isMounted} delay={index * 100 + 500}><li>{point}</li></Fade>
-                                    ))}
-                                </ul>
-                            </p>
+                            <ul>
+                                {experience.description.map((point, index) => (
+                                    <Fade bottom in={isMounted} delay={index * 100 + 500} key={index}>
+                                        <li>
+                                            <p>{point}</p>
+                                        </li>
+                                    </Fade>
+                                ))}
+                            </ul>
                             {<Fade bottom in={isMounted} delay={600}>
                                 <div className="display-flex align-items-center" style={style}>
                                     {index !== 0 ? <span id="add-blink-class" className="cursor-pointer accent-style align-self-center" onClick={() => {
@@ -81,13 +73,13 @@ const Experience = ({ show, delay = 500 }) => {
                                             window.fullpage_api.moveSlideLeft()
                                         }
                                     }
-                                    }><h3><i class="fas fa-chevron-left"></i></h3></span> : ''}
+                                    }><h3><i className="fas fa-chevron-left"></i></h3></span> : ''}
                                     {index !== experiences.length - 1 ? <span id="add-blink-class" className="cursor-pointer accent-style align-self-center" onClick={() => {
                                         if (window.fullpage_api.moveSlideRight) {
                                             window.fullpage_api.moveSlideRight()
                                         }
                                     }
-                                    }><h3><i class="fas fa-chevron-right"></i></h3></span> : ''}
+                                    }><h3><i className="fas fa-chevron-right"></i></h3></span> : ''}
                                 </div></Fade>}
                         </div>
                     </div>

@@ -9,7 +9,7 @@ const About = ({ show, delay = 500 }) => {
     useEffect(() => {
         const timeout = setTimeout(() => setIsMounted(show), delay);
         return () => clearTimeout(timeout);
-    }, [show]);
+    }, [show, delay]);
 
     const liItems = ['JavaScript', 'NodeJS', 'ReactJS', 'MongoDB', 'Flask', 'jQuery', 'Java', 'HTML/CSS']
 
@@ -25,12 +25,12 @@ const About = ({ show, delay = 500 }) => {
             <Row className="h-100 justify-content-center align-items-center">
                 <Col className="display-flex flex-direction-column">
                     {items.map((item, i) => (
-                        <Fade bottom in={isMounted} delay={i * 100}><div>{item}</div></Fade>
+                        <Fade bottom in={isMounted} delay={i * 100} key={i}><div>{item}</div></Fade>
 
                     ))}
                     <ul className="technology-list">
                         {liItems.map((item, i) => (
-                            <Fade bottom in={isMounted} delay={(i + 1) * 50 + 500}>
+                            <Fade bottom in={isMounted} delay={(i + 1) * 50 + 500} key={i}>
                                 <li>{item}</li></Fade>
                         ))}
                     </ul>

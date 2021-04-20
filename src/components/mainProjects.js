@@ -6,7 +6,7 @@ const Projects = ({ show, delay = 500 }) => {
     useEffect(() => {
         const timeout = setTimeout(() => setIsMounted(show), delay);
         return () => clearTimeout(timeout);
-    }, [show]);
+    }, [show, delay]);
     const projects = [
         {
             index: 0,
@@ -108,8 +108,8 @@ const Projects = ({ show, delay = 500 }) => {
 
     const style = {
         "width": "25%",
-        "align-self": "center",
-        "justify-content": "space-evenly",
+        "alignSelf": "center",
+        "justifyContent": "space-evenly",
         "transitionDelay": "600ms"
     }
 
@@ -117,7 +117,7 @@ const Projects = ({ show, delay = 500 }) => {
         <div className="h-100 display-flex flex-direction-column justify-content-center container">
             <Fade bottom in={isMounted}><h1><span className="underline-style">Projects</span></h1></Fade>
             {projects.map((project, index) => (
-                <div className="full-page-slide fp-auto-height" style={{ width: '100%' }}>
+                <div className="full-page-slide fp-auto-height" style={{ width: '100%' }} key={index}>
                     <div className="display-flex justify-content-center align-items-center container">
                         <div className="display-flex justify-content-center flex-direction-column slide" >
                             <Fade bottom in={isMounted} delay={200}>
@@ -131,9 +131,9 @@ const Projects = ({ show, delay = 500 }) => {
 
                             <div className="project-link-container">
                                 {project.links.map((linkObj, index) =>
-                                    <Fade bottom when={isMounted} delay={index * 100 + 500}>
+                                    <Fade bottom when={isMounted} delay={index * 100 + 500} key={index}>
                                         <a href={linkObj.link} style={{ width: 'max-content' }} target="_blank" rel="noreferrer" className="project-link">
-                                            <i class={iconObjects[linkObj.name]}></i>
+                                            <i className={iconObjects[linkObj.name]}></i>
                                         </a>
                                     </Fade>
                                 )}
@@ -145,13 +145,13 @@ const Projects = ({ show, delay = 500 }) => {
                                             window.fullpage_api.moveSlideLeft()
                                         }
                                     }
-                                    }><h3><i class="fas fa-chevron-left"></i></h3></span> : ''}
+                                    }><h3><i className="fas fa-chevron-left"></i></h3></span> : ''}
                                     {index !== projects.length - 1 ? <span id="add-blink-class" className="cursor-pointer accent-style align-self-center" onClick={() => {
                                         if (window.fullpage_api.moveSlideRight) {
                                             window.fullpage_api.moveSlideRight()
                                         }
                                     }
-                                    }><h3><i class="fas fa-chevron-right"></i></h3></span> : ''}
+                                    }><h3><i className="fas fa-chevron-right"></i></h3></span> : ''}
                                 </div>
                             </Fade>
                         </div>

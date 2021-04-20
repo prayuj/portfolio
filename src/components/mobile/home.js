@@ -6,19 +6,13 @@ import { useState, useEffect } from 'react';
 import profilePicDark from "../../img/profile-mobile-darkBG.jpg";
 import profilePicLight from "../../img/profile-mobile-lightBG.jpg";
 import Fade from 'react-reveal/Fade';
-import Zoom from 'react-reveal/Zoom';
 
 const HomeMobile = ({ show, delay = 500, isDarkMode }) => {
     const [isMounted, setIsMounted] = useState(show);
-    const [duration, setDuration] = useState(500);
     useEffect(() => {
         const timeout = setTimeout(() => setIsMounted(show), delay);
         return () => clearTimeout(timeout);
-    }, [show]);
-
-
-    const timeout = 2000;
-
+    }, [show, delay]);
     const one = <h3>Hi,</h3>;
     const two = <h3>I am <span className="underline-style">Prayuj Pillai!</span></h3>
     const three = <h3>I am a Software Engineer and</h3>
@@ -34,8 +28,8 @@ const HomeMobile = ({ show, delay = 500, isDarkMode }) => {
             <Row className="justify-content-center align-items-center flex-direction-column">
                 {isMounted ? <Col className="display-flex home-page-mobile flex-direction-column justify-content-center align-items-center">
                     {isDarkMode ?
-                        <Fade><img src={profilePicDark} id="profile-pic-mobile" /> </Fade> :
-                        <Fade><img src={profilePicLight} id="profile-pic-mobile" /></Fade>}
+                        <Fade><img src={profilePicDark} id="profile-pic-mobile" alt="Profile for Dark Mode" /> </Fade> :
+                        <Fade><img src={profilePicLight} id="profile-pic-mobile" alt="Profile for Light Mode" /></Fade>}
                 </Col> : ''}
                 <Col className="display-flex home-page-mobile flex-direction-column justify-content-center">
                     {isMounted &&
@@ -52,7 +46,7 @@ const HomeMobile = ({ show, delay = 500, isDarkMode }) => {
                                 window.fullpage_api.moveSectionDown()
                             }
                         }
-                        }><h3><i class="fas fa-chevron-up"></i></h3></span>
+                        }><h3><i className="fas fa-chevron-up"></i></h3></span>
                     </Col></Fade> : ''
                 }
             </Row>

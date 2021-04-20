@@ -9,9 +9,7 @@ const Contact = ({ show, delay = 500 }) => {
     useEffect(() => {
         const timeout = setTimeout(() => setIsMounted(show), delay);
         return () => clearTimeout(timeout);
-    }, [show]);
-
-    const timeout = 2000;
+    }, [show, delay]);
 
     return (<Container className="main-container h-100 desktop">
         <Row className="h-100 justify-content-center align-items-center">

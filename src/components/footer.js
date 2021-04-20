@@ -2,7 +2,6 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { isDesktop } from 'react-device-detect';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { useState, useEffect } from 'react'
 import Fade from 'react-reveal/Fade';
 
@@ -32,11 +31,11 @@ const Footer = () => {
         <Container className={`footer ${isDesktop ? 'desktop-footer' : 'mobile-footer'}`}>
             <Row>
                 {footerIcons.map((icon, i) => (
-                    <Col className='display-flex'>
+                    <Col className='display-flex' key={i}>
                         <Fade bottom when={isMounted} delay={i * 150}>
                             <div className='display-flex'>
-                                <a href={icon.link} target="_blank">
-                                    <i class={icon.icon}></i>
+                                <a href={icon.link} target="_blank" rel="noreferrer">
+                                    <i className={icon.icon}></i>
                                 </a>
                             </div>
                         </Fade>

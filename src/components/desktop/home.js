@@ -10,15 +10,12 @@ import Zoom from 'react-reveal/Zoom';
 
 const HomeDesktop = ({ show, delay = 500, isDarkMode }) => {
     const [isMounted, setIsMounted] = useState(show);
-    const [duration, setDuration] = useState(500);
     useEffect(() => {
         const timeoutOne = setTimeout(() => {
             setIsMounted(show)
         }, delay);
         return () => clearTimeout(timeoutOne);
-    }, [show]);
-
-    const timeout = 2000;
+    }, [show, delay]);
 
     const one = <h3>Hi,</h3>;
     const two = <h3>I am <span className="underline-style">Prayuj Pillai!</span></h3>
@@ -30,7 +27,7 @@ const HomeDesktop = ({ show, delay = 500, isDarkMode }) => {
     </TextLoop></h3>
     const five = <span href="#" className="accent-style display-flex justify-content-center blink_me">
         <a href="#about">
-            <h3><i class="fas fa-chevron-up"></i></h3>
+            <h3><i className="fas fa-chevron-up"></i></h3>
         </a>
     </span>
 
@@ -49,8 +46,8 @@ const HomeDesktop = ({ show, delay = 500, isDarkMode }) => {
                 </Col>
                 <Col className="display-flex home-page-desktop">
                     <div>
-                        <Zoom duration={duration} when={isDarkMode && isMounted} collapse><img src={profilePicDark} id="profile-pic-desktop" /></Zoom>
-                        <Zoom duration={duration} when={!isDarkMode && isMounted} collapse><img src={profilePicLight} id="profile-pic-desktop" /></Zoom>
+                        <Zoom when={isDarkMode && isMounted} collapse><img src={profilePicDark} id="profile-pic-desktop" alt="Profile for Dark Mode" /></Zoom>
+                        <Zoom when={!isDarkMode && isMounted} collapse><img src={profilePicLight} id="profile-pic-desktop" alt="Profile for Light Mode" /></Zoom>
                     </div>
 
                 </Col>
