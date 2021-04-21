@@ -1,7 +1,6 @@
 {
   "name": "portfolio",
   "version": "0.1.0",
-  "homepage": "/portfolio",
   "private": true,
   "dependencies": {
     "@fullpage/react-fullpage": "^0.1.19",
