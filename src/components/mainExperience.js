@@ -1,17 +1,14 @@
-
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { useState, useEffect } from 'react';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import Fade from 'react-reveal/Fade';
 const Experience = ({ show, delay = 500 }) => {
     const [isMounted, setIsMounted] = useState(show);
     useEffect(() => {
-        const timeout = setTimeout(() => setIsMounted(show), delay);
+        const timeout = setTimeout(() => { setIsMounted(show); }, delay);
         return () => clearTimeout(timeout);
-    }, [show]);
+    }, [show, delay]);
     const experiences = [
         {
+            index: 0,
             organization: 'Cimpress',
             designation: 'Software Engineer',
             duration: 'August 2020 - Present',
@@ -22,6 +19,7 @@ const Experience = ({ show, delay = 500 }) => {
                 `Various Technologies I have worked with include Magnolia, AWS, Serverlerss, NodeJs, GraphQL, Sentry, to name a few.`]
         },
         {
+            index: 1,
             organization: 'Aegis School of Data Science',
             designation: 'Data Science Intern',
             duration: 'June 2019 - August 2019',
@@ -29,6 +27,7 @@ const Experience = ({ show, delay = 500 }) => {
                 , `Building the model included scrapping of Jobs, their requirements, matching skills between the Job and Student.`]
         },
         {
+            index: 2,
             organization: 'CaratLane',
             designation: 'Software Engineer Intern',
             duration: 'August 2018',
@@ -36,64 +35,52 @@ const Experience = ({ show, delay = 500 }) => {
             Used Python as a modelling tool.`]
         }
     ];
-    const timeout = 2000;
-
     const style = {
         "width": "25%",
-        "align-self": "center",
-        "justify-content": "space-evenly",
-        "transitionDelay": "600ms"
+        "alignSelf": "center",
+        "justifyContent": "space-evenly"
     }
 
     return (
         <div className="h-100 display-flex flex-direction-column justify-content-center container">
-            <h1><span className="underline-style">My Experience</span></h1>
+            <Fade bottom in={isMounted}><h1><span className="underline-style">My Experience</span></h1></Fade>
             {experiences.map((experience, index) => (
-                <div className="full-page-slide fp-auto-height" style={{ width: '100%', height: '50vh' }}>
+                <div className="full-page-slide fp-auto-height" style={{ width: '100%' }} key={index}>
                     <div className="display-flex justify-content-center align-items-center container">
                         <div className="display-flex justify-content-center flex-direction-column slide" >
-                            <TransitionGroup component={null}>
-                                {isMounted && <CSSTransition key={0} classNames="fadeup" timeout={timeout}>
-                                    <h2 style={{ transitionDelay: `200ms` }}>{experience.organization}</h2>
-                                </CSSTransition>}
-                            </TransitionGroup>
-                            <TransitionGroup component={null}>
-                                {isMounted && <CSSTransition key={0} classNames="fadeup" timeout={timeout}>
-                                    <h3 style={{ transitionDelay: `300ms` }}>{experience.designation}</h3>
-                                </CSSTransition>}
-                            </TransitionGroup>
-                            <TransitionGroup component={null}>
-                                {isMounted && <CSSTransition key={0} classNames="fadeup" timeout={timeout}>
-                                    <h4 style={{ transitionDelay: `400ms` }}>{experience.duration}</h4>
-                                </CSSTransition>}
-                            </TransitionGroup>
-                            <p>
-                                <ul>
-                                    <TransitionGroup component={null}>
-                                        {isMounted && experience.description.map((point, index) => (
-                                            <CSSTransition key={index} classNames="fadeup" timeout={timeout}><li style={{ transitionDelay: `${index * 100 + 500}ms` }}>{point}</li></CSSTransition>
-                                        ))}
-                                    </TransitionGroup>
-                                </ul>
-                            </p>
-                            <TransitionGroup component={null}>
-                                {isMounted && <CSSTransition key={index} classNames="fadeup" timeout={timeout}>
-                                    <div className="display-flex align-items-center" style={style}>
-                                        {index !== 0 ? <span id="add-blink-class" className="cursor-pointer accent-style align-self-center" onClick={() => {
-                                            if (window.fullpage_api.moveSlideLeft) {
-                                                window.fullpage_api.moveSlideLeft()
-                                            }
+                            <Fade bottom in={isMounted} delay={200}>
+                                <h2>{experience.organization}</h2>
+                            </Fade>
+                            <Fade bottom in={isMounted} delay={300}>
+                                <h3>{experience.designation}</h3>
+                            </Fade>
+                            <Fade bottom in={isMounted} delay={400}>
+                                <h4>{experience.duration}</h4>
+                            </Fade>
+                            <ul>
+                                {experience.description.map((point, index) => (
+                                    <Fade bottom in={isMounted} delay={index * 100 + 500} key={index}>
+                                        <li>
+                                            <p>{point}</p>
+                                        </li>
+                                    </Fade>
+                                ))}
+                            </ul>
+                            {<Fade bottom in={isMounted} delay={600}>
+                                <div className="display-flex align-items-center" style={style}>
+                                    {index !== 0 ? <span id="add-blink-class" className="cursor-pointer accent-style align-self-center" onClick={() => {
+                                        if (window.fullpage_api.moveSlideLeft) {
+                                            window.fullpage_api.moveSlideLeft()
                                         }
-                                        }><h3><i class="fas fa-chevron-left"></i></h3></span> : ''}
-                                        {index !== experiences.length - 1 ? <span id="add-blink-class" className="cursor-pointer accent-style align-self-center" onClick={() => {
-                                            if (window.fullpage_api.moveSlideRight) {
-                                                window.fullpage_api.moveSlideRight()
-                                            }
+                                    }
+                                    }><h3><i className="fas fa-chevron-left"></i></h3></span> : ''}
+                                    {index !== experiences.length - 1 ? <span id="add-blink-class" className="cursor-pointer accent-style align-self-center" onClick={() => {
+                                        if (window.fullpage_api.moveSlideRight) {
+                                            window.fullpage_api.moveSlideRight()
                                         }
-                                        }><h3><i class="fas fa-chevron-right"></i></h3></span> : ''}
-                                    </div>
-                                </CSSTransition>}
-                            </TransitionGroup>
+                                    }
+                                    }><h3><i className="fas fa-chevron-right"></i></h3></span> : ''}
+                                </div></Fade>}
                         </div>
                     </div>
                 </div>
