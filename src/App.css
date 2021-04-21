@@ -400,5 +400,5 @@ ul.pagination-mobile .span-item-enter-done {
   align-items: center;
 }
 .fp-slides{
-  height:auto;
+  height:auto !important;
 }
