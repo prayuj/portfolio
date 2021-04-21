@@ -1,17 +1,15 @@
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { useState, useEffect } from 'react';
+import Fade from 'react-reveal/Fade';
 
 const About = ({ show, delay = 500 }) => {
     const [isMounted, setIsMounted] = useState(show);
     useEffect(() => {
         const timeout = setTimeout(() => setIsMounted(show), delay);
         return () => clearTimeout(timeout);
-    }, [show]);
-
-    const timeout = 2000;
+    }, [show, delay]);
 
     const liItems = ['JavaScript', 'NodeJS', 'ReactJS', 'MongoDB', 'Flask', 'jQuery', 'Java', 'HTML/CSS']
 
@@ -26,23 +24,15 @@ const About = ({ show, delay = 500 }) => {
         <Container className="h-100">
             <Row className="h-100 justify-content-center align-items-center">
                 <Col className="display-flex flex-direction-column">
-                    <TransitionGroup component={null}>
-                        {isMounted &&
-                            items.map((item, i) => (
-                                <CSSTransition key={i} classNames="fadeup" timeout={timeout}>
-                                    <div style={{ transitionDelay: `${i + 1}00ms` }}>{item}</div>
-                                </CSSTransition>
-                            ))}
-                    </TransitionGroup>
+                    {items.map((item, i) => (
+                        <Fade bottom in={isMounted} delay={i * 100} key={i}><div>{item}</div></Fade>
+
+                    ))}
                     <ul className="technology-list">
-                        <TransitionGroup component={null}>
-                            {isMounted &&
-                                liItems.map((item, i) => (
-                                    <CSSTransition key={i} classNames="fadeup" timeout={timeout}>
-                                        <li style={{ transitionDelay: `${(i + 1) * 50 + 500}ms` }}>{item}</li>
-                                    </CSSTransition>
-                                ))}
-                        </TransitionGroup>
+                        {liItems.map((item, i) => (
+                            <Fade bottom in={isMounted} delay={(i + 1) * 50 + 500} key={i}>
+                                <li>{item}</li></Fade>
+                        ))}
                     </ul>
                 </Col>
             </Row>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {
     isDesktop
 } from "react-device-detect";
-import { CSSTransition } from 'react-transition-group';
+import Fade from 'react-reveal/Fade';
 
 class Pagination extends Component {
     constructor(props) {
@@ -27,13 +27,13 @@ class Pagination extends Component {
         const pagination = <ul className={isDesktop ? "pagination-desktop" : "pagination-mobile"}>{
             this.state.icons.map((icon, index) =>
                 <li id={index} key={index} className={this.props.currentPage === index ? 'active' : ''}>
-                    <CSSTransition in={this.state.isMounted} classNames='span-item'>
-                        <span className='span-item-default display-flex' style={{ transitionDelay: `${index * 100}ms` }}>
+                    <Fade right={isDesktop ? true : false} up={isDesktop ? false : true} when={this.state.isMounted} delay={index * 100}>
+                        <span className='display-flex'>
                             <a href={icon.path} title={icon.title}>
                                 <i id={index} className={icon.icon}></i>
                             </a>
                         </span>
-                    </CSSTransition>
+                    </Fade>
                 </li>)
         }</ul>;
 

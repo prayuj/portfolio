@@ -1,13 +1,13 @@
 import {
     isDesktop
 } from "react-device-detect";
-import { useState, useEffect } from 'react'
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { useState, useEffect } from 'react';
+import Fade from 'react-reveal/Fade';
 
 const Heading = () => {
     const [isMounted, setIsMounted] = useState(false);
     useEffect(() => {
-        const timeout = setTimeout(() => setIsMounted(true), 100);
+        const timeout = setTimeout(() => setIsMounted(true), 1000);
         return () => clearTimeout(timeout);
     }, []);
     const style = {
@@ -15,8 +15,8 @@ const Heading = () => {
         textDecoration: 'none'
     }
     if (isDesktop) {
-        return (<TransitionGroup component={null}>
-            {isMounted && <CSSTransition classNames='faderight' timeout={1000}>
+        return (
+            <Fade left in={isMounted}>
                 <div className="portfolio-heading">
                     <a className="display-flex" style={style} href='/#home'>
                         <span>
@@ -27,8 +27,7 @@ const Heading = () => {
                         </span>
                     </a>
                 </div>
-            </CSSTransition>}
-        </TransitionGroup>)
+            </Fade>)
     }
     return (<></>);
 }

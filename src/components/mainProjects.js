@@ -1,142 +1,159 @@
 
 import React, { useState, useEffect } from 'react';
-import Dropdown from 'react-bootstrap/Dropdown'
-import Card from 'react-bootstrap/Card'
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import Fade from 'react-reveal/Fade';
 const Projects = ({ show, delay = 500 }) => {
     const [isMounted, setIsMounted] = useState(show);
     useEffect(() => {
         const timeout = setTimeout(() => setIsMounted(show), delay);
         return () => clearTimeout(timeout);
-    }, [show]);
+    }, [show, delay]);
     const projects = [
         {
             index: 0,
             name: 'Task Manager API',
-            githublink: 'https://github.com/prayuj/task-manager',
+            links: [
+                {
+                    name: 'githublink',
+                    link: 'https://github.com/prayuj/task-manager'
+                }
+            ],
             desc: 'As part of Andrew Meads\'s Node JS course, I built a Task Manager API. Features include Logging in, Registering, Adding Notes, Deleting Notes, Sorting Notes all while using JWT for authentication. I used Jest for automation and testing.',
             languages: 'NodeJS, Express, Mongo, Jest'
         },
         {
             index: 1,
             name: 'Chat App using Socket.io',
-            githublink: 'https://github.com/prayuj/chat-app',
+            links: [
+                {
+                    name: 'githublink',
+                    link: 'https://github.com/prayuj/chat-app'
+                }
+            ],
             desc: 'This was a really exciting Project because for the first time I used Socket.io to make real time, bidirectional communication. Features include entering Room ID and making a new or joining an Existing Room, Sending real time data for communication, Sending Current Location.',
             languages: 'NodeJS, Socket.io'
         },
         {
             index: 2,
             name: 'Game Renting Service',
-            githublink: 'https://github.com/prayuj/Game-Renting-Service',
-            linkedin: 'https://www.linkedin.com/posts/prayuj_mongodb-reactjs-nodejs-activity-6693029671027675136-EWoW',
+            links: [
+                {
+                    name: 'githublink',
+                    link: 'https://github.com/prayuj/Game-Renting-Service'
+                },
+                {
+                    name: 'linkedin',
+                    link: 'https://www.linkedin.com/posts/prayuj_mongodb-reactjs-nodejs-activity-6693029671027675136-EWoW'
+                }
+            ],
             desc: 'This Project stemmed from a Job opportunity that was very lucrative which involved building a inventory system. It is a full stack project using React JS, Node JS with Express JS and Mongo DB. Various features include Issue and Return of Games along with OTP generation and validation, viewing list of past transactions, adding inventory and members, updating membership, etc.',
             languages: 'Mongo, Express, React, Node'
         },
         {
             index: 3,
             name: 'Timetable Generation using GA',
-            githublink: 'https://github.com/prayuj/timetable_frontend',
-            youtubeLink: 'https://www.youtube.com/watch?v=E6EGCD9OUdA',
-            paperlink: 'https://ssrn.com/abstract=3688387',
+            links: [
+                {
+                    name: 'githublink',
+                    link: 'https://github.com/prayuj/timetable_frontend'
+                },
+                {
+                    name: 'youtubeLink',
+                    link: 'https://www.youtube.com/watch?v=E6EGCD9OUdA'
+                },
+                {
+                    name: 'paperlink',
+                    link: 'https://ssrn.com/abstract=3688387'
+                }
+            ],
             desc: '',
             languages: 'Python, React'
         },
         {
             index: 4,
             name: 'Bill Splitter',
-            githublink: 'https://github.com/prayuj/Bill-Spliter',
+            links: [
+                {
+                    name: 'githublink',
+                    link: 'https://github.com/prayuj/Bill-Spliter'
+                }
+            ],
             desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
             languages: 'React, Flask'
         },
         {
             index: 5,
             name: 'Calculator using Arduino with Python',
-            githublink: 'https://github.com/prayuj/Arduino_Project_Calculator',
-            youtubeLink: 'https://youtu.be/ViYliiQ6gec',
+            links: [
+                {
+                    name: 'githublink',
+                    link: 'https://github.com/prayuj/Arduino_Project_Calculator'
+                },
+                {
+                    name: 'youtubeLink',
+                    link: 'https://youtu.be/ViYliiQ6gec'
+                }
+            ],
             desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
             languages: 'Arduino, Python'
         }
 
     ]
 
-    const iconObjects = [
-        {
-            name: 'githublink',
-            icon: 'fab fa-github-square'
-        },
-        {
-            name: 'linkedin',
-            icon: 'fab fa-linkedin'
-        },
-        {
-            name: 'youtubeLink',
-            icon: 'fab fa-youtube'
-        },
-        {
-            name: 'paperlink',
-            icon: 'fas fa-newspaper'
-        }
-    ]
-
-    const [active, setActive] = useState(projects[0])
-    const [inProp, setInProp] = useState(false);
-    const timeout = 2000
-    const handleShow = (key) => {
-        setInProp(false)
-        console.log(active.index, key)
-        if (!isNaN(key) && active.index != key) {
-            setActive(projects[key])
-            setInProp(true)
-        }
+    const iconObjects = {
+        githublink: 'fab fa-github-square',
+        linkedin: 'fab fa-linkedin',
+        youtube: 'fab fa-youtube',
+        paperlink: 'fas fa-newspaper'
     }
 
     const style = {
         "width": "25%",
-        "align-self": "center",
-        "justify-content": "space-evenly",
+        "alignSelf": "center",
+        "justifyContent": "space-evenly",
         "transitionDelay": "600ms"
     }
 
     return (
         <div className="h-100 display-flex flex-direction-column justify-content-center container">
-            <h1><span className="underline-style">My Projects</span></h1>
+            <Fade bottom in={isMounted}><h1><span className="underline-style">Projects</span></h1></Fade>
             {projects.map((project, index) => (
-                <div className="full-page-slide fp-auto-height" style={{ width: '100%', height: '50vh' }}>
+                <div className="full-page-slide fp-auto-height" style={{ width: '100%' }} key={index}>
                     <div className="display-flex justify-content-center align-items-center container">
                         <div className="display-flex justify-content-center flex-direction-column slide" >
-                            <TransitionGroup component={null}>
-                                {isMounted && <CSSTransition key={0} classNames="fadeup" timeout={timeout}>
-                                    <h2 style={{ transitionDelay: `200ms` }}>{project.name}</h2>
-                                </CSSTransition>}
-                            </TransitionGroup>
-                            <p>
-                                {project.desc}
-                            </p>
+                            <Fade bottom in={isMounted} delay={200}>
+                                <h2>{project.name}</h2>
+                            </Fade>
+                            <Fade bottom in={isMounted} delay={300}>
+                                <p>
+                                    {project.desc}
+                                </p>
+                            </Fade>
+
                             <div className="project-link-container">
-                                {iconObjects.map(icon =>
-                                (project[icon.name] ? <a href={project[icon.name]} style={{ width: 'max-content' }} target="_blank" rel="noreferrer" className="project-link">
-                                    <i class={icon.icon}></i>
-                                </a> : '')
+                                {project.links.map((linkObj, index) =>
+                                    <Fade bottom when={isMounted} delay={index * 100 + 500} key={index}>
+                                        <a href={linkObj.link} style={{ width: 'max-content' }} target="_blank" rel="noreferrer" className="project-link">
+                                            <i className={iconObjects[linkObj.name]}></i>
+                                        </a>
+                                    </Fade>
                                 )}
                             </div>
-                            <TransitionGroup component={null}>
-                                {isMounted && <CSSTransition key={index} classNames="fadeup" timeout={timeout}>
-                                    <div className="display-flex align-items-center" style={style}>
-                                        {index !== 0 ? <span id="add-blink-class" className="cursor-pointer accent-style align-self-center" onClick={() => {
-                                            if (window.fullpage_api.moveSlideLeft) {
-                                                window.fullpage_api.moveSlideLeft()
-                                            }
+                            <Fade bottom when={isMounted} delay={600}>
+                                <div className="display-flex align-items-center" style={style}>
+                                    {index !== 0 ? <span id="add-blink-class" className="cursor-pointer accent-style align-self-center" onClick={() => {
+                                        if (window.fullpage_api.moveSlideLeft) {
+                                            window.fullpage_api.moveSlideLeft()
                                         }
-                                        }><h3><i class="fas fa-chevron-left"></i></h3></span> : ''}
-                                        {index !== projects.length - 1 ? <span id="add-blink-class" className="cursor-pointer accent-style align-self-center" onClick={() => {
-                                            if (window.fullpage_api.moveSlideRight) {
-                                                window.fullpage_api.moveSlideRight()
-                                            }
+                                    }
+                                    }><h3><i className="fas fa-chevron-left"></i></h3></span> : ''}
+                                    {index !== projects.length - 1 ? <span id="add-blink-class" className="cursor-pointer accent-style align-self-center" onClick={() => {
+                                        if (window.fullpage_api.moveSlideRight) {
+                                            window.fullpage_api.moveSlideRight()
                                         }
-                                        }><h3><i class="fas fa-chevron-right"></i></h3></span> : ''}
-                                    </div>
-                                </CSSTransition>}
-                            </TransitionGroup>
+                                    }
+                                    }><h3><i className="fas fa-chevron-right"></i></h3></span> : ''}
+                                </div>
+                            </Fade>
                         </div>
                     </div>
                 </div>

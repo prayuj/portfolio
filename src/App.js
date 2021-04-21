@@ -8,7 +8,7 @@ import Projects from './components/mainProjects'
 import Contact from './components/mainContact'
 import Pagination from './components/pagination'
 import DayNightToggler from './components/dayNightToggler'
-import { isTablet, isMobileOnly } from "react-device-detect";
+import { isTablet } from "react-device-detect";
 import ReactFullpage from '@fullpage/react-fullpage';
 import './App.css';
 class App extends Component {
@@ -64,13 +64,11 @@ class App extends Component {
 
   handlePageChange = number => {
     if (number === 4) {
-      console.log('Contact Page Loaded')
       this.handleContactPageLoad('render')
 
     }
 
     if (number !== 4 && this.state.currentPage === 4) {
-      console.log('Contact Page Left')
       this.handleContactPageLoad('remove')
     }
 
@@ -92,15 +90,12 @@ class App extends Component {
   }
 
   onLeave(origin, destination, direction) {
-    console.log(destination.index, this.state.currentPage)
     if (destination.index === 4) {
-      console.log('Contact Page Loaded')
       this.handleContactPageLoad('render')
 
     }
 
     if (destination.index !== 4 && this.state.currentPage === 4) {
-      console.log('Contact Page Left')
       this.handleContactPageLoad('remove')
     }
     const visitedPageIndexes = [...this.state.visitedPageIndexes]
