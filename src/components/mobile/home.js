@@ -6,6 +6,8 @@ import { useState, useEffect } from 'react';
 import profilePicDark from "../../img/profile-mobile-darkBG.jpg";
 import profilePicLight from "../../img/profile-mobile-lightBG.jpg";
 import Fade from 'react-reveal/Fade';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const HomeMobile = ({ show, delay = 500, isDarkMode }) => {
     const [isMounted, setIsMounted] = useState(show);
@@ -28,8 +30,22 @@ const HomeMobile = ({ show, delay = 500, isDarkMode }) => {
             <Row className="justify-content-center align-items-center flex-direction-column">
                 {isMounted ? <Col className="display-flex home-page-mobile flex-direction-column justify-content-center align-items-center">
                     {isDarkMode ?
-                        <Fade><img src={profilePicDark} id="profile-pic-mobile" alt="Profile for Dark Mode" /> </Fade> :
-                        <Fade><img src={profilePicLight} id="profile-pic-mobile" alt="Profile for Light Mode" /></Fade>}
+                        <Fade>
+                            <LazyLoadImage
+                                src={profilePicDark}
+                                alt="Profile for Dark Mode"
+                                id="profile-pic-mobile"
+                                effect="blur"
+                                width="100%"
+                            /> </Fade> :
+                        <Fade>
+                            <LazyLoadImage
+                                src={profilePicDark}
+                                alt="Profile for Dark Mode"
+                                id="profile-pic-mobile"
+                                effect="blur"
+                                width="100%"
+                            /></Fade>}
                 </Col> : ''}
                 <Col className="display-flex home-page-mobile flex-direction-column justify-content-center">
                     {isMounted &&

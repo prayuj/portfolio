@@ -121,10 +121,7 @@ align-content: center;
 }
 
 #profile-pic-desktop {
-  height: 70%;
-  position: absolute;
-  top: 15%;
-  border-radius: 15vh;
+  width: 75%;
 }
 
 #profile-pic-mobile{
@@ -399,4 +396,9 @@ ul.pagination-mobile .span-item-enter-done {
 }
 .fp-slides{
   height:auto !important;
+}
+
+span.lazy-load-image-background.blur.lazy-load-image-loaded{
+  display: flex !important;
+  justify-content:center;
 }
