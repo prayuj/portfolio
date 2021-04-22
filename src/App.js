@@ -41,8 +41,10 @@ class App extends Component {
     this.setState({
       isDarkMode: !this.state.isDarkMode
     }, () => {
-      document.getElementById('root').className = this.state.isDarkMode ? 'dark' : 'light'
-      document.cookie = "mode=" + (this.state.isDarkMode ? 'dark' : 'light')
+      setTimeout(() => {
+        document.cookie = "mode=" + (this.state.isDarkMode ? 'dark' : 'light');
+        window.location.reload();
+      }, 500)
     })
   }
 

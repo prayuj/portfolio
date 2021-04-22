@@ -1,3 +1,4 @@
+import React from 'react';
 import {
     isMobileOnly,
     isDesktop
@@ -13,4 +14,8 @@ const Home = ({ show, isDarkMode }) => {
     }
 }
 
-export default Home;
+function areEqual(prevProps, nextProps) {
+    return prevProps.isDarkMode !== nextProps.isDarkMode;
+}
+
+export default React.memo(Home, areEqual);

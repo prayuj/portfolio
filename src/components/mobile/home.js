@@ -40,7 +40,7 @@ const HomeMobile = ({ show, delay = 500, isDarkMode }) => {
                             /> </Fade> :
                         <Fade>
                             <LazyLoadImage
-                                src={profilePicDark}
+                                src={profilePicLight}
                                 alt="Profile for Dark Mode"
                                 id="profile-pic-mobile"
                                 effect="blur"
