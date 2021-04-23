@@ -3,6 +3,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { useState, useEffect } from 'react';
 import Fade from 'react-reveal/Fade';
+import '../css/about.css';
 
 const About = ({ show, delay = 500 }) => {
     const [isMounted, setIsMounted] = useState(show);

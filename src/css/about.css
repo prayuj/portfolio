@@ -1,0 +1,14 @@
+.technology-list {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    list-style: none;
+}
+
+.technology-list>li::before {
+    content: "\25B6";
+    color: var(--accentColor);
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+    margin-right: .25em;
+}

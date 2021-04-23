@@ -5,6 +5,7 @@ import {
     isDesktop
 } from "react-device-detect";
 import Fade from 'react-reveal/Fade';
+import '../css/toggler.css';
 
 class DayNightToggler extends Component {
     constructor(props) {

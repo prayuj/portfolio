@@ -5,6 +5,7 @@ import {
 } from "react-device-detect";
 import HomeDesktop from './desktop/home'
 import HomeMobile from './mobile/home'
+import '../css/home.css';
 
 const Home = ({ show, isDarkMode }) => {
     if (isDesktop)

@@ -1,0 +1,11 @@
+.day-night-toggle {
+    position: absolute;
+    right: 5%;
+    top: 5%;
+}
+
+.day-night-toggle-mobile {
+    position: absolute;
+    right: 5%;
+    top: 10%;
+}

@@ -1,0 +1,10 @@
+.portfolio-heading {
+    position: fixed;
+    left: 5%;
+    top: 5%;
+}
+
+.portfolio-heading h2 {
+    font-family: 'Saira', sans-serif;
+    font-weight: 900;
+}

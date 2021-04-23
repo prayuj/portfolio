@@ -4,6 +4,7 @@ import Col from 'react-bootstrap/Col';
 import { isDesktop } from 'react-device-detect';
 import { useState, useEffect } from 'react'
 import Fade from 'react-reveal/Fade';
+import '../css/footer.css';
 
 const Footer = () => {
     const [isMounted, setIsMounted] = useState(false);

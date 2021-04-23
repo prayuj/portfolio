@@ -3,6 +3,7 @@ import {
 } from "react-device-detect";
 import { useState, useEffect } from 'react';
 import Fade from 'react-reveal/Fade';
+import '../css/heading.css'
 
 const Heading = () => {
     const [isMounted, setIsMounted] = useState(false);

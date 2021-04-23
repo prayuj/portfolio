@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Fade from 'react-reveal/Fade';
+import '../css/pagination.css'
 const Projects = ({ show, delay = 500 }) => {
     const [isMounted, setIsMounted] = useState(show);
     useEffect(() => {

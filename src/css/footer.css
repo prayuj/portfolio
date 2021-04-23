@@ -1,0 +1,34 @@
+.footer {
+    position: absolute;
+    bottom: 1%;
+    display: flex;
+    justify-content: center;
+    max-width: 100% !important;
+    transition: bottom 500ms ease-in-out .2s;
+}
+
+.footer a {
+    color: inherit;
+}
+
+.footer>.row>.col i {
+    padding: 0 1em;
+    transform: scale(1.5);
+}
+
+.footer-hide-top {
+    bottom: 40%;
+    transition: bottom 500ms ease-in-out .7s;
+}
+
+.footer-hide-top>.row>.col>a>i {
+    padding: 0 2em;
+    transition: bottom 100ms ease-in-out 0s;
+}
+
+.desktop-footer .col a:hover {
+    transform: translateY(-3px);
+    transition: transform 100ms ease-in-out 0s;
+    color: var(--accentColor);
+    height: 135%;
+}
