@@ -1,0 +1,13 @@
+.full-page-slide .ul {
+    list-style: none;
+    display: grid;
+}
+
+.full-page-slide li::before {
+    content: "\25B6";
+    color: var(--accentColor);
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+    margin-right: .25em;
+}

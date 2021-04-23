@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import Fade from 'react-reveal/Fade';
+import '../css/experience.css';
 const Experience = ({ show, delay = 500 }) => {
     const [isMounted, setIsMounted] = useState(show);
     useEffect(() => {
@@ -60,7 +61,7 @@ const Experience = ({ show, delay = 500 }) => {
                             <ul>
                                 {experience.description.map((point, index) => (
                                     <Fade bottom in={isMounted} delay={index * 100 + 500} key={index}>
-                                        <li>
+                                        <li className="display-flex">
                                             <p>{point}</p>
                                         </li>
                                     </Fade>
