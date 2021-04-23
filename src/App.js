@@ -120,7 +120,6 @@ class App extends Component {
             onLeave={this.onLeave.bind(this)}
             anchors={['home', 'about', 'experience', 'projects', 'contact']}
             slideSelector={'.full-page-slide'}
-            slidesNavigation={true}
             controlArrows={false}
             loopHorizontal={false}
             animateAnchor={false}

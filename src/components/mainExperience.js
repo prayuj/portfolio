@@ -43,7 +43,7 @@ const Experience = ({ show, delay = 500 }) => {
 
     return (
         <div className="h-100 display-flex flex-direction-column justify-content-center container">
-            <Fade bottom in={isMounted}><h1><span className="underline-style">My Experience</span></h1></Fade>
+            <Fade bottom in={isMounted}><span className="display-flex align-items-center"><h2><span className="accent-style index">[2]</span></h2><h1>My Experience</h1></span></Fade>
             {experiences.map((experience, index) => (
                 <div className="full-page-slide fp-auto-height" style={{ width: '100%' }} key={index}>
                     <div className="display-flex justify-content-center align-items-center container">

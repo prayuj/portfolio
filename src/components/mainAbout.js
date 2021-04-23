@@ -14,7 +14,7 @@ const About = ({ show, delay = 500 }) => {
 
     const liItems = ['JavaScript', 'NodeJS', 'ReactJS', 'MongoDB', 'Flask', 'jQuery', 'Java', 'HTML/CSS']
 
-    const one = <h1><span className="underline-style">About me</span></h1>
+    const one = <span className="display-flex align-items-center"><h2><span className="accent-style index">[1]</span></h2><h1>About me</h1></span>
     const two = <p>Hello! My name is Prayuj and I am a Software Engineer based in Mumbai and I enjoy Full Stack Development
     with more empahsis on backend systems (which is pretty evident from the design of this website 😅).</p>
     const three = <p>I currently work at <a href="https://cimpress.com/">Cimpress</a> as part of their Business subsidiary, <a href="https://www.pens.com/ie/">National Pen.</a></p>

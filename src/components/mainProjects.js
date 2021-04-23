@@ -116,7 +116,7 @@ const Projects = ({ show, delay = 500 }) => {
 
     return (
         <div className="h-100 display-flex flex-direction-column justify-content-center container">
-            <Fade bottom in={isMounted}><h1><span className="underline-style">Projects</span></h1></Fade>
+            <Fade bottom in={isMounted}><span className="display-flex align-items-center"><h2><span className="accent-style index">[3]</span></h2><h1>Projects</h1></span></Fade>
             {projects.map((project, index) => (
                 <div className="full-page-slide fp-auto-height" style={{ width: '100%' }} key={index}>
                     <div className="display-flex justify-content-center align-items-center container">
