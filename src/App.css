@@ -20,6 +20,10 @@
     justify-content: flex-end;
 }
 
+.side-margin {
+    margin: 0 3%;
+}
+
 .container {
     max-width: 750px;
 }

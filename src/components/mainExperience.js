@@ -50,7 +50,7 @@ const Experience = ({ show, delay = 500, slideIndex }) => {
     return (
         <div className="h-100 display-flex flex-direction-column justify-content-center container">
             <Fade bottom in={isMounted}>
-                <span className="display-flex align-items-center">
+                <span className="display-flex align-items-center side-margin">
                     <h5><span className="accent-style index">[2]</span></h5>
                     <h3>My Experience</h3>
                     <span style={{ marginLeft: 'auto', display: 'flex', fontStyle: "italic" }}>
@@ -66,7 +66,7 @@ const Experience = ({ show, delay = 500, slideIndex }) => {
             {experiences.map((experience, index) => (
                 <div className="full-page-slide fp-auto-height" style={{ width: '100%' }} key={index}>
                     <div className="display-flex justify-content-center align-items-center container">
-                        <div className="display-flex justify-content-center flex-direction-column slide" >
+                        <div className="display-flex justify-content-center flex-direction-column slide side-margin" >
                             <Fade bottom in={isMounted} delay={200}>
                                 <span className="display-flex align-items-center">
                                     <h5>{experience.designation} <a target="_blank" href={experience.link}>@{' ' + experience.organization}</a></h5>

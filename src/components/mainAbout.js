@@ -24,7 +24,7 @@ const About = ({ show, delay = 500 }) => {
     return (
         <Container className="h-100">
             <Row className="h-100 justify-content-center align-items-center">
-                <Col className="display-flex flex-direction-column">
+                <Col className="display-flex flex-direction-column side-margin">
                     {items.map((item, i) => (
                         <Fade bottom in={isMounted} delay={i * 100} key={i}><div>{item}</div></Fade>
 
