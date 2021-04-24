@@ -36,7 +36,7 @@
     align-content: center;
 }
 
-span.lazy-load-image-background.blur.lazy-load-image-loaded {
-    display: flex !important;
+.LazyLoad {
+    display: flex;
     justify-content: center;
 }

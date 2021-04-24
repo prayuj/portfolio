@@ -7,8 +7,7 @@ import profilePicLight from "../../img/profile-lightBG.jpg";
 import { useState, useEffect } from 'react';
 import Fade from 'react-reveal/Fade';
 import Zoom from 'react-reveal/Zoom';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css';
+import LazyLoad from 'react-lazy-load';
 
 const HomeDesktop = ({ show, delay = 500, isDarkMode }) => {
     const [isMounted, setIsMounted] = useState(show);
@@ -51,22 +50,14 @@ const HomeDesktop = ({ show, delay = 500, isDarkMode }) => {
                 {isMounted && <Col className="display-flex home-page-desktop align-items-center">
                     {isDarkMode ?
                         <Zoom>
-                            <LazyLoadImage
-                                src={profilePicDark}
-                                alt="Profile for Dark Mode"
-                                id="profile-pic-desktop"
-                                effect="blur"
-                                width="100%"
-                            />
+                            <LazyLoad width="100%">
+                                <img src={profilePicDark} alt="Profile for Dark Mode" id="profile-pic-desktop" />
+                            </LazyLoad>
                         </Zoom> :
                         <Zoom>
-                            <LazyLoadImage
-                                src={profilePicLight}
-                                alt="Profile for Light Mode"
-                                id="profile-pic-desktop"
-                                effect="blur"
-                                width="100%"
-                            />
+                            <LazyLoad width="100%">
+                                <img src={profilePicLight} alt="Profile for Light Mode" id="profile-pic-desktop" />
+                            </LazyLoad>
                         </Zoom>
                     }
                 </Col>}

@@ -7,7 +7,7 @@ import profilePicDark from "../../img/profile-mobile-darkBG.jpg";
 import profilePicLight from "../../img/profile-mobile-lightBG.jpg";
 import Fade from 'react-reveal/Fade';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css';
+import LazyLoad from 'react-lazy-load';
 
 const HomeMobile = ({ show, delay = 500, isDarkMode }) => {
     const [isMounted, setIsMounted] = useState(show);
@@ -33,21 +33,15 @@ const HomeMobile = ({ show, delay = 500, isDarkMode }) => {
                 {isMounted ? <Col className="display-flex home-page-mobile flex-direction-column justify-content-center align-items-center">
                     {isDarkMode ?
                         <Fade>
-                            <LazyLoadImage
-                                src={profilePicDark}
-                                alt="Profile for Dark Mode"
-                                id="profile-pic-mobile"
-                                effect="blur"
-                                width="100%"
-                            /> </Fade> :
+                            <LazyLoad width="100%">
+                                <img src={profilePicDark} alt="Profile for Dark Mode" id="profile-pic-mobile" />
+                            </LazyLoad>
+                        </Fade> :
                         <Fade>
-                            <LazyLoadImage
-                                src={profilePicLight}
-                                alt="Profile for Dark Mode"
-                                id="profile-pic-mobile"
-                                effect="blur"
-                                width="100%"
-                            /></Fade>}
+                            <LazyLoad width="100%">
+                                <img src={profilePicLight} alt="Profile for Light Mode" id="profile-pic-mobile" />
+                            </LazyLoad>
+                        </Fade>}
                 </Col> : ''}
                 <Col className="display-flex home-page-mobile flex-direction-column justify-content-center">
                     {isMounted &&
