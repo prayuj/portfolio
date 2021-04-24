@@ -56,7 +56,7 @@ const HomeDesktop = ({ show, delay = 500, isDarkMode }) => {
                                 alt="Profile for Dark Mode"
                                 id="profile-pic-desktop"
                                 effect="blur"
-                                width="100%"
+                                height="100%"
                             />
                         </Zoom> :
                         <Zoom>
@@ -65,7 +65,7 @@ const HomeDesktop = ({ show, delay = 500, isDarkMode }) => {
                                 alt="Profile for Light Mode"
                                 id="profile-pic-desktop"
                                 effect="blur"
-                                width="100%"
+                                height="100%"
                             />
                         </Zoom>
                     }

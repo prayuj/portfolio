@@ -38,7 +38,7 @@ const HomeMobile = ({ show, delay = 500, isDarkMode }) => {
                                 alt="Profile for Dark Mode"
                                 id="profile-pic-mobile"
                                 effect="blur"
-                                width="100%"
+                                height="100%"
                             /> </Fade> :
                         <Fade>
                             <LazyLoadImage
@@ -46,7 +46,7 @@ const HomeMobile = ({ show, delay = 500, isDarkMode }) => {
                                 alt="Profile for Dark Mode"
                                 id="profile-pic-mobile"
                                 effect="blur"
-                                width="100%"
+                                height="100%"
                             /></Fade>}
                 </Col> : ''}
                 <Col className="display-flex home-page-mobile flex-direction-column justify-content-center">
