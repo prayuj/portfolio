@@ -6,7 +6,6 @@ import { useState, useEffect } from 'react';
 import profilePicDark from "../../img/profile-mobile-darkBG.jpg";
 import profilePicLight from "../../img/profile-mobile-lightBG.jpg";
 import Fade from 'react-reveal/Fade';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 import LazyLoad from 'react-lazy-load';
 
 const HomeMobile = ({ show, delay = 500, isDarkMode }) => {
