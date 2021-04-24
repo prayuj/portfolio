@@ -19,7 +19,7 @@ const Splash = ({ appLoaded, duration }) => {
         }, duration + 500)
         return () => clearTimeout(timeout);
     },
-        [count])
+        [count, appLoaded, duration])
     return (
         <div style={{
             height: '100vh',
