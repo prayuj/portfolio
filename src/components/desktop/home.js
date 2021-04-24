@@ -20,12 +20,14 @@ const HomeDesktop = ({ show, delay = 500, isDarkMode }) => {
     }, [show, delay]);
 
     const one = <h3>Hi,</h3>;
-    const two = <h3>I am <span className="underline-style">Prayuj Pillai!</span></h3>
-    const three = <h3>I am a Software Engineer and</h3>
-    const four = <h3><TextLoop springConfig={{ stiffness: 340, damping: 30 }}>
-        <span>a Professional Sleeper</span>
-        <span>a Certified Foodie</span>
-        <span>an Accomplished TV watcher</span>
+    const two = <h3>I am Prayuj Pillai!</h3>
+    const three = <h3>I am a Software Engineer and </h3>
+    const four = <h3><TextLoop interval={1000}>
+        <span>a Tech Enthusiast. </span>
+        <span>a Professional Sleeper. </span>
+        <span>a Web Developer. </span>
+        <span>an Accomplished TV watcher. </span>
+        <span>a Full Stack Developer. </span>
     </TextLoop></h3>
     const five = <span href="#" className="accent-style display-flex justify-content-center blink_me">
         <a href="#about">

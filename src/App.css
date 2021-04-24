@@ -78,7 +78,7 @@
 }
 
 a:hover {
-    color: none;
+    color: inherit !important;
 }
 
 .underline-style {
@@ -118,4 +118,8 @@ p {
 
 .index {
     margin-right: 10px;
+}
+
+.slide-move-disabled {
+    opacity: 0.2;
 }
