@@ -15,7 +15,7 @@ const Contact = ({ show, delay = 500 }) => {
         <Row className="h-100 justify-content-center align-items-center">
             <Fade bottom in={isMounted} delay={200}>
                 <Col className="display-flex justify-content-center align-items-center flex-direction-column">
-                    <span className="display-flex align-items-center"><h2><span className="accent-style index">[4]</span></h2><h1>Connect with me:</h1></span>
+                    <span className="display-flex align-items-center"><h5><span className="accent-style index">[4]</span></h5><h3>Connect with me:</h3></span>
                 </Col>
             </Fade>
         </Row>

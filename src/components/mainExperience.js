@@ -11,6 +11,7 @@ const Experience = ({ show, delay = 500, slideIndex }) => {
         {
             index: 0,
             organization: 'Cimpress',
+            link: 'https://cimpress.com/',
             designation: 'Software Engineer',
             duration: 'August 2020 - Present',
             description: [`I currently work at Cimpress’ subsidiary National Pen which is a multi-lingual, Mass Customization E-commerce platform
@@ -22,6 +23,7 @@ const Experience = ({ show, delay = 500, slideIndex }) => {
         {
             index: 1,
             organization: 'Aegis School of Data Science',
+            link: 'https://www.aegis.edu.in/',
             designation: 'Data Science Intern',
             duration: 'June 2019 - August 2019',
             description: [`Worked on a Job Recommendation Model for Students.`, `Recommended Jobs based on the Job Requirement Skills and Grades of Students in those Skills.`
@@ -30,6 +32,7 @@ const Experience = ({ show, delay = 500, slideIndex }) => {
         {
             index: 2,
             organization: 'CaratLane',
+            link: 'https://www.caratlane.com/',
             designation: 'Software Engineer Intern',
             duration: 'August 2018',
             description: [`Worked on a Job Recommendation Model for Students, based on Job Requirement Skill Set and Grades of Students in the Institute for.
@@ -48,8 +51,8 @@ const Experience = ({ show, delay = 500, slideIndex }) => {
         <div className="h-100 display-flex flex-direction-column justify-content-center container">
             <Fade bottom in={isMounted}>
                 <span className="display-flex align-items-center">
-                    <h2><span className="accent-style index">[2]</span></h2>
-                    <h1>My Experience</h1>
+                    <h5><span className="accent-style index">[2]</span></h5>
+                    <h3>My Experience</h3>
                     <span style={{ marginLeft: 'auto', display: 'flex', fontStyle: "italic" }}>
                         <span className="accent-style">
                             <h6>{slideIndex + 1}</h6>
@@ -65,13 +68,12 @@ const Experience = ({ show, delay = 500, slideIndex }) => {
                     <div className="display-flex justify-content-center align-items-center container">
                         <div className="display-flex justify-content-center flex-direction-column slide" >
                             <Fade bottom in={isMounted} delay={200}>
-                                <h2>{experience.organization}</h2>
-                            </Fade>
-                            <Fade bottom in={isMounted} delay={300}>
-                                <h3>{experience.designation}</h3>
+                                <span className="display-flex align-items-center">
+                                    <h5>{experience.designation} <a target="_blank" href={experience.link}>@{' ' + experience.organization}</a></h5>
+                                </span>
                             </Fade>
                             <Fade bottom in={isMounted} delay={400}>
-                                <h4>{experience.duration}</h4>
+                                <h6>{experience.duration}</h6>
                             </Fade>
                             <ul>
                                 {experience.description.map((point, index) => (

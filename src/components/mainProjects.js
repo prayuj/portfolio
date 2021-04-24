@@ -120,8 +120,8 @@ const Projects = ({ show, delay = 500, slideIndex }) => {
         <div className="h-100 display-flex flex-direction-column justify-content-center container">
             <Fade bottom in={isMounted}>
                 <span className="display-flex align-items-center">
-                    <h2><span className="accent-style index">[3]</span></h2>
-                    <h1>Projects</h1></span>
+                    <h5><span className="accent-style index">[3]</span></h5>
+                    <h3>Projects</h3></span>
                 <span style={{ marginLeft: 'auto', display: 'flex', fontStyle: "italic" }}>
                     <span className="accent-style">
                         <h6>{slideIndex + 1}</h6>
@@ -136,7 +136,7 @@ const Projects = ({ show, delay = 500, slideIndex }) => {
                     <div className="display-flex justify-content-center align-items-center container">
                         <div className="display-flex justify-content-center flex-direction-column slide" >
                             <Fade bottom in={isMounted} delay={200}>
-                                <h2>{project.name}</h2>
+                                <h5>{project.name}</h5>
                             </Fade>
                             <Fade bottom in={isMounted} delay={300}>
                                 <p>
