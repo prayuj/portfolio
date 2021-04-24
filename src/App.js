@@ -21,7 +21,9 @@ class App extends Component {
       isAppLoaded: true,
       firstPageLoadedIndex: undefined,
       visitedPageIndexes: [false, false, false, false, false],
-      disableScrolling: true
+      disableScrolling: true,
+      experienceSlideIndex: 0,
+      projectsSlideIndex: 0,
     };
     const cookieMode = document.cookie.match('(^|;)\\s*mode\\s*=\\s*([^;]+)')?.pop() || ''
     if (cookieMode) {
@@ -35,6 +37,8 @@ class App extends Component {
     }
     this.setFirstSection = this.setFirstSection.bind(this);
     this.setIsDarkMode = this.setIsDarkMode.bind(this);
+    this.onLeave = this.onLeave.bind(this);
+    this.onSlideLeave = this.onSlideLeave.bind(this);
   }
 
   setIsDarkMode() {
@@ -106,6 +110,13 @@ class App extends Component {
     this.setState({ currentPage: destination.index, visitedPageIndexes })
   }
 
+  onSlideLeave(section, origin, destination, direction) {
+    if (section.anchor === 'experience')
+      this.setState({ experienceSlideIndex: destination.index })
+    else if (section.anchor === 'projects')
+      this.setState({ projectsSlideIndex: destination.index })
+  }
+
   render() {
     if (isTablet) {
       return (<div><h1>Haven't made for Tablet!, Sorrz!</h1></div>)
@@ -117,7 +128,8 @@ class App extends Component {
             //fullpage options
             licenseKey={'YOUR_KEY_HERE'}
             scrollingSpeed={1000} /* Options here */
-            onLeave={this.onLeave.bind(this)}
+            onLeave={this.onLeave}
+            onSlideLeave={this.onSlideLeave}
             anchors={['home', 'about', 'experience', 'projects', 'contact']}
             slideSelector={'.full-page-slide'}
             controlArrows={false}
@@ -129,8 +141,8 @@ class App extends Component {
                 <ReactFullpage.Wrapper>
                   <div className="section"><Home show={this.state.visitedPageIndexes[0]} isDarkMode={this.state.isDarkMode} /></div>
                   <div className="section"><About show={this.state.visitedPageIndexes[1]} /></div>
-                  <div className="section"><Experience show={this.state.visitedPageIndexes[2]} /></div>
-                  <div className="section"><Projects show={this.state.visitedPageIndexes[3]} /></div>
+                  <div className="section"><Experience show={this.state.visitedPageIndexes[2]} slideIndex={this.state.experienceSlideIndex} /></div>
+                  <div className="section"><Projects show={this.state.visitedPageIndexes[3]} slideIndex={this.state.projectsSlideIndex} /></div>
                   <div className="section"><Contact show={this.state.visitedPageIndexes[4]} /></div>
                 </ReactFullpage.Wrapper>
               );

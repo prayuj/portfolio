@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import Fade from 'react-reveal/Fade';
 import '../css/experience.css';
-const Experience = ({ show, delay = 500 }) => {
+const Experience = ({ show, delay = 500, slideIndex }) => {
     const [isMounted, setIsMounted] = useState(show);
     useEffect(() => {
         const timeout = setTimeout(() => { setIsMounted(show); }, delay);
         return () => clearTimeout(timeout);
-    }, [show, delay]);
+    }, [show, delay, slideIndex]);
     const experiences = [
         {
             index: 0,
@@ -42,9 +42,24 @@ const Experience = ({ show, delay = 500 }) => {
         "justifyContent": "space-evenly"
     }
 
+    const experiencesLength = experiences.length;
+
     return (
         <div className="h-100 display-flex flex-direction-column justify-content-center container">
-            <Fade bottom in={isMounted}><span className="display-flex align-items-center"><h2><span className="accent-style index">[2]</span></h2><h1>My Experience</h1></span></Fade>
+            <Fade bottom in={isMounted}>
+                <span className="display-flex align-items-center">
+                    <h2><span className="accent-style index">[2]</span></h2>
+                    <h1>My Experience</h1>
+                    <span style={{ marginLeft: 'auto', display: 'flex', fontStyle: "italic" }}>
+                        <span className="accent-style">
+                            <h6>{slideIndex + 1}</h6>
+                        </span>
+                        <span>
+                            <h6>/{experiencesLength}</h6>
+                        </span>
+                    </span>
+                </span>
+            </Fade>
             {experiences.map((experience, index) => (
                 <div className="full-page-slide fp-auto-height" style={{ width: '100%' }} key={index}>
                     <div className="display-flex justify-content-center align-items-center container">
@@ -67,25 +82,26 @@ const Experience = ({ show, delay = 500 }) => {
                                     </Fade>
                                 ))}
                             </ul>
-                            {<Fade bottom in={isMounted} delay={600}>
-                                <div className="display-flex align-items-center" style={style}>
-                                    {index !== 0 ? <span id="add-blink-class" className="cursor-pointer accent-style align-self-center" onClick={() => {
-                                        if (window.fullpage_api.moveSlideLeft) {
-                                            window.fullpage_api.moveSlideLeft()
-                                        }
-                                    }
-                                    }><h3><i className="fas fa-chevron-left"></i></h3></span> : ''}
-                                    {index !== experiences.length - 1 ? <span id="add-blink-class" className="cursor-pointer accent-style align-self-center" onClick={() => {
-                                        if (window.fullpage_api.moveSlideRight) {
-                                            window.fullpage_api.moveSlideRight()
-                                        }
-                                    }
-                                    }><h3><i className="fas fa-chevron-right"></i></h3></span> : ''}
-                                </div></Fade>}
                         </div>
                     </div>
                 </div>
             ))}
+            {<Fade bottom in={isMounted} delay={600}>
+                <div className="display-flex align-items-center" style={style}>
+                    <span id="add-blink-class" className={`cursor-pointer accent-style align-self-center ${slideIndex === 0 ? 'slide-move-disabled' : ''}`} onClick={() => {
+                        if (window.fullpage_api.moveSlideLeft) {
+                            window.fullpage_api.moveSlideLeft()
+                        }
+                    }
+                    }><h3><i className="fas fa-chevron-left"></i></h3></span>
+                    <span id="add-blink-class" className={`cursor-pointer accent-style align-self-center ${slideIndex === experiencesLength - 1 ? 'slide-move-disabled' : ''}`} onClick={() => {
+                        if (window.fullpage_api.moveSlideRight) {
+                            window.fullpage_api.moveSlideRight()
+                        }
+                    }
+                    }><h3><i className="fas fa-chevron-right"></i></h3></span>
+                </div>
+            </Fade>}
         </div>);
 }
 
