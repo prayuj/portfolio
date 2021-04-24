@@ -24,6 +24,10 @@
     margin: 0 3%;
 }
 
+li>p {
+    margin-right: 3%;
+}
+
 .container {
     max-width: 750px;
 }
