@@ -121,13 +121,14 @@ const Projects = ({ show, delay = 500, slideIndex }) => {
             <Fade bottom in={isMounted}>
                 <span className="display-flex align-items-center side-margin">
                     <h5><span className="accent-style index">[3]</span></h5>
-                    <h3>Projects</h3></span>
-                <span style={{ marginLeft: 'auto', display: 'flex', fontStyle: "italic" }}>
-                    <span className="accent-style">
-                        <h6>{slideIndex + 1}</h6>
-                    </span>
-                    <span>
-                        <h6>/{projectsLength}</h6>
+                    <h3>Projects</h3>
+                    <span style={{ marginLeft: 'auto', display: 'flex', fontStyle: "italic" }}>
+                        <span className="accent-style">
+                            <h6>{slideIndex + 1}</h6>
+                        </span>
+                        <span>
+                            <h6>/{projectsLength}</h6>
+                        </span>
                     </span>
                 </span>
             </Fade>
