@@ -8,6 +8,7 @@ import Projects from './components/mainProjects'
 import Contact from './components/mainContact'
 import Pagination from './components/pagination'
 import DayNightToggler from './components/dayNightToggler'
+import Splash from './components/splash'
 import { isTablet } from "react-device-detect";
 import ReactFullpage from '@fullpage/react-fullpage';
 import './App.css';
@@ -39,16 +40,18 @@ class App extends Component {
     this.setIsDarkMode = this.setIsDarkMode.bind(this);
     this.onLeave = this.onLeave.bind(this);
     this.onSlideLeave = this.onSlideLeave.bind(this);
+    this.handleSplashScreenChange = this.handleSplashScreenChange.bind(this);
   }
 
   setIsDarkMode() {
     this.setState({
       isDarkMode: !this.state.isDarkMode
     }, () => {
-      setTimeout(() => {
+      const timeout = setTimeout(() => {
         document.cookie = "mode=" + (this.state.isDarkMode ? 'dark' : 'light');
         window.location.reload();
       }, 500)
+      return () => clearTimeout(timeout);
     })
   }
 
@@ -117,6 +120,11 @@ class App extends Component {
       this.setState({ projectsSlideIndex: destination.index })
   }
 
+  handleSplashScreenChange() {
+    const timeout = setTimeout(() => this.setState({ isAppLoaded: true }), 1000)
+    return () => clearTimeout(timeout);
+  }
+
   render() {
     if (isTablet) {
       return (<div><h1>Haven't made for Tablet!, Sorrz!</h1></div>)
@@ -155,6 +163,12 @@ class App extends Component {
           <Footer />
         </div >
       );
+
+    else if (!this.state.isAppLoaded) {
+      return <div className="App">
+        <Splash appLoaded={this.handleSplashScreenChange} duration={3000} />
+      </div>
+    }
   }
 }
 

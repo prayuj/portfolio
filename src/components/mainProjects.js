@@ -18,7 +18,7 @@ const Projects = ({ show, delay = 500, slideIndex }) => {
                     link: 'https://github.com/prayuj/task-manager'
                 }
             ],
-            desc: `As part of Andrew Meads\'s Node JS course, I built a Task Manager API. 
+            desc: `As part of Andrew Meads's Node JS course, I built a Task Manager API. 
             Features include Logging in, Registering, Adding Notes, Deleting Notes, Sorting Notes all while using JWT for authentication. I used Jest for automation and testing.`,
             languages: 'NodeJS, Express, Mongo, Jest'
         },
@@ -88,8 +88,8 @@ const Projects = ({ show, delay = 500, slideIndex }) => {
                 }
             ],
             desc: `Have you ever been in a situation where a bunch of your friends are out for a meal 
-            and when the Bill comes it\'s an ordeal to divide everyone\'s share. Well this takes care of it. 
-            Simply add each Dish and the Person Contribution and it will calculate each individual\'s contribution. 
+            and when the Bill comes it's an ordeal to divide everyone's share. Well this takes care of it. 
+            Simply add each Dish and the Person Contribution and it will calculate each individual's contribution. 
             It includes splitting taxes, tips, etc. in the appropriate proportion.`,
             languages: 'React, Flask'
         },
@@ -110,7 +110,7 @@ const Projects = ({ show, delay = 500, slideIndex }) => {
             Basically we used an Ardunio as a sort of front end, which took input from a user and displayed 
             the answer using a keypad and LCD screen respectively. 
             For the heavy lifting of computation we chose Python and 
-            it\'s simple function \'eval\' to calculate expressions. 
+            it's simple function 'eval' to calculate expressions. 
             Data was transferred from the Arduino to Python using the Serial Port.`,
             languages: 'Arduino, Python'
         }

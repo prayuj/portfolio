@@ -17,7 +17,7 @@ const About = ({ show, delay = 500 }) => {
     const one = <span className="display-flex align-items-center"><h5><span className="accent-style index">[1]</span></h5><h3>About me</h3></span>
     const two = <p>Hello! My name is Prayuj and I am a Software Engineer based in Mumbai and I enjoy Full Stack Development
     with more empahsis on backend systems (which is pretty evident from the design of this website 😅).</p>
-    const three = <p>I currently work at <a target="_blank" href="https://cimpress.com/" className="content-hover-link">Cimpress</a> as part of their Business subsidiary, <a target="_blank" href="https://www.pens.com/ie/" className="content-hover-link">National Pen.</a></p>
+    const three = <p>I currently work at <a target="_blank" rel="noreferrer" href="https://cimpress.com/" className="content-hover-link">Cimpress</a> as part of their Business subsidiary, <a target="_blank" rel="noreferrer" href="https://www.pens.com/ie/" className="content-hover-link">National Pen.</a></p>
     const four = <p>Here are a few technologies I am proficient in:</p>
     const items = [one, two, three, four]
 

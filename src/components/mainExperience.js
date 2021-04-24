@@ -69,7 +69,7 @@ const Experience = ({ show, delay = 500, slideIndex }) => {
                         <div className="display-flex justify-content-center flex-direction-column slide side-margin" >
                             <Fade bottom in={isMounted} delay={200}>
                                 <span className="display-flex align-items-center">
-                                    <h5>{experience.designation} <a target="_blank" href={experience.link} className="content-hover-link">@{' ' + experience.organization}</a></h5>
+                                    <h5>{experience.designation} <a target="_blank" rel="noreferrer" href={experience.link} className="content-hover-link">@{' ' + experience.organization}</a></h5>
                                 </span>
                             </Fade>
                             <Fade bottom in={isMounted} delay={400}>
