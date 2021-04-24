@@ -18,7 +18,8 @@ const Projects = ({ show, delay = 500, slideIndex }) => {
                     link: 'https://github.com/prayuj/task-manager'
                 }
             ],
-            desc: 'As part of Andrew Meads\'s Node JS course, I built a Task Manager API. Features include Logging in, Registering, Adding Notes, Deleting Notes, Sorting Notes all while using JWT for authentication. I used Jest for automation and testing.',
+            desc: `As part of Andrew Meads\'s Node JS course, I built a Task Manager API. 
+            Features include Logging in, Registering, Adding Notes, Deleting Notes, Sorting Notes all while using JWT for authentication. I used Jest for automation and testing.`,
             languages: 'NodeJS, Express, Mongo, Jest'
         },
         {
@@ -30,7 +31,9 @@ const Projects = ({ show, delay = 500, slideIndex }) => {
                     link: 'https://github.com/prayuj/chat-app'
                 }
             ],
-            desc: 'This was a really exciting Project because for the first time I used Socket.io to make real time, bidirectional communication. Features include entering Room ID and making a new or joining an Existing Room, Sending real time data for communication, Sending Current Location.',
+            desc: `This was a really exciting Project because for the first time I used Socket.io to make real time, 
+            bidirectional communication. Features include entering Room ID and making a new or joining an Existing Room, 
+            Sending real time data for communication, Sending Current Location.`,
             languages: 'NodeJS, Socket.io'
         },
         {
@@ -46,12 +49,15 @@ const Projects = ({ show, delay = 500, slideIndex }) => {
                     link: 'https://www.linkedin.com/posts/prayuj_mongodb-reactjs-nodejs-activity-6693029671027675136-EWoW'
                 }
             ],
-            desc: 'This Project stemmed from a Job opportunity that was very lucrative which involved building a inventory system. It is a full stack project using React JS, Node JS with Express JS and Mongo DB. Various features include Issue and Return of Games along with OTP generation and validation, viewing list of past transactions, adding inventory and members, updating membership, etc.',
+            desc: `This Project stemmed from a Job opportunity that was very lucrative which involved building a inventory system. 
+            It is a full stack project using React JS, Node JS with Express JS and Mongo DB. 
+            Various features include Issue and Return of Games along with OTP generation and validation, 
+            viewing list of past transactions, adding inventory and members, updating membership, etc.`,
             languages: 'Mongo, Express, React, Node'
         },
         {
             index: 3,
-            name: 'Timetable Generation using GA',
+            name: 'Timetable Generation using AI',
             links: [
                 {
                     name: 'githublink',
@@ -66,7 +72,10 @@ const Projects = ({ show, delay = 500, slideIndex }) => {
                     link: 'https://ssrn.com/abstract=3688387'
                 }
             ],
-            desc: '',
+            desc: `For the Final Year Project of my Bachelor Program in Computer Engineering, 
+            Our Team Developed a Timetable Generator that would create Timetables for a Univeristy, 
+            We solved this multiconstraint problem using AI (Genetic Algorithm). 
+            We also published a Research Paper regarding the methodology involved.`,
             languages: 'Python, React'
         },
         {
@@ -78,7 +87,10 @@ const Projects = ({ show, delay = 500, slideIndex }) => {
                     link: 'https://github.com/prayuj/Bill-Spliter'
                 }
             ],
-            desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+            desc: `Have you ever been in a situation where a bunch of your friends are out for a meal 
+            and when the Bill comes it\'s an ordeal to divide everyone\'s share. Well this takes care of it. 
+            Simply add each Dish and the Person Contribution and it will calculate each individual\'s contribution. 
+            It includes splitting taxes, tips, etc. in the appropriate proportion.`,
             languages: 'React, Flask'
         },
         {
@@ -94,7 +106,12 @@ const Projects = ({ show, delay = 500, slideIndex }) => {
                     link: 'https://youtu.be/ViYliiQ6gec'
                 }
             ],
-            desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+            desc: `One of the earliest Projects I developed back in my Second Year of Engineering. 
+            Basically we used an Ardunio as a sort of front end, which took input from a user and displayed 
+            the answer using a keypad and LCD screen respectively. 
+            For the heavy lifting of computation we chose Python and 
+            it\'s simple function \'eval\' to calculate expressions. 
+            Data was transferred from the Arduino to Python using the Serial Port.`,
             languages: 'Arduino, Python'
         }
 
@@ -103,12 +120,12 @@ const Projects = ({ show, delay = 500, slideIndex }) => {
     const iconObjects = {
         githublink: 'fab fa-github-square',
         linkedin: 'fab fa-linkedin',
-        youtube: 'fab fa-youtube',
+        youtubeLink: 'fab fa-youtube',
         paperlink: 'fas fa-newspaper'
     }
 
     const style = {
-        "width": "25%",
+        "width": "100%",
         "alignSelf": "center",
         "justifyContent": "space-evenly",
         "transitionDelay": "600ms"
@@ -148,7 +165,7 @@ const Projects = ({ show, delay = 500, slideIndex }) => {
                             <div className="project-link-container">
                                 {project.links.map((linkObj, index) =>
                                     <Fade bottom when={isMounted} delay={index * 100 + 500} key={index}>
-                                        <a href={linkObj.link} style={{ width: 'max-content' }} target="_blank" rel="noreferrer" className="project-link">
+                                        <a href={linkObj.link} style={{ width: 'max-content' }} target="_blank" rel="noreferrer" className="project-link content-hover-link">
                                             <i className={iconObjects[linkObj.name]}></i>
                                         </a>
                                     </Fade>

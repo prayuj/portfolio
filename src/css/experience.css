@@ -8,6 +8,6 @@
     color: var(--accentColor);
     display: inline-block;
     width: 1em;
-    margin-left: -1em;
+    margin-left: -2em;
     margin-right: .25em;
 }
