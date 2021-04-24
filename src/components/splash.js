@@ -9,7 +9,6 @@ const Splash = ({ appLoaded, duration }) => {
     const [count, setCount] = useState(0);
     useEffect(() => {
         if (count === 0) {
-            console.log('Updated')
             setIsMounted(true);
             setCount(count + 1);
         }

@@ -43,7 +43,7 @@ const HomeDesktop = ({ show, delay = 500, isDarkMode }) => {
                 <Col className="display-flex home-page-desktop flex-direction-column">
                     {isMounted &&
                         items.map((item, i) => (
-                            <Fade bottom delay={i * 100}>
+                            <Fade bottom delay={i * 100} key={i}>
                                 <div>{item}</div>
                             </Fade>
                         ))}
