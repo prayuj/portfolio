@@ -65,16 +65,12 @@ li>p {
     top: 15%;
 }
 
-/* .dark .project-link-container a.project-link {
-    color: white !important
+.index {
+    margin-right: 10px
 }
 
-.light .project-link-container a.project-link {
-    color: black !important
-} */
-
-.project-link-container a, .index {
-    margin-right: 10px
+.project-link-container a {
+    margin-right: 15px
 }
 
 .project-link-container a>i {

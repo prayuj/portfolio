@@ -14,7 +14,11 @@ const Projects = ({ show, delay = 500, slideIndex }) => {
             name: 'Task Manager API',
             links: [
                 {
-                    name: 'githublink',
+                    name: 'wesbiteLink',
+                    link: 'https://pillai-task-manager.herokuapp.com/'
+                },
+                {
+                    name: 'githubLink',
                     link: 'https://github.com/prayuj/task-manager'
                 }
             ],
@@ -27,7 +31,11 @@ const Projects = ({ show, delay = 500, slideIndex }) => {
             name: 'Chat App using Socket.io',
             links: [
                 {
-                    name: 'githublink',
+                    name: 'wesbiteLink',
+                    link: 'https://pillai-chat-app.herokuapp.com/'
+                },
+                {
+                    name: 'githubLink',
                     link: 'https://github.com/prayuj/chat-app'
                 }
             ],
@@ -41,12 +49,16 @@ const Projects = ({ show, delay = 500, slideIndex }) => {
             name: 'Game Renting Service',
             links: [
                 {
-                    name: 'githublink',
+                    name: 'wesbiteLink',
+                    link: 'https://prayuj.github.io/GRS-frontend/#/login'
+                },
+                {
+                    name: 'githubLink',
                     link: 'https://github.com/prayuj/Game-Renting-Service'
                 },
                 {
-                    name: 'linkedin',
-                    link: 'https://www.linkedin.com/posts/prayuj_mongodb-reactjs-nodejs-activity-6693029671027675136-EWoW'
+                    name: 'linkedinLink',
+                    link: 'https://www.linkedinLink.com/posts/prayuj_mongodb-reactjs-nodejs-activity-6693029671027675136-EWoW'
                 }
             ],
             desc: `This Project stemmed from a Job opportunity that was very lucrative which involved building a inventory system. 
@@ -60,7 +72,7 @@ const Projects = ({ show, delay = 500, slideIndex }) => {
             name: 'Timetable Generation using AI',
             links: [
                 {
-                    name: 'githublink',
+                    name: 'githubLink',
                     link: 'https://github.com/prayuj/timetable_frontend'
                 },
                 {
@@ -68,7 +80,7 @@ const Projects = ({ show, delay = 500, slideIndex }) => {
                     link: 'https://www.youtube.com/watch?v=E6EGCD9OUdA'
                 },
                 {
-                    name: 'paperlink',
+                    name: 'paperLink',
                     link: 'https://ssrn.com/abstract=3688387'
                 }
             ],
@@ -82,8 +94,13 @@ const Projects = ({ show, delay = 500, slideIndex }) => {
             index: 4,
             name: 'Bill Splitter',
             links: [
+
                 {
-                    name: 'githublink',
+                    name: 'wesbiteLink',
+                    link: 'https://pillai-bill-splitter.netlify.app/'
+                },
+                {
+                    name: 'githubLink',
                     link: 'https://github.com/prayuj/Bill-Spliter'
                 }
             ],
@@ -98,7 +115,7 @@ const Projects = ({ show, delay = 500, slideIndex }) => {
             name: 'Calculator using Arduino with Python',
             links: [
                 {
-                    name: 'githublink',
+                    name: 'githubLink',
                     link: 'https://github.com/prayuj/Arduino_Project_Calculator'
                 },
                 {
@@ -118,10 +135,11 @@ const Projects = ({ show, delay = 500, slideIndex }) => {
     ]
 
     const iconObjects = {
-        githublink: 'fab fa-github-square',
-        linkedin: 'fab fa-linkedin',
+        wesbiteLink: 'fas fa-external-link-alt',
+        githubLink: 'fab fa-github-square',
+        linkedinLink: 'fab fa-linkedinLink',
         youtubeLink: 'fab fa-youtube',
-        paperlink: 'fas fa-newspaper'
+        paperLink: 'fas fa-newspaper'
     }
 
     const style = {
