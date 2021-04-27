@@ -28,7 +28,7 @@ const HomeDesktop = ({ show, delay = 500, isDarkMode }) => {
         <span>a Web Developer. </span>
     </TextLoop></h3>
     const five = <span href="#" className="accent-style display-flex justify-content-center blink_me">
-        <a href="#about">
+        <a href="#about" className="content-hover-link">
             <h3><i className="fas fa-chevron-up"></i></h3>
         </a>
     </span>
