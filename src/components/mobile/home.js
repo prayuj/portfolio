@@ -18,12 +18,10 @@ const HomeMobile = ({ show, delay = 500, isDarkMode }) => {
     const one = <h3>Hi,</h3>;
     const two = <h3>I am Prayuj Pillai!</h3>
     const three = <h3>I am a Software Engineer and</h3>
-    const four = <h3><TextLoop interval={1000}>
-        <span>a Tech Enthusiast. </span>
-        <span>a Professional Sleeper. </span>
-        <span>a Web Developer. </span>
-        <span>an Accomplished TV watcher. </span>
+    const four = <h3><TextLoop interval={3000}>
         <span>a Full Stack Developer. </span>
+        <span>a Tech Enthusiast. </span>
+        <span>a Web Developer. </span>
     </TextLoop></h3>
 
     const items = [one, two, three, four]
