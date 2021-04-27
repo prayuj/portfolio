@@ -97,7 +97,7 @@ const Projects = ({ show, delay = 500, slideIndex }) => {
 
                 {
                     name: 'wesbiteLink',
-                    link: 'https://pillai-bill-splitter.netlify.app/'
+                    link: 'https://bill-splitter.prayuj.tech/'
                 },
                 {
                     name: 'githubLink',
