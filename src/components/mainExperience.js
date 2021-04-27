@@ -26,7 +26,7 @@ const Experience = ({ show, delay = 500, slideIndex }) => {
             link: 'https://www.aegis.edu.in/',
             designation: 'Data Science Intern',
             duration: 'June 2019 - August 2019',
-            description: [`Worked on a Job Recommendation Model for Students.`, `Recommended Jobs based on the Job Requirement Skills and Grades of Students in those Skills.`
+            description: [`Developed a Job Recommendation Model for Students' Placements.`, `Recommended Jobs based on the Job Requirement Skills and Grades of Students in those Skills.`
                 , `Building the model included scrapping of Jobs, their requirements, matching skills between the Job and Student.`]
         },
         {
@@ -35,8 +35,7 @@ const Experience = ({ show, delay = 500, slideIndex }) => {
             link: 'https://www.caratlane.com/',
             designation: 'Software Engineer Intern',
             duration: 'August 2018',
-            description: [`Worked on a Job Recommendation Model for Students, based on Job Requirement Skill Set and Grades of Students in the Institute for.
-            Used Python as a modelling tool.`]
+            description: [`Designed and implemented a rule validation system for orders.`]
         }
     ];
     const style = {
