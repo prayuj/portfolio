@@ -3,7 +3,7 @@
     /* Use vh as a fallback for browsers that do not support Custom Properties */
     height: calc(var(--vh, 1vh) * 100);
     --accentColor: #ff206e;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .light .App {
