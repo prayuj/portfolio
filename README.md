@@ -3,7 +3,7 @@
 </div>
 
 <p align="center">
-  Hi everyone 👋, you can find my Portfolio @ <a href="https://prayuj.tech" target="_blank">prayuj.tech</a>. I have built this with <a href="https://reactjs.org/" target="_blank">React</a> and hosted with <a href="https://www.netlify.com/" target="_blank">Netlify</a>
+  Hi everyone 👋, you can find my Portfolio @ <a href="https://prayuj.tech">prayuj.tech</a>. I have built this with <a href="https://reactjs.org/">React</a> and hosted with <a href="https://www.netlify.com/">Netlify</a>
 </p>
 
 ![demo](https://user-images.githubusercontent.com/30574783/116805920-514d9a00-ab47-11eb-9588-94458dc3956e.png)
