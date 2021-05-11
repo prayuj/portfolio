@@ -11,18 +11,18 @@ const Projects = ({ show, delay = 500, slideIndex }) => {
     const projects = [
         {
             index: 0,
-            name: 'Task Manager API',
+            name: 'Task Manager',
             links: [
                 {
                     name: 'wesbiteLink',
-                    link: 'https://pillai-task-manager.herokuapp.com/'
+                    link: 'https://task-manager.prayuj.tech/'
                 },
                 {
                     name: 'githubLink',
                     link: 'https://github.com/prayuj/task-manager'
                 }
             ],
-            desc: `As part of Andrew Meads's Node JS course, I built a Task Manager API. 
+            desc: `As part of Andrew Meads's Node JS course, I built a Task Manager API along with a Frontend. 
             Features include Logging in, Registering, Adding Notes, Deleting Notes, Sorting Notes all while using JWT for authentication. I used Jest for automation and testing.`,
             languages: 'NodeJS, Express, Mongo, Jest'
         },
