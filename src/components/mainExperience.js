@@ -32,7 +32,7 @@ const Experience = ({ show, delay = 500, slideIndex }) => {
         {
             index: 2,
             organization: 'CaratLane',
-            link: 'https://www.caratlane.com/',
+            link: 'http://urls.prayuj.tech/t/caratlane',
             designation: 'Software Engineer Intern',
             duration: 'August 2018',
             description: [`Designed and implemented a rule validation system for orders.`]
