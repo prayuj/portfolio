@@ -19,7 +19,7 @@ const Projects = ({ show, delay = 500, slideIndex }) => {
                 },
                 {
                     name: 'githubLink',
-                    link: 'https://github.com/prayuj/task-manager'
+                    link: 'http://urls.prayuj.tech/t/carrot-halwa'
                 }
             ],
             desc: `As part of Andrew Meads's Node JS course, I built a Task Manager API along with a Frontend. 
@@ -36,7 +36,7 @@ const Projects = ({ show, delay = 500, slideIndex }) => {
                 },
                 {
                     name: 'githubLink',
-                    link: 'https://github.com/prayuj/chat-app'
+                    link: 'http://urls.prayuj.tech/t/butter-chicken'
                 }
             ],
             desc: `This was a really exciting Project because for the first time I used Socket.io to make real time, 
@@ -54,11 +54,11 @@ const Projects = ({ show, delay = 500, slideIndex }) => {
                 },
                 {
                     name: 'githubLink',
-                    link: 'https://github.com/prayuj/Game-Renting-Service'
+                    link: 'http://urls.prayuj.tech/t/chaat-papri'
                 },
                 {
                     name: 'linkedinLink',
-                    link: 'https://www.linkedinLink.com/posts/prayuj_mongodb-reactjs-nodejs-activity-6693029671027675136-EWoW'
+                    link: 'http://urls.prayuj.tech/t/cham-cham'
                 }
             ],
             desc: `This Project stemmed from a Job opportunity that was very lucrative which involved building a inventory system. 
@@ -73,15 +73,15 @@ const Projects = ({ show, delay = 500, slideIndex }) => {
             links: [
                 {
                     name: 'githubLink',
-                    link: 'https://github.com/prayuj/timetable_frontend'
+                    link: 'http://urls.prayuj.tech/t/chana-dal'
                 },
                 {
                     name: 'youtubeLink',
-                    link: 'https://www.youtube.com/watch?v=E6EGCD9OUdA'
+                    link: 'http://urls.prayuj.tech/t/chana-masala'
                 },
                 {
                     name: 'paperLink',
-                    link: 'https://ssrn.com/abstract=3688387'
+                    link: 'http://urls.prayuj.tech/t/chapati'
                 }
             ],
             desc: `For the Final Year Project of my Bachelor Program in Computer Engineering, 
@@ -101,7 +101,7 @@ const Projects = ({ show, delay = 500, slideIndex }) => {
                 },
                 {
                     name: 'githubLink',
-                    link: 'https://github.com/prayuj/Bill-Spliter'
+                    link: 'http://urls.prayuj.tech/t/chicken-65'
                 }
             ],
             desc: `Have you ever been in a situation where a bunch of your friends are out for a meal 
@@ -116,11 +116,11 @@ const Projects = ({ show, delay = 500, slideIndex }) => {
             links: [
                 {
                     name: 'githubLink',
-                    link: 'https://github.com/prayuj/Arduino_Project_Calculator'
+                    link: 'http://urls.prayuj.tech/t/chicken-biriyani'
                 },
                 {
                     name: 'youtubeLink',
-                    link: 'https://youtu.be/ViYliiQ6gec'
+                    link: 'http://urls.prayuj.tech/t/chicken-tikka'
                 }
             ],
             desc: `One of the earliest Projects I developed back in my Second Year of Engineering. 
