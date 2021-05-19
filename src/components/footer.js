@@ -20,7 +20,7 @@ const Footer = () => {
         },
         {
             icon: 'fab fa-github',
-            link: 'https://github.com/prayuj'
+            link: 'http://urls.prayuj.tech/t/github'
         },
         {
             icon: 'far fa-envelope',
