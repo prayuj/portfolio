@@ -11,7 +11,7 @@ const Experience = ({ show, delay = 500, slideIndex }) => {
         {
             index: 0,
             organization: 'Cimpress',
-            link: 'https://cimpress.com/',
+            link: 'http://urls.prayuj.tech/t/cimpress',
             designation: 'Software Engineer',
             duration: 'August 2020 - Present',
             description: [`I currently work at Cimpress’ subsidiary National Pen which is a multi-lingual, Mass Customization E-commerce platform
