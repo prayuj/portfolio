@@ -16,7 +16,7 @@ const Footer = () => {
     const footerIcons = [
         {
             icon: 'fab fa-linkedin-in',
-            link: 'https://www.linkedin.com/in/prayuj/'
+            link: 'http://urls.prayuj.tech/t/linkedin'
         },
         {
             icon: 'fab fa-github',
