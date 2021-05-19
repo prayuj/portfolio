@@ -23,7 +23,7 @@ const Experience = ({ show, delay = 500, slideIndex }) => {
         {
             index: 1,
             organization: 'Aegis School of Data Science',
-            link: 'https://www.aegis.edu.in/',
+            link: 'http://urls.prayuj.tech/t/aegis',
             designation: 'Data Science Intern',
             duration: 'June 2019 - August 2019',
             description: [`Developed a Job Recommendation Model for Students' Placements.`, `Recommended Jobs based on the Job Requirement Skills and Grades of Students in those Skills.`
