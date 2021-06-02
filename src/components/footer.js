@@ -24,7 +24,7 @@ const Footer = () => {
         },
         {
             icon: 'far fa-envelope',
-            link: 'mailto:prayuj@gmail.com'
+            link: 'mailto:connect@prayuj.tech'
         }
     ]
 
