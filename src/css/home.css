@@ -22,11 +22,13 @@
 
 #profile-pic-desktop {
     width: 75%;
+    height: auto;
     border-radius: 15vh;
 }
 
 #profile-pic-mobile {
     width: 80%;
+    height: auto;
 }
 
 .home-page-desktop {
