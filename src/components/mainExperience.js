@@ -11,7 +11,7 @@ const Experience = ({ show, delay = 500, slideIndex }) => {
         {
             index: 0,
             organization: 'Cimpress',
-            link: 'http://urls.prayuj.tech/t/cimpress',
+            link: 'https://urls.prayuj.tech/t/cimpress?message=Cimpress',
             designation: 'Software Engineer',
             duration: 'August 2020 - Present',
             description: [`I currently work at Cimpress’ subsidiary National Pen which is a multi-lingual, Mass Customization E-commerce platform
@@ -23,7 +23,7 @@ const Experience = ({ show, delay = 500, slideIndex }) => {
         {
             index: 1,
             organization: 'Aegis School of Data Science',
-            link: 'http://urls.prayuj.tech/t/aegis',
+            link: 'https://urls.prayuj.tech/t/aegis?message=Aegis%20School%20of%20Data%20Science',
             designation: 'Data Science Intern',
             duration: 'June 2019 - August 2019',
             description: [`Developed a Job Recommendation Model for Students' Placements.`, `Recommended Jobs based on the Job Requirement Skills and Grades of Students in those Skills.`
@@ -32,7 +32,7 @@ const Experience = ({ show, delay = 500, slideIndex }) => {
         {
             index: 2,
             organization: 'CaratLane',
-            link: 'http://urls.prayuj.tech/t/caratlane',
+            link: 'https://urls.prayuj.tech/t/caratlane?message=CaratLane',
             designation: 'Software Engineer Intern',
             duration: 'August 2018',
             description: [`Designed and implemented a rule validation system for orders.`]

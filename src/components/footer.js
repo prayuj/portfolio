@@ -16,11 +16,11 @@ const Footer = () => {
     const footerIcons = [
         {
             icon: 'fab fa-linkedin-in',
-            link: 'http://urls.prayuj.tech/t/linkedin'
+            link: 'https://urls.prayuj.tech/t/linkedin?message=LinkedIn'
         },
         {
             icon: 'fab fa-github',
-            link: 'http://urls.prayuj.tech/t/github'
+            link: 'https://urls.prayuj.tech/t/github?message=Github'
         },
         {
             icon: 'far fa-envelope',
